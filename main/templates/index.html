@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+
+    <div id="content">
+
+        <div class="container">
+            <div class="row py-5">
+                <div class="col-sm-4  py-2">
+                    <div class="card hover" style="cursor: pointer;" onclick="window.location='#';">
+                        <img class="card-img-top img-responsive" src="{% static 'logo_green_resized.PNG' %}"
+                             alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Description</h5>
+                            <hr>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional
+                                content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 py-2">
+                    <div class="card hover" style="cursor: pointer;" onclick="window.location='#';">
+                        <img class="card-img-top" src="{% static 'istockphoto-918374518-2048x2048.jpg' %}" height=152px
+                             alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Description</h5>
+                            <hr>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional
+                                content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 py-2">
+                    <div class="card hover" style="cursor: pointer;" onclick="window.location='#';">
+                        <img class="card-img-top" src="{% static 'logo_green_resized.PNG' %}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Description</h5>
+                            <hr>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional
+                                content.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row inline pb-5">
+                <div class="col-md-8 border-right">
+                    {#                <h2 class="text-muted">Who we are</h2>#}
+                    <img src="{% static 'personnel.jpg' %}" width="100%" class="img-thumbnail img-fluid mb-2"
+                         alt="Personnel"/>
+                    <br/>
+                    <br/>
+                    <h5 class="text-center merriweather">Why McDonald Property Management Ltd?</h5>
+                    <div class="text-left indent merriweather">
+
+                        <ul>
+                            <li>
+                                It's an owner operated business - it makes sense for us to make our service work for
+                                you,
+                                the
+                                customer.
+                            </li>
+                            <li>
+                                We are experienced and qualified.
+                            </li>
+                            <li>
+                                As property investors ourselves, we understand what is needed to effectively manage
+                                investment properties.
+                            </li>
+                            <li>
+                                Running an investment portfolio, however large or small should be viewed as running a
+                                business.
+                            </li>
+                            <li>
+                                When there is a problem with your property we have a team of reliable, trust worthy
+                                tradesmen
+                                who
+                                will give you a priority service at a reasonable price.
+                            </li>
+                            <li>
+                                We deal with all the day-to-day issues with tenants and act as a buffer between you and
+                                them.
+                            </li>
+                            <li>
+                                Whether you own investment property or are simply away from your own home we can look
+                                after
+                                you.
+                                Your property is important to your future and allowing us to manage it for you will
+                                ensure
+                                the
+                                very best returns.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h2 class="text-muted">Latest news</h2>
+
+                    {% for news in news %}
+
+                        <p style="font-size: 12px;" class="border-top">{{ news.pubdate_pretty }}</p>
+                        <a href="{% url 'news_details' news.slug %}"
+                           class="text-info">{{ news.name }}</a><br/><br/>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+
+<br /><br />
+{% endblock %}

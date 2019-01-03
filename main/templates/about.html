@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<div id="content">
+    <div class="container px-0 mt-5 bg-white">
+        <h2 class="pl-3 pt-3">About us</h2>
+        <hr style="border-width: 3px;">
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-thumbnail ml-3" src="{% static 'man_suit.jpg' %}" width='95%' height='95%'/>
+            </div>
+            <div class="col-md-8">
+                <p>McDonald Property Management Ltd is an independent company specialising in providing a quality
+                    property
+                    management service. Concentrating solely on managing rental properties and casual lettings allows us
+                    to provide a comprehensive service to all Landlords from the first time property investor to those
+                    with large portfolios.</p>
+                <p>McDonald Property Management Ltd is owned and operated by David Middlemiss and Janine Holden.
+                    We are based in Papatoetoe and provide a top class service throughout South Auckland, Onehunga,
+                    Epsom and the eastern suburbs.</p>
+                <p>We have extensive property management experience totalling over 20 years and covering all
+                    eventualities you
+                    can envisage. Janine has both property management and body corporate experience. You deal directly
+                    with the owners of the company and this gives you consistency and sets us apart from many of the
+                    larger
+                    property management companies who rely on contractors or salaried staff.</p>
+                <p>We know your property investment is important to your future and maintaining consistent
+                    income streams are critical.</p>
+            </div>
+        </div>
+        <br/>
+
+        <h2 class="pl-3 pt-3">Our team</h2>
+        <hr style="border-width: 3px;">
+
+        <div class="row pb-4">
+            {% for person in personnel %}
+                {% if forloop.counter0|divisibleby:2 %}
+                    </div>
+                    <div class="row py-4">
+                {% endif %}
+                <div class="col-sm-6 py-2">
+                    <div class="card hover" style="border: 1px solid lightgrey;">
+                        <img class="card-img-top" src="{{ person.image.url }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ person.name }}</h3>
+                            <hr>
+                            <p class="card-text mb-auto pb-3" style="height:15vh;">{{ person.about }}</p>
+                            <a href="mailto:{{ person.email }}">{{ person.email }}</a>
+                            <p>Ph <a href="tel:{{ person.phone }}">{{ person.phone }}</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+            <br/>
+            </div> </div>
+
+{% endblock %}

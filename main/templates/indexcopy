@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="container mt-5 ContentContainer">
+
+
+<h2 style="font-family: Georgia, Times, Times New Roman, serif;" class="responsive-motto">{% lorem 5 w random %}</h2>
+<h5 style="color: white; font-size: 3em;"><a href="tel:092151267" class="text-light responsive-font">Ph (09) 215 1267</a></h5>
+<a class="text-light responsive-font" href="mailto:info@mcdonaldrentals.co.nz">info@mcdonaldrentals.co.nz</a><br />
+{#<img src="{% static 'insta_logo_transparent.png' %}" onmouseover="this.src='{% static 'sm-icons-instagram-app-icon.png' %}';" onmouseout="this.src='{% static 'insta_logo_transparent.png' %}';" width="3%"/>#}
+{#<a href="https://www.facebook.com/McDonaldProperty/" ><img src="{% static 'facebook-6-xxl.png' %}" onmouseover="this.src='{% static 'flogo_rgb_hex-brc-site-250.png'%}';" onmouseout="this.src='{% static 'facebook-6-xxl.png' %}';" width="3%" /></a>#}
+</div>
+</div>
+
+
+
+    <div class="container bg-light rounded-corner"><br />
+        <div class="row py-4">
+  <div class="col-sm-4  py-2">
+    <div class="card hover" style="cursor: pointer;" onclick="window.location='#';">
+        <img class="card-img-top img-responsive" src="{% static 'logo_green_resized.PNG' %}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Description</h5><hr>
+        <p class="card-text font1">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#"><img src="{% static 'logos/facebook-black-social-button-circle.png' %}" width="5%"> </a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 py-2">
+    <div class="card hover" style="cursor: pointer;" onclick="window.location='#';">
+        <img class="card-img-top" src="{% static 'istockphoto-918374518-2048x2048.jpg' %}"  height=152px alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Description</h5><hr>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      </div>
+    </div>
+  </div>
+    <div class="col-sm-4 py-2">
+    <div class="card hover" style="cursor: pointer;" onclick="window.location='#';">
+        <img class="card-img-top" src="{% static 'logo_green_resized.PNG' %}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Description</h5><hr>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+<br /><br />
+<div class="container-fluid" ><div class="container bg-light">
+        <div class="row inline">
+            <div class="col-md-8 border-right">
+{#                <h2 class="text-muted">Who we are</h2>#}
+                <img src="{% static 'personnel.jpg' %}" width="100%" class="img-thumbnail img-fluid mb-2"
+                     alt="Personnel"/>
+                <br/>
+                <br/>
+                <h5 class="text-center">Why McDonald Property Management Ltd?</h5>
+                <div class="text-left indent">
+
+                    <ul>
+                        <li>
+                            It's an owner operated business - it makes sense for us to make our service work for you, the
+                        customer.
+                        </li>
+                        <li>
+                            We are experienced and qualified.
+                        </li>
+                        <li>
+                            As property investors ourselves, we understand what is needed to effectively manage
+                        investment properties.
+                        </li>
+                        <li>
+                            Running an investment portfolio, however large or small should be viewed as running a
+                        business.
+                        </li>
+                        <li>
+                            When there is a problem with your property we have a team of reliable, trust worthy tradesmen
+                        who
+                        will give you a priority service at a reasonable price.
+                        </li>
+                        <li>
+                            We deal with all the day-to-day issues with tenants and act as a buffer between you and them.
+                        </li>
+                        <li>
+                            Whether you own investment property or are simply away from your own home we can look after
+                        you.
+                        Your property is important to your future and allowing us to manage it for you will ensure the
+                        very best returns.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h2 class="text-muted">Latest news</h2>
+
+                {% for news in news %}
+
+                <p style="font-size: 12px;" class="border-top">{{ news.pubdate_pretty }}</p>
+                <a href="{% url 'news_details' news.slug %}"
+                   class="text-info">{{ news.name }}</a><br /><br />
+
+                {% endfor %}
+
+            </div>
+        </div><br /></div></div></div>
+{#    </div>#}
+
+{% endblock %}

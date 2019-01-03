@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <div id="content">
+<div class="container mt-5 bg-white">
+    <h5 class="pl-3 pt-3 ">
+        <a href="{% url 'news' %}"><- Back to News</a></h5><hr style="border-width: 3px;">
+
+    <p><h2 class="text-center font2">{{ news.name }}</h2></p>
+    <p class="text-center"><img src="{{ news.image.url }}" width="50%"></p>
+    <p class="text-center">{{ news.pubdate_pretty }}</p>
+    <hr>
+    <p>{{ news.description|safe }}</p>
+<br />
+<h3 class="pt-3"><a href="{% url 'news' %}">Back to News</a></h3>
+<br />
+</div>
+{% endblock %}

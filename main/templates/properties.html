@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% block content %}
+
+<div id="content">
+    <div class="container pt-5 bg-white" style="min-height: 1100px;">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="pt-3">Available properties list: {{ list_count }}</h3>
+            </div>
+            <div class="col-md-6 justify-content-end">
+
+
+                <nav aria-label="..." >
+                    <ul class="pagination justify-content-end">
+
+                        {% if not result.has_previous %}
+                        <li class="page-item disabled">
+                            <span class="page-link ">Previous</span>
+                        </li>
+                        {% elif result.has_previous %}
+
+                        <li class="page-item">
+                            <a class="page-link text-info" href="{% url 'properties' result.previous_page_number %}">Previous</a>
+                        </li>
+
+                        <li class="page-item"><a class="page-link text-info" href="{% url 'properties' result.previous_page_number %}">{{ result.previous_page_number }}</a></li>
+                        {% endif %}
+                        <li class="page-item">
+      <span class="page-link bg-blue">
+        {{ result.number }}
+        <span class="sr-only text-info">(current)</span>
+      </span>
+                        </li>
+                        {% if result.has_next %}
+                        <li class="page-item"><a class="page-link text-info" href="{% url 'properties' result.next_page_number %}">{{ result.next_page_number }}</a></li>
+                        <li class="page-item">
+                            <a class="page-link text-info" href="{% url 'properties' result.next_page_number %}">Next</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+
+
+            </div>
+        </div><hr>
+
+
+    <div class="row pb-4">
+            {% for item in result %}
+
+                {% if forloop.counter0|divisibleby:3 %}
+                    </div>
+                    <div class="row py-4">
+                {% endif %}
+
+                <div class="col-sm-4 py-2">
+                    <div class="card text-center hover" style="border: 1px solid lightgrey; cursor: pointer;" onclick="window.location='{% url 'property_details' item.code %}';">
+                        {% with item.propertyimage_set.all|first as image %}
+                        <img src="{{ image.image|thumbnail_url:'prop_image' }}" width="100%" />
+                        {% endwith %}
+                        <div class="card-body text-left">
+                            <h3 class="card-title">{{ item.suburb }} <br /> ${{ item.rent }} per {{ item.rental_period }}</h3>
+                            <hr>
+                            <p class="card-text pb-3 text-left">
+                                Address: {{ item.street_number }}, {{ item.street_name }}<br />
+                                Suburb: {{ item.suburb }}<br />
+                                City: {{ item.city }} <br />
+                                Available from: {{ item.date_available }}
+
+                            </p>
+                            <p><a href="{% url 'property_details' item.code %}" class="text-info"><strong>DETAILS</strong></a></p>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+    </div>
+    </div>
+
+
+{% endblock %}
