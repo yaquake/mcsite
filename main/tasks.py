@@ -84,6 +84,7 @@ def update_from_xml():
                 prop.thumbnail = str(thumb_url)
                 prop.save()
 
+
 @shared_task()
 def send_email_task(topic, details, email):
 
