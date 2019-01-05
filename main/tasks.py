@@ -6,9 +6,13 @@ from main.models import Property, PropertyImage
 import base64
 from django.core.files.base import ContentFile
 from django.core.mail import send_mail
+from easy_thumbnails.files import get_thumbnailer
+import os
 
 @shared_task()
 def update_from_xml():
+
+    Property.objects.all().delete()
 
     username = 'advert@mcdonaldpm.co.nz'
     password = 'MCW@dvert$Pr0p291118'
@@ -68,9 +72,17 @@ def update_from_xml():
                 property_images = PropertyImage(property=prop)
                 image_data = base64.b64decode(value.PropertyImageBase64.text)
 
-                property_images.image = ContentFile(image_data, '123.jpg')
+                property_images.image = ContentFile(image_data, str(property.PropertyCode.text) + '_' + str(index) + '*.jpg')
                 property_images.save()
 
+            if PropertyImage.objects.filter(property__code=property.PropertyCode.text):
+                image_thumbnail = PropertyImage.objects.filter(property__code=property.PropertyCode.text).first()
+                image_url = image_thumbnail.image.url
+                print(image_url)
+                thumb_url = get_thumbnailer(image_thumbnail.image)['prop_image']
+                print(thumb_url)
+                prop.thumbnail = str(thumb_url)
+                prop.save()
 
 @shared_task()
 def send_email_task(topic, details, email):

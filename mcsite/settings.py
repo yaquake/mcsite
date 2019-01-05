@@ -1,4 +1,5 @@
 import os
+from celery.schedules import crontab
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,6 +23,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'easy_thumbnails',
     'celery',
+    # 'django_cleanup',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -89,7 +91,8 @@ CACHES = {
         "LOCATION": "redis://localhost:6379/1",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-        }
+        },
+        "KEY_PREFIX": "properties"
     }
 }
 CACHE_TTL = 60 * 15
@@ -104,10 +107,11 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Pacific/Auckland'
 CELERY_IMPORTS = ['main.tasks', ]
 
+
 CELERY_BEAT_SCHEDULE = {
  'update_from_xml': {
        'task': 'main.tasks.update_from_xml',
-       'schedule': 120,
+       'schedule': 1800,
     },
 
 }

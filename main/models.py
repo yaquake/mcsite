@@ -1,5 +1,8 @@
 from django.db import models
 from django.utils.text import slugify
+from django.db.models.signals import post_save, post_delete, pre_delete
+from django.dispatch import receiver
+from easy_thumbnails.fields import ThumbnailerImageField
 
 
 class News(models.Model):
@@ -54,6 +57,17 @@ class Property(models.Model):
     rental_period = models.CharField(max_length=6, default='Week')
     rent = models.IntegerField()
     advert_text = models.TextField(max_length=2000, blank=True)
+    thumbnail = models.ImageField(upload_to='media/property_images', blank=True, null=True)
+
+
+@receiver(pre_delete, sender=Property)
+def delete_thumbnail(sender, instance, **kwargs):
+    instance.thumbnail.delete()
+
+
+# @receiver(post_save, sender=Property)
+# def print_hello(sender, instance, **kwargs):
+#     return print('PREVED!!!')
 
 
 class PropertyImage(models.Model):
@@ -61,5 +75,8 @@ class PropertyImage(models.Model):
     image = models.ImageField(upload_to='media/property_images', null=True, default=None)
 
 
+@receiver(post_delete, sender=PropertyImage)
+def delete_images(sender, instance, **kwargs):
+    instance.image.delete(False)
 
 

@@ -59,10 +59,8 @@ def properties(request, page):
     property = Property.objects.all()
     paginator = Paginator(property, 9)
     list_count = len(property)
-
     result = paginator.page(page)
-
-    return render(request, 'properties.html', {'list_count': list_count, 'page': page, 'result': result})
+    return render(request, 'properties.html', {'list_count': list_count, 'result': result})
 
 
 def property_details(request, key):
