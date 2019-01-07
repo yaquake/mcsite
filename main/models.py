@@ -2,7 +2,6 @@ from django.db import models
 from django.utils.text import slugify
 from django.db.models.signals import post_save, post_delete, pre_delete
 from django.dispatch import receiver
-from easy_thumbnails.fields import ThumbnailerImageField
 
 
 class News(models.Model):

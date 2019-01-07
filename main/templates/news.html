@@ -23,7 +23,7 @@
             <img src="{{ item.image.url }}" width="100%" class="img-thumbnail">
         </div>
         <div class="col-md-9">
-            <p><h3><a href="{% url 'news_details' item.slug %}">{{ item.name }}</a></h3></p>
+            <p><h3><a href="{% url 'news_details' item.slug %}" class="merriweather text-info">{{ item.name }}</a></h3></p>
             <p style="font-size: 0.75em;">{{ item.pubdate_pretty }}</p>
         </div>
     </div>

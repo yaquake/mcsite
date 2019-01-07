@@ -6,44 +6,51 @@
     <div id="content">
 
         <div class="container">
-            <div class="row py-5">
-                <div class="col-sm-4  py-2">
-                    <div class="card hover" style="cursor: pointer;" onclick="window.location='#';">
-                        <img class="card-img-top img-responsive" src="{% static 'logo_green_resized.PNG' %}"
-                             alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Description</h5>
-                            <hr>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional
-                                content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 py-2">
-                    <div class="card hover" style="cursor: pointer;" onclick="window.location='#';">
-                        <img class="card-img-top" src="{% static 'istockphoto-918374518-2048x2048.jpg' %}" height=152px
-                             alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Description</h5>
-                            <hr>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional
-                                content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 py-2">
-                    <div class="card hover" style="cursor: pointer;" onclick="window.location='#';">
-                        <img class="card-img-top" src="{% static 'logo_green_resized.PNG' %}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Description</h5>
-                            <hr>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional
-                                content.</p>
+            <div class="row py-5 ">
+{#                <div class="col-sm-4  py-2">#}
+{#                    <div class="card hover" style="cursor: pointer;" onclick="window.location='#';">#}
+{#                        <img class="card-img-top img-responsive" src="{% static 'logo_green_resized.PNG' %}"#}
+{#                             alt="Card image cap">#}
+{#                        <div class="card-body">#}
+{#                            <h5 class="card-title">Description</h5>#}
+{#                            <hr>#}
+{#                            <p class="card-text">With supporting text below as a natural lead-in to additional#}
+{#                                content.</p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-sm-4 py-2">#}
+{#                    <div class="card hover" style="cursor: pointer;" onclick="window.location='#';">#}
+{#                        <img class="card-img-top" src="{% static 'istockphoto-918374518-2048x2048.jpg' %}" height=152px#}
+{#                             alt="Card image cap">#}
+{#                        <div class="card-body">#}
+{#                            <h5 class="card-title">Description</h5>#}
+{#                            <hr>#}
+{#                            <p class="card-text">With supporting text below as a natural lead-in to additional#}
+{#                                content.</p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-sm-4 py-2">#}
+{#                    <div class="card hover" style="cursor: pointer;" onclick="window.location='#';">#}
+{#                        <img class="card-img-top" src="{% static 'logo_green_resized.PNG' %}" alt="Card image cap">#}
+{#                        <div class="card-body">#}
+{#                            <h5 class="card-title">Description</h5>#}
+{#                            <hr>#}
+{#                            <p class="card-text">With supporting text below as a natural lead-in to additional#}
+{#                                content.</p>#}
+{##}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+                <div class="col-lg-4  my-2"><a href="#"><img src="{% static 'house_rent_mcsite.png' %}" width="100%" class="hover img-thumbnail"/></a></div>
+                <div class="col-lg-4  my-2"><a href="#"><img src="{% static 'house_rent_mcsite.png' %}" width="100%" class="hover img-thumbnail"/></a></div>
+                <div class="col-lg-4  my-2"><a href="#"><img src="{% static 'house_rent_mcsite.png' %}" width="100%" class="hover img-thumbnail"/></a></div>
 
-                        </div>
-                    </div>
-                </div>
+
             </div>
+        </div>
+    <div class="container">
 
 
             <div class="row inline pb-5">
@@ -97,13 +104,13 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <h2 class="text-muted">Latest news</h2>
+                    <h2 class="text-muted merriweather">Latest news</h2>
 
                     {% for news in news %}
 
                         <p style="font-size: 12px;" class="border-top">{{ news.pubdate_pretty }}</p>
                         <a href="{% url 'news_details' news.slug %}"
-                           class="text-info">{{ news.name }}</a><br/><br/>
+                           class="text-info merriweather">{{ news.name }}</a><br/><br/>
 
                     {% endfor %}
 

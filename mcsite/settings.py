@@ -18,12 +18,13 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'admin_honeypot',
-    'bootstrap_admin',
+    # 'bootstrap_admin',
     'main.apps.MainConfig',
     'django_summernote',
     'easy_thumbnails',
     'celery',
-    # 'django_cleanup',
+    'jet.dashboard',
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

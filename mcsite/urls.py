@@ -4,6 +4,8 @@ from main import views
 from django.conf.urls.static import static, settings
 
 urlpatterns = [
+    path('jet/', include('jet.urls', namespace='jet')),
+    path('jet/dashboard/', include('jet.dashboard.urls', namespace='jet-dashboard')),
     path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
     path('napoleon/', admin.site.urls),
     path('', views.home, name='home'),

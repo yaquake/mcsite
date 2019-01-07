@@ -26,12 +26,12 @@
     $(function() {
         // Initialize all autocomplete widgets except the one in the template
         // form used when a new formset is added.
-        $('.panel-autocomplete').not('[name*=__prefix__]').djangoAdminSelect2();
+        $('.admin-autocomplete').not('[name*=__prefix__]').djangoAdminSelect2();
     });
 
     $(document).on('formset:added', (function() {
         return function(event, $newFormset) {
-            return $newFormset.find('.panel-autocomplete').djangoAdminSelect2();
+            return $newFormset.find('.admin-autocomplete').djangoAdminSelect2();
         };
     })(this));
 }(django.jQuery));
