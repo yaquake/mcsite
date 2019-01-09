@@ -9,6 +9,7 @@ from django.core.mail import send_mail
 from easy_thumbnails.files import get_thumbnailer
 import os
 
+
 @shared_task()
 def update_from_xml():
 
@@ -60,7 +61,10 @@ def update_from_xml():
 
             prop.rental_period = property.PropertyRentalPeriod.text
             prop.rent = property.PropertyRentAmount.text
-            prop.advert_text = property.PropertyFeatures.PropertyAdvertText.text
+            if property.PropertyFeatures.PropertyAdvertText.text != '':
+                garbage, prop.advert_text = property.PropertyFeatures.PropertyAdvertText.text.split('****')
+            else:
+                prop.advert_text = ''
             prop.save()
 
             images_xml = requests.get(

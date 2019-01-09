@@ -64,11 +64,6 @@ def delete_thumbnail(sender, instance, **kwargs):
     instance.thumbnail.delete()
 
 
-# @receiver(post_save, sender=Property)
-# def print_hello(sender, instance, **kwargs):
-#     return print('PREVED!!!')
-
-
 class PropertyImage(models.Model):
     property = models.ForeignKey(Property, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='media/property_images', null=True, default=None)

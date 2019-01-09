@@ -17,7 +17,7 @@
                         {% else %}
                             <div class="carousel-item">
                         {% endif %}
-                    <img class="d-block w-100" src="{{ image.image.url }}" alt="First slide">
+                    <a href="{{ image.image.url }}" target="_blank"><img class="d-block w-100" src="{{ image.image.url }}" alt="First slide"></a>
                     </div>
                     {% endfor %}
                     </div>
@@ -47,12 +47,13 @@
                         <p>Bathrooms: {{ property.bathrooms }}</p>
                         <p>Bedrooms: {{ property.bedrooms }}</p>
                         <p>Carparks: {{ property.carparks }}</p>
-                        <p class="pt-5">Price: {{ property.rent }} per {{ property.rental_period.lower }} </p>
+                        <p>Available from: {{ property.date_available }}</p>
+                        <p class="pt-5">Price: ${{ property.rent }} per {{ property.rental_period.lower }} </p>
 
                     </div>
                     <div class="col-6 border-left">
                         <div id="propertyAdvertText" class="pb-4">
-                            {{ property.advert_text }}
+                            <p style="line-height: 2.3;">{{ property.advert_text }}</p>
                         </div>
                     </div>
 

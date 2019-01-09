@@ -28,7 +28,7 @@
         }
 
         p.services {
-            margin: 100px 200px;
+            margin: 0 200px 100px 200px;
         }
 
         body, html {
@@ -72,8 +72,7 @@
         }
 
 
-        {#.navbar {height: 50px; background-color: white;}#}
-        {#.nav>li {transition: border-bottom 1s;}#}
+
         .nav > li:hover {
             border-bottom: solid 5px #84b71c;
         }
@@ -84,7 +83,6 @@
             object-fit: contain;
         }
 
-        {#footer {background-image: linear-gradient(to bottom, #ffffff, #f4f4f4, #eaeaea, #dfdfdf, #d5d5d5);}#}
         hr.green {
             background-color: #84b71c;
         }
@@ -125,28 +123,67 @@
             font-family: Quicksand, sans-serif;
         }
 
-        #nav {
-            margin: 0;
-            height: 80px;
-            position: relative;
 
+        @media screen and (max-width: 600px) {
+
+            #content {
+                margin: 500px 0 0 0;
+                background: #fff;
+                position: relative;
+            }
+
+            #background {
+                background: url("{% static 'Auckland-city-panorama-bjdd.jpg' %}");
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 0;
+                height: 700px;
+                background-size: cover;
+            }
+
+            #nav {
+                margin: 0;
+                height: 180px;
+                position: relative;
+                {#background-color: white;#}
+
+            }
+            #future {
+                margin-top: 100px;
+            }
         }
 
-        #content {
-            margin: 500px 0 0 0;
-            background: #fff;
-            position: relative;
+        @media screen and (min-width: 601px) {
+
+            #content {
+                margin: 500px 0 0 0;
+                background: #fff;
+                position: relative;
+            }
+
+            #background {
+                background: url("{% static 'Auckland-city-panorama-bjdd.jpg' %}");
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 0;
+                height: 600px;
+                background-size: cover;
+            }
+
+            #nav {
+                margin: 0;
+                height: 80px;
+                position: relative;
+
+            }
+            #future {
+                margin-top: 110px;
+            }
         }
 
-        #background {
-            background: url("{% static 'Auckland-city-panorama-bjdd.jpg' %}");
-            position: fixed;
-            left: 0;
-            right: 0;
-            top: 0;
-            height: 600px;
-            background-size: cover;
-        }
+
         .merriweather {
             font-family: Merriweather, sans-serif, Serif;
         }
@@ -157,9 +194,9 @@
 </head>
 
 
-{#<body style="background-color: #4D4D4D;">#}
+
 <body bgcolor="#adff2f">
-{#<body style="background-color: #eeeff1;">#}
+
 <!-- Modal login -->
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -195,12 +232,11 @@
 
 <div id="background">
     <div id="creds" class="container pt-5">
-        <h1 class="pt-5" style="color: #FFFFFF; font-weight: bold;">
-            <p style="color: white; font-size: 10vh;">Your future starts with us</p>
-            <h5 style="color: white; font-size: 3em;"><a href="tel:092151267" class="text-light responsive-font">Ph (09)
+        <h1 id='future' class="pt-5" style="color: #FFFFFF; font-weight: bold;">
+            <p style="color: white; font-size: 2em;">Your future starts with us</p>
+            <h5 style="color: white; font-size: 1.5em;"><a href="tel:092151267" class="text-light responsive-font">Ph (09)
                 215 1267</a></h5>
-            <h5 style="color: white; font-size: 3em;"><a class="text-light responsive-font"
-                                                         href="mailto:info@mcdonaldrentals.co.nz">info@mcdonaldrentals.co.nz</a>
+            <h5 style="color: white; font-size: 1.5em;"><a class="text-light" href="mailto:info@mcdonaldrentals.co.nz">info@mcdonaldrentals.co.nz</a>
             </h5><br/>
         </h1>
     </div>
@@ -215,9 +251,9 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon justify-content-end menu">MENU</span>
+            <span class="navbar-toggler-icon justify-content-end menu"><span class="navbar-toggler-icon" style="color: white;">|| ||</span></span>
         </button>
-        <div class="col-md-9 justify-content-end collapse navbar-collapse merriweather" id="navbarSupportedContent">
+        <div class="col-md-9 justify-content-end collapse navbar-collapse " id="navbarSupportedContent">
 
             <a class="p-2 text-light" style="font-size: 16px;" href="{% url 'home' %}"><strong>HOME</strong></a>
             <a class="p-2 text-light" style="font-size: 16px;" href="{% url 'news' %}"><strong>NEWS</strong></a>
@@ -237,8 +273,7 @@
 
 
 {# Main container for every page #}
-{#    <div class="container">#}
-{#<div class="container-fluid" style="background-color: #ffffff;">#}
+
 {% block content %}
 
 {% endblock %}
@@ -253,6 +288,7 @@
         <div class="row">
             <div class="col-md-6 border-right merriweather">
                 {% if request.user.is_authenticated %}
+                    <a class="pl-2 text-light text-primary" href="http://localhost:8000/napoleon"><strong>ADMIN PANEL</strong></a>
                     <a class="p-2 text-light text-primary"
                        href="javascript:{document.getElementById('logout').submit()}"><strong>LOGOUT</strong></a>
                 {% endif %}

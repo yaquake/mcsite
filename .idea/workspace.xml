@@ -3,115 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="2d2cdc2e-9fae-4ad9-abd9-a1530aae63a0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/celerybeat.pid" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/tasks.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/news.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/news_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/news_details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mcsite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mcsite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/properties.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/properties.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/property_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/property_details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/services.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mcsite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mcsite/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/js/autocomplete.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/js/autocomplete.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/js/change_form.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/js/change_form.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/js/inlines.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/js/inlines.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/js/inlines.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/js/inlines.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/js/popup_response.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/js/popup_response.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/js/prepopulate_init.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/js/prepopulate_init.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/SOURCE" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/SOURCE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/font/summernote.eot" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/font/summernote.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/font/summernote.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/font/summernote.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/font/summernote.woff" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/font/summernote.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-ar-AR.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-ar-AR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-ar-AR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-ar-AR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-bg-BG.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-bg-BG.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-bg-BG.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-bg-BG.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-ca-ES.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-ca-ES.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-ca-ES.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-ca-ES.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-cs-CZ.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-cs-CZ.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-cs-CZ.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-cs-CZ.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-da-DK.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-da-DK.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-da-DK.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-da-DK.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-de-DE.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-de-DE.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-de-DE.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-de-DE.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-el-GR.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-el-GR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-el-GR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-el-GR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-es-ES.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-es-ES.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-es-ES.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-es-ES.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-es-EU.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-es-EU.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-es-EU.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-es-EU.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-fa-IR.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-fa-IR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-fa-IR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-fa-IR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-fi-FI.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-fi-FI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-fi-FI.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-fi-FI.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-fr-FR.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-fr-FR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-fr-FR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-fr-FR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-gl-ES.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-gl-ES.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-gl-ES.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-gl-ES.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-he-IL.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-he-IL.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-he-IL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-he-IL.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-hr-HR.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-hr-HR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-hr-HR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-hr-HR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-hu-HU.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-hu-HU.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-hu-HU.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-hu-HU.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-id-ID.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-id-ID.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-id-ID.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-id-ID.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-it-IT.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-it-IT.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-it-IT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-it-IT.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-ja-JP.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-ja-JP.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-ja-JP.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-ja-JP.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-ko-KR.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-ko-KR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-ko-KR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-ko-KR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-lt-LT.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-lt-LT.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-lt-LT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-lt-LT.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-lt-LV.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-lt-LV.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-lt-LV.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-lt-LV.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-mn-MN.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-mn-MN.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-mn-MN.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-mn-MN.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-nb-NO.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-nb-NO.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-nb-NO.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-nb-NO.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-nl-NL.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-nl-NL.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-nl-NL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-nl-NL.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-pl-PL.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-pl-PL.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-pl-PL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-pl-PL.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-pt-BR.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-pt-BR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-pt-BR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-pt-BR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-pt-PT.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-pt-PT.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-pt-PT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-pt-PT.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-ro-RO.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-ro-RO.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-ro-RO.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-ro-RO.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-ru-RU.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-ru-RU.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-ru-RU.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-ru-RU.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-sk-SK.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-sk-SK.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-sk-SK.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-sk-SK.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-sl-SI.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-sl-SI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-sl-SI.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-sl-SI.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-sr-RS-Latin.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-sr-RS-Latin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-sr-RS-Latin.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-sr-RS-Latin.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-sr-RS.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-sr-RS.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-sr-RS.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-sr-RS.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-sv-SE.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-sv-SE.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-sv-SE.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-sv-SE.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-ta-IN.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-ta-IN.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-ta-IN.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-ta-IN.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-th-TH.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-th-TH.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-th-TH.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-th-TH.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-tr-TR.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-tr-TR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-tr-TR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-tr-TR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-uk-UA.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-uk-UA.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-uk-UA.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-uk-UA.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-uz-UZ.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-uz-UZ.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-uz-UZ.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-uz-UZ.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-vi-VN.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-vi-VN.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-vi-VN.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-vi-VN.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-zh-CN.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-zh-CN.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-zh-CN.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-zh-CN.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-zh-TW.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-zh-TW.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/lang/summernote-zh-TW.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/lang/summernote-zh-TW.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/summernote-bs4.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/summernote-bs4.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/summernote-bs4.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/summernote-bs4.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/summernote-lite.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/summernote-lite.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/summernote-lite.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/summernote-lite.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/summernote.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/summernote.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/summernote/summernote.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/summernote/summernote.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -129,10 +28,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1800">
+              <caret line="120" column="12" selection-start-line="5" selection-start-column="4" selection-end-line="120" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mcsite/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+            <state relative-caret-position="1680">
+              <caret line="113" column="42" selection-start-line="113" selection-start-column="42" selection-end-line="113" selection-end-column="42" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -141,51 +49,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/requirements.txt">
+        <entry file="file://$PROJECT_DIR$/main/templates/properties.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="20" selection-start-line="11" selection-end-line="11" selection-end-column="7" />
+            <state relative-caret-position="135">
+              <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mcsite/urls.py">
+        <entry file="file://$PROJECT_DIR$/main/templates/services.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+            <state relative-caret-position="480">
+              <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
               <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/templates/news.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="93" selection-start-line="25" selection-start-column="93" selection-end-line="25" selection-end-column="93" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="112" column="56" selection-start-line="112" selection-start-column="56" selection-end-line="112" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="41" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
+                <element signature="n#style#0;n#p#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -194,20 +73,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="198" column="51" selection-start-line="198" selection-start-column="51" selection-end-line="198" selection-end-column="51" />
+            <state relative-caret-position="269">
+              <caret line="248" column="60" selection-end-line="360" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main/tasks.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-541">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+              <folding>
+                <element signature="e#0#56#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/templates/news_details.html">
+        <entry file="file://$PROJECT_DIR$/main/templates/property_details.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-              <folding>
-                <element signature="e#294#317#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="825">
+              <caret line="55" column="54" selection-start-line="55" selection-start-column="54" selection-end-line="55" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/templates/about.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -215,8 +112,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
+            <state relative-caret-position="720">
+              <caret line="51" column="9" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -227,7 +124,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
+            <state relative-caret-position="330">
               <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
@@ -237,6 +134,13 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -250,19 +154,22 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/main/templates/add_news.html" />
-        <option value="$PROJECT_DIR$/main/templates/property_details.html" />
-        <option value="$PROJECT_DIR$/main/templates/properties.html" />
         <option value="$PROJECT_DIR$/main/views.py" />
-        <option value="$PROJECT_DIR$/main/tasks.py" />
         <option value="$PROJECT_DIR$/main/templates/news_details.html" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/main/models.py" />
         <option value="$PROJECT_DIR$/main/admin.py" />
         <option value="$PROJECT_DIR$/main/forms.py" />
         <option value="$PROJECT_DIR$/mcsite/settings.py" />
-        <option value="$PROJECT_DIR$/mcsite/urls.py" />
         <option value="$PROJECT_DIR$/main/templates/news.html" />
+        <option value="$PROJECT_DIR$/main/models.py" />
+        <option value="$PROJECT_DIR$/main/templates/services.html" />
+        <option value="$PROJECT_DIR$/main/templates/properties.html" />
+        <option value="$PROJECT_DIR$/mcsite/urls.py" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/main/templates/about.html" />
         <option value="$PROJECT_DIR$/main/templates/index.html" />
+        <option value="$PROJECT_DIR$/main/templates/property_details.html" />
+        <option value="$PROJECT_DIR$/main/templates/123123.html" />
+        <option value="$PROJECT_DIR$/main/tasks.py" />
       </list>
     </option>
   </component>
@@ -280,6 +187,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -312,15 +220,15 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -380,11 +288,16 @@
       <workItem from="1546597192477" duration="1118000" />
       <workItem from="1546657225436" duration="21120000" />
       <workItem from="1546816284381" duration="5443000" />
+      <workItem from="1546846065735" duration="1941000" />
+      <workItem from="1546995626321" duration="2124000" />
+      <workItem from="1547012540086" duration="8536000" />
+      <workItem from="1547025750476" duration="3559000" />
+      <workItem from="1547069226783" duration="1386000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45177000" />
+    <option name="totallyTimeSpent" value="62723000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -399,12 +312,12 @@
     <frame x="0" y="30" width="2560" height="1410" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49941793" visible="true" weight="0.2688942" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49941793" visible="true" weight="0.12012729" />
       <window_info id="Structure" order="1" sideWeight="0.5005821" side_tool="true" weight="0.2557677" />
       <window_info id="Favorites" order="2" sideWeight="0.5005821" side_tool="true" weight="0.2557677" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32943013" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32943013" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3989071" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -413,7 +326,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32943013" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32943013" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3286495" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32786885" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32943013" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -440,30 +353,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/templates/services.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/123.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/main/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/templates/property_details.html">
+    <entry file="file://$PROJECT_DIR$/main/soup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        <state>
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/templates/properties.html">
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="64" column="32" selection-start-line="64" selection-start-column="32" selection-end-line="64" selection-end-column="32" />
+        <state relative-caret-position="165">
+          <caret line="11" column="20" selection-start-line="11" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/templates/news.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="93" selection-start-line="25" selection-start-column="93" selection-end-line="25" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="41" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/templates/news_details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mcsite/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -477,56 +419,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/tasks.py">
+    <entry file="file://$PROJECT_DIR$/main/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1155">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        <state relative-caret-position="1800">
+          <caret line="120" column="12" selection-start-line="5" selection-start-column="4" selection-end-line="120" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mcsite/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1680">
+          <caret line="113" column="42" selection-start-line="113" selection-start-column="42" selection-end-line="113" selection-end-column="42" />
           <folding>
-            <element signature="e#0#56#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/soup.py">
+    <entry file="file://$PROJECT_DIR$/main/templates/properties.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="135">
+          <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/templates/services.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
           <folding>
-            <element signature="e#0#16#0" expanded="true" />
+            <element signature="n#style#0;n#p#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
+    <entry file="file://$PROJECT_DIR$/main/templates/property_details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="198" column="51" selection-start-line="198" selection-start-column="51" selection-end-line="198" selection-end-column="51" />
+        <state relative-caret-position="825">
+          <caret line="55" column="54" selection-start-line="55" selection-start-column="54" selection-end-line="55" selection-end-column="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/templates/news_details.html">
+    <entry file="file://$PROJECT_DIR$/main/templates/about.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-          <folding>
-            <element signature="e#294#317#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="41" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="165">
+          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
+        <state relative-caret-position="720">
+          <caret line="51" column="9" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -535,7 +480,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
+        <state relative-caret-position="330">
           <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
@@ -543,44 +488,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
+    <entry file="file://$PROJECT_DIR$/main/templates/123123.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="20" selection-start-line="11" selection-end-line="11" selection-end-column="7" />
+        <state relative-caret-position="584">
+          <caret line="423" column="9" lean-forward="true" selection-end-line="432" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mcsite/settings.py">
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+        <state relative-caret-position="269">
+          <caret line="248" column="60" selection-end-line="360" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/tasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-541">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#56#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mcsite/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/templates/news.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="93" selection-start-line="25" selection-start-column="93" selection-end-line="25" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="112" column="56" selection-start-line="112" selection-start-column="56" selection-end-line="112" selection-end-column="56" />
         </state>
       </provider>
     </entry>
