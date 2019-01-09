@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d2cdc2e-9fae-4ad9-abd9-a1530aae63a0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/celerybeat.pid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/properties.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/properties.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/property_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/property_details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/services.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mcsite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mcsite/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-    </list>
+    <list default="true" id="2d2cdc2e-9fae-4ad9-abd9-a1530aae63a0" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +71,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/tasks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-541">
+            <state relative-caret-position="-119">
               <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
@@ -225,7 +214,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../portfolio-clone/portfolio-project" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -292,12 +281,12 @@
       <workItem from="1546995626321" duration="2124000" />
       <workItem from="1547012540086" duration="8536000" />
       <workItem from="1547025750476" duration="3559000" />
-      <workItem from="1547069226783" duration="1386000" />
+      <workItem from="1547069226783" duration="1501000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62723000" />
+    <option name="totallyTimeSpent" value="62838000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -317,7 +306,7 @@
       <window_info id="Favorites" order="2" sideWeight="0.5005821" side_tool="true" weight="0.2557677" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32943013" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32943013" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3989071" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -504,7 +493,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/tasks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-541">
+        <state relative-caret-position="-119">
           <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="e#0#56#0" expanded="true" />
