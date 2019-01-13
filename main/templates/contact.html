@@ -5,8 +5,8 @@
 <div class="container mt-5 bg-white">
 <div class="pb-5">
 <h3 class="mt-2 pt-3">Information</h3><hr style="border-width: 3px;">
-    <div class="col-md-12 pt-2">
-        <p class="pt-3">Should you wish to contact us, we would be more than happy to hear from you. <br />
+    <div class="col-md-12 pt-2 pl-0">
+        <p >Should you wish to contact us, we would be more than happy to hear from you. <br />
 
             We are based at <strong>376 Great South Rd,  Papatoetoe</strong> (Tui Road corner).<br /><br />
 
@@ -24,7 +24,7 @@
 </div>
 <div>
 <h3 class="my-2 pt-3">Contact form</h3><hr style="border-width: 3px;">
-<form action="{% url 'contact' %}" method="POST">{% csrf_token %}
+<form action="{% url 'contact' %}" method="POST" id="form-contact">{% csrf_token %}
   <div class="form-row">
       <div class="form-group col-md-6">
           {{ form.name.errors }}
@@ -56,7 +56,7 @@
           {{ form.details }}
       </div>
   </div>
-  <button type="submit" class="btn btn-success">Send</button>
+  <button type="submit" class="btn btn-success" onclick="alertMessage()">Send</button>
 </form>
 </div>
 

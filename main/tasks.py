@@ -92,4 +92,4 @@ def update_from_xml():
 @shared_task()
 def send_email_task(topic, details, email):
 
-    return send_mail(topic, details, email, ['yaquake@gmail.com', ])
+    return send_mail(topic, details, email, ['yaquake@live.ru', ])

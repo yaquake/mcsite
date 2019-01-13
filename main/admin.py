@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import News, Person
+from .models import News, Person, Property
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -10,3 +10,5 @@ class NewsAdmin(SummernoteModelAdmin):
 admin.site.register(News, NewsAdmin)
 
 admin.site.register(Person)
+
+admin.site.register(Property)

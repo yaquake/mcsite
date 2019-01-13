@@ -7,16 +7,16 @@ from django_summernote.widgets import SummernoteWidget
 class Contact(forms.Form):
     name = forms.CharField(label='Your name',
                            max_length=100,
-                           widget=forms.TextInput(attrs={'class': 'form-control'}))
+                           widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'name'}))
     email = forms.EmailField(label='Your e-mail',
                              max_length=100,
-                             widget=forms.EmailInput({'class': 'form-control'}))
+                             widget=forms.EmailInput({'class': 'form-control', 'id': 'email'}))
     phone = forms.IntegerField(label='Your phone number',
-                               widget=forms.NumberInput({'class': 'form-control'}))
+                               widget=forms.NumberInput({'class': 'form-control', 'id': 'phone'}))
     topic = forms.CharField(label='Topic of inquiry', max_length=100,
-                            widget=forms.TextInput({'class': 'form-control'}))
+                            widget=forms.TextInput({'class': 'form-control', 'id': 'topic'}))
     details = forms.CharField(label='Your question', max_length=1000,
-                              widget=forms.Textarea({'class': 'form-control'}))
+                              widget=forms.Textarea({'class': 'form-control', 'id': 'details'}))
 
 
 class NewsForm(ModelForm):

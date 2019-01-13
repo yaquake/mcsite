@@ -21,6 +21,10 @@ class News(models.Model):
     def pubdate_pretty(self):
         return self.pub_date.strftime('%A, %d %B  %Y')
 
+    class Meta:
+        verbose_name = 'News'
+        verbose_name_plural = 'News'
+
 
 class Person(models.Model):
     name = models.CharField(max_length=50)
@@ -31,6 +35,10 @@ class Person(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'Person'
+        verbose_name_plural = 'People'
 
 
 class Property(models.Model):
@@ -57,6 +65,10 @@ class Property(models.Model):
     rent = models.IntegerField()
     advert_text = models.TextField(max_length=2000, blank=True)
     thumbnail = models.ImageField(upload_to='media/property_images', blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Property'
+        verbose_name_plural = 'Properties'
 
 
 @receiver(pre_delete, sender=Property)

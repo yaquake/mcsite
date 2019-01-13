@@ -41,9 +41,9 @@ def login(request):
                 auth.login(request, user)
                 return redirect('home')
             else:
-                return render(request, 'login.html')
+                return render(request, 'login.html', {'error': 'Wrong credentials'})
         except User.DoesNotExist:
-            return render(request, 'login.html')
+            return render(request, 'login.html', {'error': 'Wrong credentials'})
     else:
         return render(request, 'login.html')
 
@@ -72,10 +72,13 @@ def contact(request):
     if request.method == 'POST':
         form = Contact(request.POST)
         if form.is_valid():
+            body_text = 'From: {}\n\nPh: {}\n\nQuestion: {}'.format(form.cleaned_data['email'],
+                                                                    form.cleaned_data['phone'],
+                                                                    form.cleaned_data['details'])
             send_email_task.delay(form.cleaned_data['topic'],
-                            form.cleaned_data['details'],
-                            form.cleaned_data['email'],
-                            )
+                                  body_text,
+                                  form.cleaned_data['email'],
+                                  )
             return redirect('home')
     form = Contact()
     return render(request, 'contact.html', {'form': form})
@@ -95,9 +98,6 @@ def postnews(request):
     if request.method == 'POST':
         form = NewsForm(request.POST, request.FILES)
         if form.is_valid():
-            # if get_object_or_404(News, name=(request.POST['name'])):
-            #     return render(request, 'add_news.html', {'error': 'Please choose another title for the news.'})
-            # else:
             form.save()
             return redirect('news')
     else:
