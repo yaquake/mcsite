@@ -52,7 +52,7 @@ class Property(models.Model):
     bathrooms = models.IntegerField(null=True, blank=True)
     bedrooms = models.IntegerField(null=True, blank=True)
     carparks = models.IntegerField(null=True, blank=True)
-    property_class = models.CharField(max_length=15)
+    property_class = models.CharField(max_length=15, blank=True)
     is_new_construction = models.CharField(max_length=3, blank=True, default=False)
     pets = models.CharField(max_length=3)
     smokers = models.CharField(max_length=3)

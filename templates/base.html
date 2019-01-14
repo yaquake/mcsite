@@ -144,7 +144,6 @@
                 margin: 0;
                 height: 180px;
                 position: relative;
-            {#background-color: white;#}
 
             }
 
@@ -153,7 +152,37 @@
             }
         }
 
-        @media screen and (min-width: 601px) {
+        @media screen and (max-width: 1200px) {
+
+            #content {
+                margin: 500px 0 0 0;
+                background: #fff;
+                position: relative;
+            }
+
+            #background {
+                background: url("{% static 'Auckland-city-panorama-bjdd.jpg' %}");
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 0;
+                height: 700px;
+                background-size: cover;
+            }
+
+            #nav {
+                margin: 0;
+                height: 180px;
+                position: relative;
+
+            }
+
+            #future {
+                margin-top: 100px;
+            }
+        }
+
+        @media screen and (min-width: 1201px) {
 
             #content {
                 margin: 500px 0 0 0;
