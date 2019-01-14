@@ -18,7 +18,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'admin_honeypot',
-    # 'bootstrap_admin',
     'main.apps.MainConfig',
     'django_summernote',
     'easy_thumbnails',
