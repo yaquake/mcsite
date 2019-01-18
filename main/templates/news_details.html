@@ -4,7 +4,7 @@
     <div id="content">
 <div class="container mt-5 bg-white">
     <h5 class="pl-3 pt-3 ">
-        <a href="{% url 'news' %}"><- Back to News</a></h5><hr style="border-width: 3px;">
+        <a href="{% url 'news' 1 %}"><- Back to News</a></h5><hr style="border-width: 3px;">
 
     <p><h2 class="text-center merriweather" style="font-size: 5vh;">{{ news.name }}</h2></p>
     <p class="text-center"><img src="{{ news.image.url }}" width="50%"></p>
@@ -12,7 +12,7 @@
     <hr>
     <p class="merriweather">{{ news.description|safe }}</p>
 <br />
-<h3 class="pt-3"><a href="{% url 'news' %}">Back to News</a></h3>
+<h3 class="pt-3"><a href="{% url 'news' 1 %}">Back to News</a></h3>
 <br />
 </div>
 {% endblock %}

@@ -18,7 +18,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('summernote/', include('django_summernote.urls')),
     path('postnews/', views.postnews, name='postnews'),
-    path('news/', views.news, name='news'),
+    path('news/page<int:page>', views.news, name='news'),
     path('news/<str:slug>', views.news_details, name='news_details'),
     path('about/addperson', views.add_person, name='add_person'),
     path('properties/<str:key>', views.property_details, name='property_details'),

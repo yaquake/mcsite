@@ -13,6 +13,43 @@
 </div>
 </div>
 <hr style="border-width: 3px;">
+<div class="row">
+<div class="col-md-12 justify-content-end">
+
+
+                <nav aria-label="..." >
+                    <ul class="pagination justify-content-left">
+
+                        {% if not news.has_previous %}
+                        <li class="page-item disabled">
+                            <span class="page-link ">Previous</span>
+                        </li>
+                        {% elif news.has_previous %}
+
+                        <li class="page-item">
+                            <a class="page-link text-info" href="{% url 'news' news.previous_page_number %}">Previous</a>
+                        </li>
+
+                        <li class="page-item"><a class="page-link text-info" href="{% url 'news' news.previous_page_number %}">{{ news.previous_page_number }}</a></li>
+                        {% endif %}
+                        <li class="page-item">
+      <span class="page-link bg-blue">
+        {{ news.number }}
+        <span class="sr-only text-info">(current)</span>
+      </span>
+                        </li>
+                        {% if result.has_next %}
+                        <li class="page-item"><a class="page-link text-info" href="{% url 'news' news.next_page_number %}">{{ news.next_page_number }}</a></li>
+                        <li class="page-item">
+                            <a class="page-link text-info" href="{% url 'news' news.next_page_number %}">Next</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+
+
+            </div>
+        </div>
 
 {% for item in news %}
     {% if not forloop.first %}
@@ -20,11 +57,13 @@
     {% endif %}
     <div class="row">
         <div class="col-md-3">
-            <img src="{{ item.image.url }}" width="100%" class="img-thumbnail">
+            <img src="{{ item.image.url }}" width="100%" class="rounded" alt="MainImage">
         </div>
         <div class="col-md-9">
-            <p><h3><a href="{% url 'news_details' item.slug %}" class="merriweather text-info">{{ item.name }}</a></h3></p>
             <p style="font-size: 0.75em;">{{ item.pubdate_pretty }}</p>
+            <hr>
+            <p><h3><a href="{% url 'news_details' item.slug %}" class="merriweather text-info">{{ item.name }}</a></h3></p>
+
         </div>
     </div>
 

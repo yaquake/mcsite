@@ -105,9 +105,11 @@ def postnews(request):
         return render(request, 'add_news.html', {'form': news_form})
 
 
-def news(request):
+def news(request, page):
     news = News.objects.all().order_by('-pub_date')
-    return render(request, 'news.html', {'news': news})
+    paginator = Paginator(news, 10)
+    result = paginator.page(page)
+    return render(request, 'news.html', {'news': result})
 
 
 def news_details(request, slug):
