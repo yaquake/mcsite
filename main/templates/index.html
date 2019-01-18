@@ -103,13 +103,13 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <h2 class="text-muted merriweather">Latest news</h2>
+                    <h2 class="text-muted">Latest news</h2>
 
                     {% for news in news %}
 
                         <p style="font-size: 12px;" class="border-top">{{ news.pubdate_pretty }}</p>
                         <a href="{% url 'news_details' news.slug %}"
-                           class="text-info merriweather">{{ news.name }}</a><br/><br/>
+                           class="text-info">{{ news.name }}</a><br/><br/>
 
                     {% endfor %}
 

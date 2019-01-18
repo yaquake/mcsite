@@ -16,7 +16,7 @@ CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
 
 def home(request):
-    news = News.objects.all().order_by('-pub_date')[:5]
+    news = News.objects.all().order_by('-pub_date')[:7]
     # graph = facebook.GraphAPI(access_token="EAAE2SwiAhjABAHEllR19CJFA4LwWRVuUMTzp4MgX7ObA7Ubaz52z1AuFHEmmvgcQkNGHwyBeNxA4cQxBlqLm3AV43nZBNcOlAFFvkxtUhzsNZB4DKCZCLGLptfNZBoT6w7VYqWLcOIg66I53Y7eGSa8OuQt1t767f71zpgGhVxds50NubNcHLT8sPi5mETvoV7wZCVklnIaHgT5y4KiciD9h7qWfINzs1aLZA8KvG9ZBgZDZD")
     # print(graph)
     # attachment = {

@@ -11,14 +11,18 @@ from easy_thumbnails.files import get_thumbnailer
 
 @shared_task()
 def update_from_xml():
-    from main.models import Property, PropertyImage
+    from main.models import Property, PropertyImage, Palace
 
-    username = 'advert@mcdonaldpm.co.nz'
-    password = 'MCW@dvert$Pr0p291118'
+    # username = 'advert@mcdonaldpm.co.nz'
+    # password = 'MCW@dvert$Pr0p291118'
+
+    palace = Palace.objects.all().first()
+    username = palace.login
+    password = palace.password
 
     try:
         if requests.get('https://serviceapi.realbaselive.com/Service.svc/RestService/AvailableProperties',
-                                     auth=(username, password)):
+                        auth=(username, password)):
 
             Property.objects.all().delete()
             property_list_xml = requests.get(
