@@ -172,3 +172,10 @@ SUMMERNOTE_CONFIG = {
     },
 
 }
+
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+

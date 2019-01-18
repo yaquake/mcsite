@@ -20,11 +20,12 @@
         @import url('https://fonts.googleapis.com/css?family=Quicksand');
         @import url('https://fonts.googleapis.com/css?family=Merriweather');
 
-
-        .form-control:focus {
-            border-color: #68a500;
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(104, 165, 0, 1);
-        }
+        {##}
+        {#.form-control:focus {#}
+        {#    border-color: #68a500;#}
+        {#    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(104, 165, 0, 1);#}
+        {
+        #}#}
 
         p.services {
             margin: 0 200px 100px 200px;
@@ -185,7 +186,7 @@
         @media screen and (min-width: 1201px) {
 
             #content {
-                margin: 500px 0 0 0;
+                margin: 550px 0 0 0;
                 background: #fff;
                 position: relative;
             }
@@ -196,7 +197,7 @@
                 left: 0;
                 right: 0;
                 top: 0;
-                height: 600px;
+                height: 650px;
                 background-size: cover;
             }
 
@@ -318,26 +319,26 @@
         <div class="row">
             <div class="col-md-6 border-right merriweather">
                 {% if request.user.is_authenticated %}
-                    <a class="pl-2 text-light text-primary" href="http://localhost:8000/napoleon"><strong>ADMIN
+                    <a class="text-light text-primary" href="http://localhost:8000/napoleon"><strong>ADMIN
                         PANEL</strong></a>
-                    <a class="p-2 text-light text-primary"
+                    <a class="text-light text-primary"
                        href="javascript:{document.getElementById('logout').submit()}"><strong>LOGOUT</strong></a>
                 {% endif %}
                 {% if not request.user.is_authenticated %}
-                    <a class="p-2 text-light text-primary" href="#" data-toggle="modal"
+                    <a class="text-light text-primary" href="#" data-toggle="modal"
                        data-target="#login"><strong>LOG IN</strong></a>
                 {% endif %}
                 <form id="logout" method="POST" action="{% url 'logout' %}">
                     {% csrf_token %}
                     <input type="hidden"/>
                 </form>
-                <a class="p-2 text-light text-success" href="{% url 'home' %}">Home</a><br/>
-                <a class="p-2 text-light text-success" href="{% url 'about' %}">About us</a><br/>
-                <a class="p-2 text-light text-success" href="{% url 'services' %}">Services</a><br/>
-                <a class="p-2 text-light text-success" href="{% url 'contact' %}">Contact us</a><br/>
-                <a class="p-2 text-light text-success"
+                <a class=" text-light text-success" href="{% url 'home' %}">Home</a><br/>
+                <a class="text-light text-success" href="{% url 'about' %}">About us</a><br/>
+                <a class="text-light text-success" href="{% url 'services' %}">Services</a><br/>
+                <a class="text-light text-success" href="{% url 'contact' %}">Contact us</a><br/>
+                <a class="text-light text-success"
                    href="{% url 'properties' 1 %}">Properties</a><br/>
-                <a class="p-2 text-success text-primary" href="http://ivaneresko.info">Made by yaquake</a>
+                <a class="text-light" href="http://ivaneresko.info">Made by yaquake</a>
 
             </div>
             <div class="col-md-6 text-light merriweather">
@@ -349,8 +350,23 @@
                 <p>Since 2011</p>
             </div>
         </div>
+        <br/>
+
+        <a href="mailto:info@mcdonaldrentals.co.nz" target="_blank"><img
+                src="{% static 'logos/iconfinder_Email_3138894.png' %}" alt="Email" width="6%"/></a>&nbsp
+        <a href="https://www.facebook.com/McDonaldProperty/" target="_blank"><img
+                src="{% static 'logos/iconfinder_Facebook_3138895.png' %}" alt="Facebook" width="6%"/></a>&nbsp
+        <a href="https://www.linkedin.com/company/mcdonald-property-management-ltd" target="_blank"><img
+                src="{% static 'logos/iconfinder_LinkedIn_3138898.png' %}" alt="Linkedin" width="6%"/></a>
+
+
     </div>
 </div>
+{#<div class="container-fluid bg-dark" style="min-height: 100px;">#}
+{##}
+{##}
+{##}
+{#</div>#}
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -379,13 +395,14 @@
 
 <script>
     function alertMessage() {
-      if (document.getElementById('name').value !== "" && document.getElementById('email').value !== "" &&
-          document.getElementById('phone').value !== "" && document.getElementById('topic').value !== "" &&
-          document.getElementById('details').value !== "") {
+        if (document.getElementById('name').value !== "" && document.getElementById('email').value !== "" &&
+            document.getElementById('phone').value !== "" && document.getElementById('topic').value !== "" &&
+            document.getElementById('details').value !== "") {
             alert("Your message has been sent. Redirecting to the home page..")
-      } else {
-      alert("Please, fill in all the fields.")}
-}
+        } else {
+            alert("Please, fill in all the fields.")
+        }
+    }
 </script>
 
 {##}
@@ -404,7 +421,6 @@
 {#      }#}
 {#})#}
 {#</script>#}
-
 
 
 {#<script src="{% static 'js/user.js' %}" type="text/javascript"></script>#}

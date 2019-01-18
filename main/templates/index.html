@@ -43,9 +43,9 @@
 {#                        </div>#}
 {#                    </div>#}
 {#                </div>#}
-                <div class="col-lg-4  my-2"><a href="#"><img src="{% static 'services_with_white_logo.png' %}" width="90%" class="hover rounded"/></a></div>
-                <div class="col-lg-4  my-2"><a href="#"><img src="{% static 'properties_with_white_logo.png' %}" width="90%" class="hover rounded"/></a></div>
-                <div class="col-lg-4  my-2"><a href="#"><img src="{% static 'apply_with_white_logo.png' %}" width="90%" class="hover rounded"/></a></div>
+                <div class="col-lg-4  my-2"><a href="{% url 'services' %}"><img src="{% static 'services_with_white_logo.png' %}" width="90%" class="hover rounded"/></a></div>
+                <div class="col-lg-4  my-2"><a href="{% url 'properties' 1 %}"><img src="{% static 'properties_with_white_logo.png' %}" width="90%" class="hover rounded"/></a></div>
+                <div class="col-lg-4  my-2"><a href="{% url 'apply' %}"><img src="{% static 'apply_with_white_logo.png' %}" width="90%" class="hover rounded"/></a></div>
 
 
             </div>
