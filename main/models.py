@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.text import slugify
 from django.db.models.signals import post_save, post_delete, pre_delete
 from django.dispatch import receiver
+from django.core.validators import ValidationError
 
 
 class News(models.Model):
@@ -86,3 +87,19 @@ def delete_images(sender, instance, **kwargs):
     instance.image.delete(False)
 
 
+class Palace(models.Model):
+    name = models.CharField(max_length=50, blank=False)
+    login = models.CharField(max_length=50, blank=False)
+    password = models.CharField(max_length=50, blank=False)
+
+    def save(self, *args, **kwargs):
+        if Palace.objects.exists() and not self.pk:
+            raise ValidationError('Only one instance of Palace"s login and password can exist.')
+        return super(Palace, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = 'Palace credentials'
+        verbose_name_plural = 'Palace credentials'
+
+    def __str__(self):
+        return self.name
