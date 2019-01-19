@@ -77,7 +77,7 @@
                             {% endif %}
                             <div class="card-body text-left">
                                 <h3 class="card-title">{{ item.suburb }} <br/> ${{ item.rent }}
-                                    per {{ item.rental_period }}</h3>
+                                    per {{ item.rental_period.lower }}</h3>
                                 <hr>
                                 <p class="card-text pb-3 text-left">
                                     Address: {{ item.street_number }}, {{ item.street_name }}<br/>
