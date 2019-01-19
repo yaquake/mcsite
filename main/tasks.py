@@ -13,10 +13,7 @@ from easy_thumbnails.files import get_thumbnailer
 def update_from_xml():
     from main.models import Property, PropertyImage, Palace
 
-    # username = 'advert@mcdonaldpm.co.nz'
-    # password = 'MCW@dvert$Pr0p291118'
-
-    palace = Palace.objects.all().first()
+    palace = Palace.objects.first()
     username = palace.login
     password = palace.password
 
