@@ -118,8 +118,3 @@ def news_details(request, slug):
     news = get_object_or_404(News, slug=slug)
     return render(request, 'news_details.html', {'news': news})
 
-
-# def add_person(request):
-#
-#     return render(request, 'add_person.html')
-

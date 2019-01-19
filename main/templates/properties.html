@@ -69,9 +69,6 @@
                     <div class="col-sm-4 py-2">
                         <div class="card text-center hover" style="border: 1px solid lightgrey; cursor: pointer;"
                              onclick="window.location='{% url 'property_details' item.code %}';">
-                            {#                        {% with item.propertyimage_set.all|first as image %}#}
-                            {#                        <img src="{{ image.image|thumbnail_url:'prop_image' }}" width="100%" />#}
-                            {#                        {% endwith %}#}
                             {% if item.thumbnail %}
                                 <img src="{{ item.thumbnail.url }}" width="100%"/>
                             {% endif %}

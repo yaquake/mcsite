@@ -31,7 +31,7 @@ class Person(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField()
     phone = models.CharField(max_length=15)
-    about = models.CharField(max_length=1000)
+    about = models.TextField(max_length=1000)
     image = models.ImageField(upload_to='media/personnel/', null=False, default=None)
 
     def __str__(self):
