@@ -85,6 +85,7 @@ def contact(request):
     return render(request, 'contact.html', {'form': form})
 
 
+@cache_page(CACHE_TTL)
 def apply(request):
     return render(request, 'apply.html')
 
@@ -118,7 +119,7 @@ def news_details(request, slug):
     return render(request, 'news_details.html', {'news': news})
 
 
-def add_person(request):
-
-    return render(request, 'add_person.html')
+# def add_person(request):
+#
+#     return render(request, 'add_person.html')
 

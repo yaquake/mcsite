@@ -111,7 +111,7 @@ CELERY_IMPORTS = ['main.tasks', ]
 CELERY_BEAT_SCHEDULE = {
  'update_from_xml': {
        'task': 'main.tasks.update_from_xml',
-       'schedule': 1800,
+       'schedule': 3600,
     },
 
 }
