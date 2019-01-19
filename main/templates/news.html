@@ -5,7 +5,7 @@
 <div class="container mt-5" style="min-height: 1100px; background-color: #ffffff;">
 <div class="row">
 <div class="col-md-8">
-    <h2 class="pl-3 pt-3">News</h2></div>
+    <h2 class="pt-3 text-muted">News</h2></div>
 <div class="col-md-4 text-right">
     {% if request.user.is_authenticated %}<br />
         <a href="{% url 'postnews' %}" class="pl-3 pt-2"><button class="btn btn-info">Add news</button></a>
@@ -26,6 +26,7 @@
                         </li>
                         {% elif news.has_previous %}
 
+
                         <li class="page-item">
                             <a class="page-link text-info" href="{% url 'news' news.previous_page_number %}">Previous</a>
                         </li>
@@ -38,11 +39,16 @@
         <span class="sr-only text-info">(current)</span>
       </span>
                         </li>
-                        {% if result.has_next %}
+                        {% if news.has_next %}
                         <li class="page-item"><a class="page-link text-info" href="{% url 'news' news.next_page_number %}">{{ news.next_page_number }}</a></li>
                         <li class="page-item">
                             <a class="page-link text-info" href="{% url 'news' news.next_page_number %}">Next</a>
                         </li>
+
+                            {% elif not news.has_next %}
+                            <li class="page-item disabled"><span class="page-link">Next</span></li>
+
+
                         {% endif %}
                     </ul>
                 </nav>
