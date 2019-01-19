@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import News, Person, Property, Palace
+from .models import News, Person, Property, Palace, Services
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -14,3 +14,5 @@ admin.site.register(Person)
 admin.site.register(Property)
 
 admin.site.register(Palace)
+
+admin.site.register(Services)

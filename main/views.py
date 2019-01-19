@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .forms import Contact, NewsForm
-from .models import News, Person, Property
+from .models import News, Person, Property, Services
 from django.core.paginator import Paginator
 import facebook
 from .tasks import send_email_task
@@ -29,7 +29,8 @@ def home(request):
 
 
 def services(request):
-    return render(request, 'services.html')
+    services = Services.objects.all()
+    return render(request, 'services.html', {'services': services})
 
 
 def login(request):

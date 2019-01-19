@@ -103,3 +103,16 @@ class Palace(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Services(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField(max_length=2000)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Service'
+        verbose_name_plural = 'Services'
+
