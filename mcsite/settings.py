@@ -136,8 +136,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'jesterhead2017@gmail.com'
-EMAIL_HOST_PASSWORD = 'renovation2017moscow'
+EMAIL_HOST_USER = 'jester**'
+EMAIL_HOST_PASSWORD = '***'
 EMAIL_USE_SSL = True
 
 
