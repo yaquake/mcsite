@@ -7,7 +7,7 @@ urlpatterns = [
     path('jet/', include('jet.urls', namespace='jet')),
     path('jet/dashboard/', include('jet.dashboard.urls', namespace='jet-dashboard')),
     path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
-    path('napoleon/', admin.site.urls, name='napoleon'),
+    path('napoleon/', admin.site.urls, name='arkadi'),
     path('', views.home, name='home'),
     path('services/', views.services, name='services'),
     path('login/', views.login, name='login'),
@@ -26,3 +26,10 @@ urlpatterns = [
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+try:
+    from .local_urls import *
+except ImportError:
+    pass
+
