@@ -328,8 +328,8 @@
      style="background-image: linear-gradient(to top, #30364a, #373e55, #3f4660, #474f6b, #4f5776);">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 border-right merriweather">
-                {% if request.user.is_authenticated %}
+            <div class="col-md-6 merriweather">
+                <p>{% if request.user.is_authenticated %}
                     <a class="text-light text-primary" href="{% url 'admin:index' %}"><strong>ADMIN
                         PANEL</strong></a>
                     <a class="text-light text-primary"
@@ -342,33 +342,37 @@
                 <form id="logout" method="POST" action="{% url 'logout' %}">
                     {% csrf_token %}
                     <input type="hidden"/>
-                </form>
-                <a class=" text-light text-success" href="{% url 'home' %}">Home</a><br/>
-                <a class="text-light text-success" href="{% url 'about' %}">About us</a><br/>
-                <a class="text-light text-success" href="{% url 'services' %}">Services</a><br/>
-                <a class="text-light text-success" href="{% url 'contact' %}">Contact us</a><br/>
-                <a class="text-light text-success"
-                   href="{% url 'properties' 1 %}">Properties</a><br/>
-                <a class="text-light" href="http://ivaneresko.info">Made by yaquake</a>
+                </form></p>
+                <p><a class=" text-light text-success" href="{% url 'home' %}">Home</a></p>
+                <p><a class="text-light text-success" href="{% url 'about' %}">About us</a></p>
+                <p><a class="text-light text-success" href="{% url 'services' %}">Services</a></p>
+                <p><a class="text-light text-success" href="{% url 'contact' %}">Contact us</a></p>
+                <p><a class="text-light text-success"
+                   href="{% url 'properties' 1 %}">Properties</a></p>
+                <p><a class="text-light" href="http://ivaneresko.info">Made by yaquake</a></p>
 
             </div>
             <div class="col-md-6 text-light merriweather">
+                <a href="mailto:info@mcdonaldrentals.co.nz"><img
+                src="{% static 'logos/iconfinder_Email_3138894.png' %}" alt="Email" width="16%"/></a>&nbsp
+        <a href="https://www.facebook.com/McDonaldProperty/" target="_blank"><img
+                src="{% static 'logos/iconfinder_Facebook_3138895.png' %}" alt="Facebook" width="16%"/></a>&nbsp
+        <a href="https://www.linkedin.com/company/mcdonald-property-management-ltd" target="_blank"><img
+                src="{% static 'logos/iconfinder_LinkedIn_3138898.png' %}" alt="Linkedin" width="16%"/></a><br /><br />
                 <p>McDonald Property Management Ltd</p>
                 <p><strong>Address: </strong>376 Great South Rd, Papatoetoe</p>
                 <p><strong>Postal address:</strong>
                     P.O.Box 39393
                     Howick 2145</p>
                 <p>Since 2011</p>
+
+
+
             </div>
         </div>
         <br/>
 
-        <a href="mailto:info@mcdonaldrentals.co.nz"><img
-                src="{% static 'logos/iconfinder_Email_3138894.png' %}" alt="Email" width="6%"/></a>&nbsp
-        <a href="https://www.facebook.com/McDonaldProperty/" target="_blank"><img
-                src="{% static 'logos/iconfinder_Facebook_3138895.png' %}" alt="Facebook" width="6%"/></a>&nbsp
-        <a href="https://www.linkedin.com/company/mcdonald-property-management-ltd" target="_blank"><img
-                src="{% static 'logos/iconfinder_LinkedIn_3138898.png' %}" alt="Linkedin" width="6%"/></a>
+
 
 
     </div>
