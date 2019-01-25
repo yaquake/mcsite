@@ -2,78 +2,101 @@
 {% load staticfiles %}
 {% block content %}
     <div id="content">
-<div class="container mt-5" style="min-height: 1100px; background-color: #ffffff;">
-<div class="row">
-<div class="col-md-8">
-    <h2 class="pt-3 text-muted">News</h2></div>
-<div class="col-md-4 text-right">
-    {% if request.user.is_authenticated %}<br />
-        <a href="{% url 'postnews' %}" class="pl-3 pt-2"><button class="btn btn-info">Add news</button></a>
-    {% endif %}
-</div>
-</div>
-<hr style="border-width: 3px;">
-<div class="row">
-<div class="col-md-12 justify-content-end">
+        <div class="container mt-5" style="min-height: 1100px; background-color: #ffffff;">
+        {% if request.user.is_authenticated %}
+            <div class="row">
+
+                <div class="col-md-8">
+
+                        <h2 class="pt-3 text-muted">News</h2></div>
+                        <div class="col-md-4 text-right">
+
+                        <br/><a href="{% url 'postnews' %}" class="pl-3 pt-2">
+                        <button class="btn btn-info">Add news</button>
+                    </a>
+
+            </div>
+            </div><hr style="border-width: 3px;">
+                    {% elif not request.user.is_authenticated %}
+                        <div class="text-center">
+                            <h1 class="py-5 text-muted">NEWS</h1>
+                            <br/>
+                        </div>
+                    {% endif %}
 
 
-                <nav aria-label="..." >
-                    <ul class="pagination justify-content-left">
-
-                        {% if not news.has_previous %}
-                        <li class="page-item disabled">
-                            <span class="page-link ">Previous</span>
-                        </li>
-                        {% elif news.has_previous %}
+            <div class="row">
+                <div class="col-md-12 justify-content-end">
 
 
-                        <li class="page-item">
-                            <a class="page-link text-info" href="{% url 'news' news.previous_page_number %}">Previous</a>
-                        </li>
+                    <nav aria-label="...">
+                        <ul class="pagination justify-content-left">
 
-                        <li class="page-item"><a class="page-link text-info" href="{% url 'news' news.previous_page_number %}">{{ news.previous_page_number }}</a></li>
-                        {% endif %}
-                        <li class="page-item">
+                            {% if not news.has_previous %}
+                                <li class="page-item disabled">
+                                    <span class="page-link ">Previous</span>
+                                </li>
+                            {% elif news.has_previous %}
+
+
+                                <li class="page-item">
+                                    <a class="page-link text-info" href="{% url 'news' news.previous_page_number %}">Previous</a>
+                                </li>
+
+                                <li class="page-item"><a class="page-link text-info"
+                                                         href="{% url 'news' news.previous_page_number %}">{{ news.previous_page_number }}</a>
+                                </li>
+                            {% endif %}
+                            <li class="page-item">
       <span class="page-link bg-blue">
         {{ news.number }}
         <span class="sr-only text-info">(current)</span>
       </span>
-                        </li>
-                        {% if news.has_next %}
-                        <li class="page-item"><a class="page-link text-info" href="{% url 'news' news.next_page_number %}">{{ news.next_page_number }}</a></li>
-                        <li class="page-item">
-                            <a class="page-link text-info" href="{% url 'news' news.next_page_number %}">Next</a>
-                        </li>
+                            </li>
+                            {% if news.has_next %}
+                                <li class="page-item"><a class="page-link text-info"
+                                                         href="{% url 'news' news.next_page_number %}">{{ news.next_page_number }}</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link text-info"
+                                       href="{% url 'news' news.next_page_number %}">Next</a>
+                                </li>
 
                             {% elif not news.has_next %}
-                            <li class="page-item disabled"><span class="page-link">Next</span></li>
+                                <li class="page-item disabled"><span class="page-link">Next</span></li>
 
 
-                        {% endif %}
-                    </ul>
-                </nav>
+                            {% endif %}
+                        </ul>
+                    </nav>
 
 
+                </div>
             </div>
-        </div>
 
-{% for item in news %}
-    {% if not forloop.first %}
-    <hr>
-    {% endif %}
-    <div class="row">
-        <div class="col-md-3">
-            <img src="{{ item.image.url }}" width="100%" class="rounded" alt="MainImage">
-        </div>
-        <div class="col-md-9">
-            <p style="font-size: 0.75em;">{{ item.pubdate_pretty }}</p>
-            <hr>
-            <p><h3><a href="{% url 'news_details' item.slug %}" class="merriweather text-info">{{ item.name }}</a></h3></p>
+        {% if not news %}
+        <h1>OOPS.. There is no news, come back when something happens.</h1>
+        {% elif news %}
+            {% for item in news %}
+                {% if not forloop.first %}
+                    <hr>
+                {% endif %}
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="{{ item.image.url }}" width="100%" class="rounded" alt="MainImage">
+                    </div>
+                    <div class="col-md-9">
+                        <p style="font-size: 0.75em;">{{ item.pubdate_pretty }}</p>
+                        <hr>
+                        <p>
+                        <h3><a href="{% url 'news_details' item.slug %}"
+                               class="merriweather text-info">{{ item.name }}</a></h3></p>
 
-        </div>
-    </div>
+                    </div>
+                </div>
 
-<br />
-{% endfor %}
-</div>
+                <br/>
+            {% endfor %}
+        {% endif %}
+        </div>
 {% endblock %}

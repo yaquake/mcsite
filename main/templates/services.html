@@ -4,13 +4,12 @@
     <div id="content">
     <div class="container px-0 mt-5  bg-white">
         <div class="text-center">
-            <h1 class="py-5 text-muted">WHAT WE DO:</h1></div>
-{#        <hr style="border-width: 3px;">#}
+            <h1 class="py-5 text-muted">WHAT WE DO</h1></div>
 
         <ol>
             {% for service in services %}
                 <li class="services-list">
-                <span class="services-span">{{ service.title }}</span>
+                    <span class="services-span">{{ service.title }}</span>
                     <p class="p-5 services text-muted" style="font-size: 0.4em;">{{ service.description }}</p>
                 </li>
 
