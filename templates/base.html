@@ -230,6 +230,18 @@
             box-sizing: border-box;
         }
 
+        li {
+            list-style: decimal-leading-zero;
+            font-size: 3em;
+            margin: 0 0 2em 2em;
+            color: #808283;
+        }
+
+        li span {
+            font-size: .8em;
+            color: #3587b0;
+        }
+
     </style>
 
 </head>
@@ -335,30 +347,31 @@
                     <a class="text-light text-primary"
                        href="javascript:{document.getElementById('logout').submit()}"><strong>LOGOUT</strong></a>
                 {% endif %}
-                {% if not request.user.is_authenticated %}
-                    <a class="text-light text-primary" href="#" data-toggle="modal"
-                       data-target="#login"><strong>LOG IN</strong></a>
-                {% endif %}
+                    {% if not request.user.is_authenticated %}
+                        <a class="text-light text-primary" href="#" data-toggle="modal"
+                           data-target="#login"><strong>LOG IN</strong></a>
+                    {% endif %}
                 <form id="logout" method="POST" action="{% url 'logout' %}">
                     {% csrf_token %}
                     <input type="hidden"/>
-                </form></p>
+                </form>
+                </p>
                 <p><a class=" text-light text-success" href="{% url 'home' %}">Home</a></p>
                 <p><a class="text-light text-success" href="{% url 'about' %}">About us</a></p>
                 <p><a class="text-light text-success" href="{% url 'services' %}">Services</a></p>
                 <p><a class="text-light text-success" href="{% url 'contact' %}">Contact us</a></p>
                 <p><a class="text-light text-success"
-                   href="{% url 'properties' 1 %}">Properties</a></p>
+                      href="{% url 'properties' 1 %}">Properties</a></p>
                 <p><a class="text-light" href="http://ivaneresko.info">Made by yaquake</a></p>
 
             </div>
             <div class="col-md-6 text-light merriweather">
                 <a href="mailto:info@mcdonaldrentals.co.nz"><img
-                src="{% static 'logos/iconfinder_Email_3138894.png' %}" alt="Email" width="16%"/></a>&nbsp
-        <a href="https://www.facebook.com/McDonaldProperty/" target="_blank"><img
-                src="{% static 'logos/iconfinder_Facebook_3138895.png' %}" alt="Facebook" width="16%"/></a>&nbsp
-        <a href="https://www.linkedin.com/company/mcdonald-property-management-ltd" target="_blank"><img
-                src="{% static 'logos/iconfinder_LinkedIn_3138898.png' %}" alt="Linkedin" width="16%"/></a><br /><br />
+                        src="{% static 'logos/iconfinder_Email_3138894.png' %}" alt="Email" width="16%"/></a>&nbsp
+                <a href="https://www.facebook.com/McDonaldProperty/" target="_blank"><img
+                        src="{% static 'logos/iconfinder_Facebook_3138895.png' %}" alt="Facebook" width="16%"/></a>&nbsp
+                <a href="https://www.linkedin.com/company/mcdonald-property-management-ltd" target="_blank"><img
+                        src="{% static 'logos/iconfinder_LinkedIn_3138898.png' %}" alt="Linkedin" width="16%"/></a><br/><br/>
                 <p>McDonald Property Management Ltd</p>
                 <p><strong>Address: </strong>376 Great South Rd, Papatoetoe</p>
                 <p><strong>Postal address:</strong>
@@ -367,12 +380,9 @@
                 <p>Since 2011</p>
 
 
-
             </div>
         </div>
         <br/>
-
-
 
 
     </div>
