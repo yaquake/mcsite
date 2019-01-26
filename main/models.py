@@ -3,6 +3,7 @@ from django.utils.text import slugify
 from django.db.models.signals import post_save, post_delete, pre_delete
 from django.dispatch import receiver
 from django.core.validators import ValidationError
+from easy_thumbnails.fields import ThumbnailerImageField
 
 
 class News(models.Model):
@@ -32,7 +33,7 @@ class Person(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=15)
     about = models.TextField(max_length=1000)
-    image = models.ImageField(upload_to='media/personnel/', null=False, default=None)
+    image = ThumbnailerImageField(upload_to='media/personnel/', null=False, default=None, resize_source=dict(size=(600, 600), crop='smart'))
 
     def __str__(self):
         return self.name
@@ -40,6 +41,11 @@ class Person(models.Model):
     class Meta:
         verbose_name = 'Person'
         verbose_name_plural = 'People'
+
+
+@receiver(pre_delete, sender=Person)
+def delete_personnel_image(sender, instance, **kwargs):
+    instance.image.delete(False)
 
 
 class Property(models.Model):
