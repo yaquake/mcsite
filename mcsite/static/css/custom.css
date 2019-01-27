@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand');
+    @import url('https://fonts.googleapis.com/css?family=Quicksand');
 @import url('https://fonts.googleapis.com/css?family=Merriweather');
 
 
@@ -94,7 +94,12 @@ li {
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
+
+    h2.news-title {
+        font-family: Merriweather, sans-serif, Serif;
+        font-size: 2vh;
+    }
 
     p.services {
         margin: 0 0 100px 0;
@@ -126,15 +131,46 @@ li {
     #future {
         margin-top: 100px;
     }
+
+    div#background > div#future > p.motto {
+        font-size: 8em;
+        color: #ffffff;
+        font-weight: bold;
+    }
+    p.email {
+        font-size: 1.5em;
+        color: #ffffff;
+        font-weight: bold;
+    }
+    p.phone {
+        font-size: 1.5em;
+        color: #ffffff;
+        font-weight: bold;
+    }
+    p.red {
+        color: red;
+    }
 }
 
 @media screen and (max-width: 1200px) {
+
+
+
+    img.logo {
+        width: 200px;
+    }
+
+    h2.news-title {
+        font-family: Merriweather, sans-serif, Serif;
+        font-size: 3vh;
+    }
+
     p.services {
         margin: 0 0 100px 0px;
     }
 
     #content {
-        margin: 500px 0 0 0;
+        margin: 300px 0 0 0;
         background: #fff;
         position: relative;
     }
@@ -145,7 +181,7 @@ li {
         left: 0;
         right: 0;
         top: 0;
-        height: 700px;
+        height: 500px;
         background-size: cover;
     }
 
@@ -157,11 +193,37 @@ li {
     }
 
     #future {
-        margin-top: 100px;
+        margin-top: 160px;
+    }
+
+    p.motto {
+        font-size: 3em;
+        color: #ffffff;
+        font-weight: bold;
+    }
+    p.email {
+        font-size: 1.5em;
+        color: #ffffff;
+        font-weight: bold;
+    }
+    p.phone {
+        font-size: 1.5em;
+        color: #ffffff;
+        font-weight: bold;
     }
 }
 
+
+
 @media screen and (min-width: 1201px) {
+
+    h2.news-title {
+        font-family: Merriweather, sans-serif, Serif;
+        font-size: 5vh;
+        text-align: center;
+    }
+
+
     p.services {
         margin: 0 0 100px 50px;
     }
@@ -191,6 +253,22 @@ li {
 
     #future {
         margin-top: 110px;
+    }
+
+    p.motto {
+        font-size: 5em;
+        color: #ffffff;
+        font-weight: bold;
+    }
+    p.email {
+        font-size: 2em;
+        color: #ffffff;
+        font-weight: bold;
+    }
+    p.phone {
+        font-size: 2em;
+        color: #ffffff;
+        font-weight: bold;
     }
 }
 

@@ -6,7 +6,7 @@
     <h5 class="pl-3 pt-3 ">
         <a href="{% url 'news' 1 %}" class="text-info"><- Back to News</a></h5><br/>
 
-    <p><h2 class="text-center merriweather" style="font-size: 5vh;">{{ news.name }}</h2></p>
+    <p><h2 class="news-title">{{ news.name }}</h2></p>
     <p class="text-center"><img src="{{ news.image.url }}" width="50%"></p>
     <p class="text-center">{{ news.pubdate_pretty }}</p>
     <hr>

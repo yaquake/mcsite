@@ -70,17 +70,17 @@
                         <div class="card text-center hover" style="border: 1px solid lightgrey; cursor: pointer;"
                              onclick="window.location='{% url 'property_details' item.code %}';">
                             {% if item.thumbnail %}
-                                <img src="{{ item.thumbnail.url }}" width="100%"/>
+                                <img src="{{ item.thumbnail.url }}" width="100%" alt="{{ item.code }}"/>
                             {% endif %}
                             <div class="card-body text-left">
                                 <h3 class="card-title">{{ item.suburb }} <br/> ${{ item.rent }}
                                     per {{ item.rental_period.lower }}</h3>
                                 <hr>
                                 <p class="card-text pb-3 text-left">
-                                    Address: {{ item.street_number }}, {{ item.street_name }}<br/>
-                                    Suburb: {{ item.suburb }}<br/>
-                                    City: {{ item.city }} <br/>
-                                    Available from: {{ item.date_available }}
+                                <span class="text-info">Address: </span> {{ item.street_number }}, {{ item.street_name }}<br/>
+                                    <span class="text-info">Suburb: </span> {{ item.suburb }}<br/>
+                                    <span class="text-info">City: </span> {{ item.city }} <br/>
+                                    <span class="text-danger">Available from: </span> {{ item.date_available }}
 
                                 </p>
                                 <p><a href="{% url 'property_details' item.code %}"

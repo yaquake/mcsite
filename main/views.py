@@ -55,7 +55,7 @@ def logout(request):
         return redirect('home')
 
 
-@cache_page(CACHE_TTL)
+# @cache_page(CACHE_TTL)
 def properties(request, page):
     property = Property.objects.all()
     paginator = Paginator(property, 9)
