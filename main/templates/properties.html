@@ -7,7 +7,7 @@
         <div class="container pt-5 bg-white" style="min-height: 1100px;">
             <div class="row">
                 <div class="col-md-6">
-                    <h3 class="pt-3 text-muted">Properties found: {{ list_count }}</h3>
+                    <h3 class="pt-3 text-muted merriweather">Properties found: {{ list_count }}</h3>
                 </div>
                 <div class="col-md-6 justify-content-end">
 
@@ -73,18 +73,18 @@
                                 <img src="{{ item.thumbnail.url }}" width="100%" alt="{{ item.code }}"/>
                             {% endif %}
                             <div class="card-body text-left">
-                                <h3 class="card-title">{{ item.suburb }} <br/> ${{ item.rent }}
+                                <h3 class="card-title merriweather">{{ item.suburb }} <br/> ${{ item.rent }}
                                     per {{ item.rental_period.lower }}</h3>
                                 <hr>
-                                <p class="card-text pb-3 text-left">
-                                <span class="text-info">Address: </span> {{ item.street_number }}, {{ item.street_name }}<br/>
-                                    <span class="text-info">Suburb: </span> {{ item.suburb }}<br/>
-                                    <span class="text-info">City: </span> {{ item.city }} <br/>
-                                    <span class="text-info">Available from: </span> {{ item.date_available }}
+                                <p class="card-text pb-3 text-left merriweather">
+                                <span class="text-muted "><strong>Address:</strong> </span> {{ item.street_number }}, {{ item.street_name }}<br/>
+                                    <span class="text-muted "><strong>Suburb:</strong> </span> {{ item.suburb }}<br/>
+                                    <span class="text-muted "><strong>City:</strong> </span> {{ item.city }} <br/>
+                                    <span class="text-muted "><strong>Available from:</strong> </span> {{ item.date_available }}
 
                                 </p>
-                                <p><a href="{% url 'property_details' item.code %}"
-                                      class="text-info"><strong>DETAILS</strong></a></p>
+                                <p class="merriweather"><a href="{% url 'property_details' item.code %}"
+                                      class="text-info" style="font-size: 1.3em;"><strong>READ MORE</strong></a></p>
                             </div>
                         </div>
                     </div>
