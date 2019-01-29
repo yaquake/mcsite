@@ -14,7 +14,11 @@ class News(models.Model):
     slug = models.SlugField(unique=True, default=False)
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name[:49])
+        if News.objects.filter(slug=slugify(self.name[:49])).exists():
+            raise ValidationError('A news with this title already exists.')
+        else:
+            self.slug = slugify(self.name[:49])
+
         super(News, self).save(*args, **kwargs)
 
     def __str__(self):
