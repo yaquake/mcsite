@@ -38,14 +38,10 @@ def login(request):
         try:
             user1 = User.objects.get(username=request.POST['login'])
             user = auth.authenticate(username=user1.username, password=request.POST['password'])
-            # if user:
             auth.login(request, user)
             return redirect('home')
-            # else:
-            #     return render(request, 'login.html', {'error': 'Wrong credentials'})
         except User.DoesNotExist:
             return render(request, 'login.html', {'error': 'Wrong credentials'})
-
     return render(request, 'login.html')
 
 
@@ -101,7 +97,7 @@ def postnews(request):
         form = NewsForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('news')
+            return redirect('news', page=1)
     else:
         news_form = NewsForm()
         return render(request, 'add_news.html', {'form': news_form})
