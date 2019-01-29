@@ -69,7 +69,7 @@ def update_from_xml():
                     aster = '****'
                     if property.PropertyFeatures.PropertyAdvertText.text != '':
                         if aster in property.PropertyFeatures.PropertyAdvertText.text:
-                            garbage, prop.advert_text = property.PropertyFeatures.PropertyAdvertText.text.split('****')
+                            garbage, prop.advert_text = property.PropertyFeatures.PropertyAdvertText.text.split(aster)
                         else:
                             prop.advert_text = property.PropertyFeatures.PropertyAdvertText.text
                     else:
