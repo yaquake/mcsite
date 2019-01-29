@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load thumbnail %}
 {% block content %}
     <div id="content">
         <div class="container mt-5" style="min-height: 1100px; background-color: #ffffff;">
@@ -82,8 +83,8 @@
                     <hr>
                 {% endif %}
                 <div class="row">
-                    <div class="col-md-3">
-                        <img src="{{ item.image.url }}" width="100%" class="rounded" alt="MainImage">
+                    <div class="col-md-3 object-fit">
+                        <img src="{% thumbnail item.image 'news_image' %}" width="100%" class="rounded " alt="MainImage">
                     </div>
                     <div class="col-md-9">
                         <p style="font-size: 0.75em;">{{ item.pubdate_pretty }}</p>
