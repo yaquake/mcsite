@@ -85,7 +85,7 @@ def contact(request):
     return render(request, 'contact.html', {'form': form})
 
 
-@cache_page(CACHE_TTL)
+# @cache_page(CACHE_TTL)
 def apply(request):
     return render(request, 'apply.html')
 

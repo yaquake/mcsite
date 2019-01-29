@@ -66,8 +66,12 @@ def update_from_xml():
 
                     prop.rental_period = property.PropertyRentalPeriod.text
                     prop.rent = property.PropertyRentAmount.text
+                    aster = '****'
                     if property.PropertyFeatures.PropertyAdvertText.text != '':
-                        garbage, prop.advert_text = property.PropertyFeatures.PropertyAdvertText.text.split('****')
+                        if aster in property.PropertyFeatures.PropertyAdvertText.text:
+                            garbage, prop.advert_text = property.PropertyFeatures.PropertyAdvertText.text.split('****')
+                        else:
+                            prop.advert_text = property.PropertyFeatures.PropertyAdvertText.text
                     else:
                         prop.advert_text = ''
                     prop.save()

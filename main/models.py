@@ -76,6 +76,10 @@ class Property(models.Model):
     class Meta:
         verbose_name = 'Property'
         verbose_name_plural = 'Properties'
+        ordering = ['-id']
+
+    def __str__(self):
+        return self.code
 
 
 @receiver(pre_delete, sender=Property)
