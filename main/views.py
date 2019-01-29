@@ -38,17 +38,15 @@ def login(request):
         try:
             user1 = User.objects.get(username=request.POST['login'])
             user = auth.authenticate(username=user1.username, password=request.POST['password'])
-            if user:
-                if auth.login(request, user):
-                    return redirect('home')
-                else:
-                    return redirect('login', {'error': 'Wrong credentials'})
-            else:
-                return render(request, 'login.html', {'error': 'Wrong credentials'})
+            # if user:
+            auth.login(request, user)
+            return redirect('home')
+            # else:
+            #     return render(request, 'login.html', {'error': 'Wrong credentials'})
         except User.DoesNotExist:
             return render(request, 'login.html', {'error': 'Wrong credentials'})
-    else:
-        return render(request, 'login.html')
+
+    return render(request, 'login.html')
 
 
 def logout(request):
