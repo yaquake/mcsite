@@ -37,7 +37,7 @@ THUMBNAIL_ALIASES = {
     '': {
         'prop_image': {'size': (400, 300), 'crop': 'smart'},
         'personnel_image': {'size': (600, 800), 'crop': 'smart'},
-        'news_image': {'size': (400, 300), 'crop': 'smart'},
+        'news_image': {'size': (800, 500), 'crop': 'smart'},
     },
 }
 
