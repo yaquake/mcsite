@@ -22,6 +22,7 @@ class News(models.Model):
 
         super(News, self).save(*args, **kwargs)
 
+
     def __str__(self):
         return self.name
 

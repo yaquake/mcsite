@@ -28,7 +28,7 @@ def update_from_xml():
             soup = bs.BeautifulSoup(property_list_xml.text, 'xml')
 
             for property in soup.find_all('AvailableProperty'):
-                if property.PropertyStatus.text == 'Active':
+                if property.PropertyPublishAddress.text == 'Yes':
                     prop = Property()
                     prop.street_number = property.PropertyAddress1.text
                     prop.street_name = property.PropertyAddress2.text
