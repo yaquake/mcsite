@@ -5,6 +5,7 @@ from django.dispatch import receiver
 from django.core.validators import ValidationError
 from easy_thumbnails.fields import ThumbnailerImageField
 
+
 class About(models.Model):
     description = models.TextField()
 
