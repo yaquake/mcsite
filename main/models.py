@@ -61,6 +61,8 @@ class Property(models.Model):
     city = models.CharField(max_length=20, default='Auckland')
     postcode = models.IntegerField(null=True)
     code = models.CharField(max_length=11)
+    change_code = models.IntegerField(default=1)
+    publish_address = models.CharField(max_length=3, default=None)
     date_available = models.CharField(max_length=35)
     bathrooms = models.IntegerField(null=True, blank=True)
     bedrooms = models.IntegerField(null=True, blank=True)
