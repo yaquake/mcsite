@@ -5,6 +5,21 @@ from django.dispatch import receiver
 from django.core.validators import ValidationError
 from easy_thumbnails.fields import ThumbnailerImageField
 
+class About(models.Model):
+    description = models.TextField()
+
+    def __str__(self):
+        return 'About us'
+
+    class Meta:
+        verbose_name_plural = 'About us'
+        verbose_name = 'About'
+
+    def save(self, *args, **kwargs):
+        if About.objects.exists() and not self.pk:
+            raise ValidationError('Only one instance of "About" can exist.')
+        return super(About, self).save(*args, **kwargs)
+
 
 class MainPageInfo(models.Model):
     image = models.ImageField(upload_to='media/main_page', null=False, default=False)

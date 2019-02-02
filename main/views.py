@@ -3,9 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .forms import Contact, NewsForm
-from .models import News, Person, Property, Services, MainPageInfo
+from .models import News, Person, Property, Services, MainPageInfo, About
 from django.core.paginator import Paginator
-import facebook
 from .tasks import send_email_task
 from django.conf import settings
 from django.core.cache.backends.base import DEFAULT_TIMEOUT
@@ -84,7 +83,8 @@ def apply(request):
 
 def about(request):
     personnel = Person.objects.all()
-    return render(request, 'about.html', {'personnel': personnel})
+    about = About.objects.first()
+    return render(request, 'about.html', {'personnel': personnel, 'about': about})
 
 
 @login_required()
