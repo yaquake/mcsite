@@ -1,9 +1,31 @@
 from django.db import models
 from django.utils.text import slugify
-from django.db.models.signals import post_save, post_delete, pre_delete
+from django.db.models.signals import post_save, post_delete, pre_delete, pre_save
 from django.dispatch import receiver
 from django.core.validators import ValidationError
 from easy_thumbnails.fields import ThumbnailerImageField
+
+
+class MainPageInfo(models.Model):
+    image = models.ImageField(upload_to='media/main_page', null=False, default=False)
+    description = models.TextField()
+
+    def __str__(self):
+        return 'Main page info'
+
+    def save(self, *args, **kwargs):
+        if MainPageInfo.objects.exists() and not self.pk:
+            raise ValidationError('Only one instance of Main Page info can exist.')
+        return super(MainPageInfo, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = 'Main page info'
+        verbose_name_plural = 'Main page info'
+
+# TODO: figure out how to delete previous image before updating image field
+# @receiver(pre_save, sender=MainPageInfo)
+# def delete_main_info(sender, instance, **kwargs):
+#     instance.image.delete(False)
 
 
 class News(models.Model):
@@ -21,7 +43,6 @@ class News(models.Model):
             self.slug = slugify(self.name[:length])
 
         super(News, self).save(*args, **kwargs)
-
 
     def __str__(self):
         return self.name

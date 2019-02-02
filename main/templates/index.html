@@ -19,51 +19,14 @@
 
             <div class="row inline pb-5">
                 <div class="col-md-8 border-right">
-                    <img src="{% static 'personnel.jpg' %}" width="100%" class="rounded mb-2"
+                    <img src="{{ info.image.url }}" width="100%" class="rounded mb-2"
                          alt="Personnel"/>
                     <br/>
                     <br/>
-                    <h5 class="text-center ">Why McDonald Property Management Ltd?</h5>
+                    <h5 class="text-center">Why McDonald Property Management Ltd?</h5>
                     <div class="text-left indent">
 
-                        <ul>
-                            <li>
-                                It's an owner operated business - it makes sense for us to make our service work for
-                                you,
-                                the
-                                customer.
-                            </li>
-                            <li>
-                                We are experienced and qualified.
-                            </li>
-                            <li>
-                                As property investors ourselves, we understand what is needed to effectively manage
-                                investment properties.
-                            </li>
-                            <li>
-                                Running an investment portfolio, however large or small should be viewed as running a
-                                business.
-                            </li>
-                            <li>
-                                When there is a problem with your property we have a team of reliable, trust worthy
-                                tradesmen
-                                who
-                                will give you a priority service at a reasonable price.
-                            </li>
-                            <li>
-                                We deal with all the day-to-day issues with tenants and act as a buffer between you and
-                                them.
-                            </li>
-                            <li>
-                                Whether you own investment property or are simply away from your own home we can look
-                                after
-                                you.
-                                Your property is important to your future and allowing us to manage it for you will
-                                ensure
-                                the
-                                very best returns.
-                            </li>
-                        </ul>
+                        {{ info.description|safe }}
                     </div>
                 </div>
                 <div class="col-md-4">

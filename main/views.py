@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .forms import Contact, NewsForm
-from .models import News, Person, Property, Services
+from .models import News, Person, Property, Services, MainPageInfo
 from django.core.paginator import Paginator
 import facebook
 from .tasks import send_email_task
@@ -17,15 +17,8 @@ CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
 def home(request):
     news = News.objects.all().order_by('-pub_date')[:7]
-    # graph = facebook.GraphAPI(access_token="EAAE2SwiAhjABAHEllR19CJFA4LwWRVuUMTzp4MgX7ObA7Ubaz52z1AuFHEmmvgcQkNGHwyBeNxA4cQxBlqLm3AV43nZBNcOlAFFvkxtUhzsNZB4DKCZCLGLptfNZBoT6w7VYqWLcOIg66I53Y7eGSa8OuQt1t767f71zpgGhVxds50NubNcHLT8sPi5mETvoV7wZCVklnIaHgT5y4KiciD9h7qWfINzs1aLZA8KvG9ZBgZDZD")
-    # print(graph)
-    # attachment = {
-    #     'name': 'Link name',
-    #             'link': 'https://www.example.com/', 'caption': 'Check out this example',
-    # 'description': 'This is a longer description of the attachment'}
-    # # feed = graph.get_connections("me", "feed")
-    # graph.put_object('me', 'feed', message='Hello, world!')
-    return render(request, 'index.html', {'home': 'HOME', 'news': news, 'page': 1})
+    main_page_info = MainPageInfo.objects.first()
+    return render(request, 'index.html', {'home': 'HOME', 'news': news, 'page': 1, 'info': main_page_info})
 
 
 def services(request):
