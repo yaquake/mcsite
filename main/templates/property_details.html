@@ -17,7 +17,8 @@
                         {% else %}
                             <div class="carousel-item">
                         {% endif %}
-                    <a href="{{ image.image.url }}" target="_blank"><img class="d-block w-100" src="{{ image.image.url }}" alt="First slide"></a>
+                    <a href="{{ image.image.url }}" target="_blank"><img class="d-block w-100"
+                                                                         src="{{ image.image.url }}" alt="First slide"></a>
                     </div>
                     {% endfor %}
                     </div>
@@ -43,27 +44,46 @@
                     </h1>
                 </div>
                 <div class="row my-5">
-                    <div class="col-6">
-                        <p>Bathrooms: {{ property.bathrooms }}</p>
-                        <p>Bedrooms: {{ property.bedrooms }}</p>
-                        <p>Carparks: {{ property.carparks }}</p>
-                        <p>Available from: {{ property.date_available }}</p>
-                        <p class="pt-5">Price: ${{ property.rent }} per {{ property.rental_period.lower }} </p>
+                    <div class="col-md-3">
+                        <img src="{% static 'property_icons/bedroom.png' %}" style="width:50px;"
+                             alt="Bedrooms" class="pb-2">: <span style="font-size: 1.5em;">{{ property.bedrooms }}</span></div>
+                    <div class="col-md-3">
+                        <img src="{% static 'property_icons/bathroom.png' %}" style="width:50px;"
+                             alt="Bathrooms" class="pb-2">: <span style="font-size: 1.5em;">{{ property.bathrooms }}</span></div>
+                    <div class="col-md-3">
+                        <img src="{% static 'property_icons/carpark.png' %}" style="width:50px;"
+                             alt="Carpark" class="pb-2">: <span style="font-size: 1.5em;">{{ property.carparks }}</span></div>
+                    <div class="col-md-3">
+                        <img src="{% static 'property_icons/calendar.png' %}" style="width:50px;"
+                             alt="Available from" class="pb-2">: <span style="font-size: 1.5em;">{{ property.date_available }}</span></div>
 
-                    </div>
-                    <div class="col-6 border-left">
-                        <div id="propertyAdvertText" class="pb-4">
-                            <p style="line-height: 2.3;">{{ property.advert_text }}</p>
-                        </div>
-                    </div>
 
                 </div>
-                <div class="merriweather text-right pb-5">
-                    <button class="btn btn-danger btn-lg">EMAIL US</button>&nbsp<button class="btn btn-success btn-lg">CALL US</button><br />
+
+                {% if property.advert_text %}
+                    <div id="propertyAdvertText" class="pb-4">
+                    <h3 class="merriweather">Description:</h3><br />
+                        <p style="line-height: 2.3;">{{ property.advert_text }}</p>
+                    </div>
+
+                {% endif %}
+                <div>
+                    <h2 class="pt-3 merriweather">Price: ${{ property.rent }} per {{ property.rental_period.lower }} </h2>
                 </div>
-
-
+            <div class="row pt-5">
+                <div class="col-md-6 pb-2">
+                    <h3 class="merriweather">Call us: <a href="tel:092151267" class="text-dark merriweather">(09) 215 1267</a></h3>
+                </div>
+            <div class="pb-2 col-md-2">
+                <a href="mailto:{{ property.agent_email1 }}?subject={{ property.street_number }},%20{{ property.street_name }},%20{{ property.suburb }}&body=I%20would%20like%20to%20know%20more%20about%20this%20property."><button class="btn btn-info btn-lg">EMAIL US</button></a>
             </div>
+            <div class="pb-5 col-md-4">
+                <a href="https://www.mcdonaldrentals.viewingtracker.com/"><button class="btn btn-success btn-lg pt-2">BOOK VIEWING</button></a>
+                <br/>
+            </div></div>
+            </div>
+
+        </div>
 
 
 
