@@ -4,7 +4,6 @@ from celery.schedules import crontab
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mcsite.settings")
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'rgxi#(na8-p6-7rjs*z)g4$@2o0o!8qg9qit1s5mvydjtl(=##'
