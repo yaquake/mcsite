@@ -6,6 +6,26 @@ from django.core.validators import ValidationError
 from easy_thumbnails.fields import ThumbnailerImageField
 
 
+# Class that contains info about Motto, Email, and Phone number on a main page.
+class MottoEmailPhone(models.Model):
+    motto = models.CharField(max_length=100, default='Your future starts with us')
+    email = models.EmailField()
+    phone = models.CharField(max_length=18, default='(09) 215 1267')
+
+    def __str__(self):
+        return 'Motto, email, and phone number'
+
+    class Meta:
+        verbose_name = 'Motto, email, and phone number'
+        verbose_name_plural = 'Motto, email, and phone number'
+
+    def save(self, *args, **kwargs):
+        if MottoEmailPhone.objects.exists() and not self.pk:
+            raise ValidationError('Only one instance of this object can exist.')
+        return super(MottoEmailPhone, self).save(*args, **kwargs)
+
+
+# Information on an About page
 class About(models.Model):
     description = models.TextField()
 
@@ -22,6 +42,7 @@ class About(models.Model):
         return super(About, self).save(*args, **kwargs)
 
 
+# Info and a picture about company on a main page
 class MainPageInfo(models.Model):
     image = models.ImageField(upload_to='media/main_page', null=False, default=False)
     description = models.TextField()
@@ -142,6 +163,7 @@ def delete_images(sender, instance, **kwargs):
     instance.image.delete(False)
 
 
+# Login and password for getpalace.com API
 class Palace(models.Model):
     name = models.CharField(max_length=50, blank=False)
     login = models.CharField(max_length=50, blank=False)
@@ -160,6 +182,7 @@ class Palace(models.Model):
         return self.name
 
 
+# Services on a services page
 class Services(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(max_length=2000)

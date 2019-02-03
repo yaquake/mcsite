@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .forms import Contact, NewsForm
-from .models import News, Person, Property, Services, MainPageInfo, About
+from .models import News, Person, Property, Services, MainPageInfo, About, MottoEmailPhone
 from django.core.paginator import Paginator
 from .tasks import send_email_task
 from django.conf import settings

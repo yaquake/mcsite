@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import News, Person, Property, Palace, Services, MainPageInfo, About
+from .models import News, Person, Property, Palace, Services, MainPageInfo, About, MottoEmailPhone
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -14,6 +14,8 @@ class MainPageInfoAdmin(SummernoteModelAdmin):
 class AboutAdmin(SummernoteModelAdmin):
     summernote_fields = '__all__'
 
+
+admin.site.register(MottoEmailPhone)
 
 admin.site.register(About, AboutAdmin)
 
