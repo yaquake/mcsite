@@ -196,13 +196,13 @@ class Services(models.Model):
 
 
 # Contact info
-class Contact(models.Model):
+class ContactUs(models.Model):
     description = models.TextField()
 
     def save(self, *args, **kwargs):
-        if Contact.objects.exists() and not self.pk:
+        if ContactUs.objects.exists() and not self.pk:
             raise ValidationError('Only one instance of Palace"s login and password can exist.')
-        return super(Contact, self).save(*args, **kwargs)
+        return super(ContactUs, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name = 'Contact us'

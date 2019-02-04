@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .forms import Contact, NewsForm
-from .models import News, Person, Property, Services, MainPageInfo, About, MottoEmailPhone
+from .models import News, Person, Property, Services, MainPageInfo, About, ContactUs
 from django.core.paginator import Paginator
 from .tasks import send_email_task
 from django.conf import settings
@@ -73,7 +73,8 @@ def contact(request):
                                   )
             return redirect('home')
     form = Contact()
-    return render(request, 'contact.html', {'form': form})
+    contact_info = ContactUs.objects.first()
+    return render(request, 'contact.html', {'form': form, 'contact': contact_info})
 
 
 @cache_page(CACHE_TTL)
