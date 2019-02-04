@@ -451,7 +451,7 @@
 
             </div>
             <div class="col-md-6 text-light merriweather">
-                <a href="mailto:info@mcdonaldrentals.co.nz"><img
+                <a href="mailto:{{ creds.email }}"><img
                         src="{% static 'logos/iconfinder_Email_3138894.png' %}" alt="Email" width="10%"/></a>&nbsp
                 <a href="https://www.facebook.com/McDonaldProperty/" target="_blank"><img
                         src="{% static 'logos/iconfinder_Facebook_3138895.png' %}" alt="Facebook" width="10%"/></a>&nbsp
@@ -510,25 +510,7 @@
     }
 </script>
 
-{##}
-{##}
-{##}
-{#<script>#}
-{#    document.querySelector('#form-contact').addEventListener('submit', function(e) {#}
-{#      if (e.target.elements.name.value !== '' &&#}
-{#          e.target.elements.email.value !== '' &&#}
-{#          e.target.elements.phone.value !== '' &&#}
-{#          e.target.elements.topic.value !== '' &&#}
-{#          e.target.elements.details.value !== '') {#}
-{#            alert("Your message has been sent. Redirecting to the home page..")#}
-{#      } else {#}
-{#            alert("Please, fill in all fields.")#}
-{#      }#}
-{#})#}
-{#</script>#}
 
-
-{#<script src="{% static 'js/user.js' %}" type="text/javascript"></script>#}
 
 <script>
     $(function () {
