@@ -120,7 +120,7 @@ class Property(models.Model):
     postcode = models.IntegerField(null=True)
     code = models.CharField(max_length=11)
     change_code = models.IntegerField(default=1)
-    publish_address = models.CharField(max_length=3, default=None)
+    publish_entry = models.CharField(max_length=3, default=None)
     date_available = models.CharField(max_length=35)
     bathrooms = models.IntegerField(null=True, blank=True)
     bedrooms = models.IntegerField(null=True, blank=True)

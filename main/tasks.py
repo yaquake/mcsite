@@ -2,12 +2,11 @@ from __future__ import absolute_import, unicode_literals
 import bs4 as bs
 import requests
 import base64
-import os
+
 from celery import shared_task, task, Celery
 from django.core.files.base import ContentFile
-from django.core.mail import send_mail
+from django.core.mail import send_mail, get_connection
 from easy_thumbnails.files import get_thumbnailer
-from django.shortcuts import get_object_or_404
 
 
 @shared_task()
@@ -28,12 +27,12 @@ def update_from_xml():
             soup = bs.BeautifulSoup(property_list_xml.text, 'xml')
 
             for property in soup.find_all('AvailableProperty'):
-                if property.PropertyPublishAddress.text == 'Yes':
+                if property.PropertyPublishEntry.text == 'Yes':
                     existing_property = Property.objects.filter(code=property.PropertyCode.text).first()
                     if existing_property:
                         if existing_property.change_code != int(property.PropertyChangeCode.text):
                             existing_property.change_code = int(property.PropertyChangeCode.text)
-                            existing_property.publish_address = property.PropertyPublishAddress.text
+                            existing_property.publish_entry = property.PropertyPublishEntry.text
                             existing_property.street_number = property.PropertyAddress1.text
                             existing_property.street_name = property.PropertyAddress2.text
 
@@ -104,7 +103,7 @@ def update_from_xml():
                                 existing_property.save()
                     else:
                         prop = Property()
-                        prop.publish_address = property.PropertyPublishAddress.text
+                        prop.publish_entry = property.PropertyPublishEntry.text
                         prop.change_code = int(property.PropertyChangeCode.text)
                         prop.street_number = property.PropertyAddress1.text
                         prop.street_name = property.PropertyAddress2.text
