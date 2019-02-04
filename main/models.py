@@ -72,12 +72,13 @@ class News(models.Model):
     description = models.TextField()
     slug = models.SlugField(unique=True, default=False)
 
+    # TODO: change logic
     def save(self, *args, **kwargs):
-        length = len(self.name)
+        length = 50
         if News.objects.filter(slug=slugify(self.name[:length])).exists():
             self.slug = slugify(self.name[:length-3])
         else:
-            self.slug = slugify(self.name[:length])
+            self.slug = slugify(self.name[:length-1])
 
         super(News, self).save(*args, **kwargs)
 
