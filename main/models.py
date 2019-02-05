@@ -212,3 +212,24 @@ class ContactUs(models.Model):
     def __str__(self):
         return 'Contact us'
 
+
+# Email settings model for a contact form
+class EmailSettings(models.Model):
+    full_email = models.CharField(max_length=60, default=None)
+    email_host = models.CharField(max_length=40)
+    email_port = models.PositiveIntegerField()
+    email_host_user = models.CharField(max_length=50)
+    email_host_password = models.CharField(max_length=50)
+    email_use_ssl = models.BooleanField(default=True)
+
+    def __str__(self):
+        return 'Email settings for a contact form'
+
+    def save(self, *args, **kwargs):
+        if EmailSettings.objects.exists() and not self.pk:
+            raise ValidationError('Only one instance of email settings allowed')
+        return super(EmailSettings, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name_plural = 'Email settings'
+        verbose_name = 'Email settings'

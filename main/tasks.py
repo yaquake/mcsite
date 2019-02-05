@@ -72,7 +72,8 @@ def update_from_xml():
                             aster = '****'
                             if property.PropertyFeatures.PropertyAdvertText.text != '':
                                 if aster in property.PropertyFeatures.PropertyAdvertText.text:
-                                    garbage, existing_property.advert_text = property.PropertyFeatures.PropertyAdvertText.text.split(aster)
+                                    splitted_text = property.PropertyFeatures.PropertyAdvertText.text.split(aster)
+                                    existing_property.advert_text = splitted_text[-1]
                                 else:
                                     existing_property.advert_text = property.PropertyFeatures.PropertyAdvertText.text
                             else:
@@ -141,11 +142,13 @@ def update_from_xml():
 
                         prop.rental_period = property.PropertyRentalPeriod.text
                         prop.rent = property.PropertyRentAmount.text
+                        # TODO: decide how to implement splitting in an advert text
                         aster = '****'
                         if property.PropertyFeatures.PropertyAdvertText.text != '':
                             if aster in property.PropertyFeatures.PropertyAdvertText.text:
-                                garbage, prop.advert_text = property.PropertyFeatures.PropertyAdvertText.text.split(
+                                splitted_text = property.PropertyFeatures.PropertyAdvertText.text.split(
                                     aster)
+                                prop.advert_text = splitted_text[-1]
                             else:
                                 prop.advert_text = property.PropertyFeatures.PropertyAdvertText.text
                         else:
@@ -184,5 +187,34 @@ def update_from_xml():
 
 
 @shared_task()
-def send_email_task(topic, details, email):
-    return send_mail(topic, details, email, ['yaquake@live.ru', ])
+def send_email_task(topic, details):
+    from django.core import mail
+    from main.models import EmailSettings
+
+    try:
+        email_settings = EmailSettings.objects.first()
+        connection = mail.get_connection(
+            host=email_settings.email_host,
+            port=email_settings.email_port,
+            username=email_settings.email_host_user,
+            password=email_settings.email_host_password,
+            use_ssl=email_settings.email_use_ssl,
+        )
+        connection.open()
+
+        email_to_send = mail.EmailMessage(
+            topic,
+            details,
+            from_email=email_settings.full_email,
+            to=(email_settings.full_email,),
+            connection=connection
+        )
+        email_to_send.send()
+        connection.close()
+        return True
+
+    except Exception as _error:
+        print('Error in sending mail >> {}'.format(_error))
+        return False
+
+    # return send_mail(topic, details, email, [email_settings.full_email, ])

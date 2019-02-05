@@ -73,7 +73,6 @@ def contact(request):
                                                                     form.cleaned_data['details'])
             send_email_task.delay(form.cleaned_data['topic'],
                                   body_text,
-                                  form.cleaned_data['email'],
                                   )
             return redirect('home')
     form = Contact()
