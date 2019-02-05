@@ -2,7 +2,6 @@
 {% load staticfiles %}
 {% block content %}
     <div id="content">
-
     <div class="container mt-5 bg-white">
         <div class="pb-5">
             <div class="text-center">
@@ -10,7 +9,6 @@
             <div class="col-md-12 pt-2 pl-0 text-center">
                 {{ contact.description|safe }}
             </div>
-
         </div>
         <div>
             <div class="text-center">
@@ -52,12 +50,9 @@
         </div>
     </div>
     <div class="mt-4 container-fluid" style="overflow: hidden; margin: 0;">
-        {#<h3 class=pt-3">How to find us</h3><hr style="border-width: 3px;">#}
-        {#    <div style="width: 100%">#}
         <iframe src="https://maps.google.com/maps?hl=en&amp;q=376%20Great%20South%20Road%20Papatoetoe%20Auckland+(McDonald%20Property%20Management%20LTD)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed">
             <a href="https://www.maps.ie/create-google-map/">Embed Google Map</a></iframe>
     </div>
-    {#</div>#}
     <br/>
 
 {% endblock %}

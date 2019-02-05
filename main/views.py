@@ -40,12 +40,14 @@ def login(request):
     return render(request, 'login.html')
 
 
+# Logout function
 def logout(request):
     if request.method == 'POST':
         auth.logout(request)
         return redirect('home')
 
 
+# List of properties
 @cache_page(CACHE_TTL)
 def properties(request, page):
     property = Property.objects.all()
@@ -55,11 +57,13 @@ def properties(request, page):
     return render(request, 'properties.html', {'list_count': list_count, 'result': result})
 
 
+# Property details of every property
 def property_details(request, key):
     property = get_object_or_404(Property, code=key)
     return render(request, 'property_details.html', {'property': property})
 
 
+# Contact page
 def contact(request):
     if request.method == 'POST':
         form = Contact(request.POST)
@@ -77,18 +81,21 @@ def contact(request):
     return render(request, 'contact.html', {'form': form, 'contact': contact_info})
 
 
+# Apply tenancy page
 @cache_page(CACHE_TTL)
 def apply(request):
     return render(request, 'apply.html')
 
 
+# About page
 def about(request):
     personnel = Person.objects.all()
     about = About.objects.first()
     return render(request, 'about.html', {'personnel': personnel, 'about': about})
 
 
-@login_required()
+# post news
+@login_required(login_url='login')
 def postnews(request):
     if request.method == 'POST':
         form = NewsForm(request.POST, request.FILES)
@@ -100,6 +107,7 @@ def postnews(request):
         return render(request, 'add_news.html', {'form': news_form})
 
 
+# List of news
 def news(request, page):
     news = News.objects.all().order_by('-pub_date')
     paginator = Paginator(news, 10)
@@ -107,6 +115,7 @@ def news(request, page):
     return render(request, 'news.html', {'news': result})
 
 
+# Every news details
 def news_details(request, slug):
     news = get_object_or_404(News, slug=slug)
     return render(request, 'news_details.html', {'news': news})

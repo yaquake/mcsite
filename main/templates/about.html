@@ -9,13 +9,9 @@
                 <div>
                         {{ about.description|safe }}
                     </div>
-
                 <br/>
-
                 <div class="text-center">
                     <h1 class="py-5 text-muted">OUR TEAM</h1></div>
-                {#            <hr style="border-width: 3px;">#}
-
                 <div class="row pb-4">
                     {% for person in personnel %}
                         {% if forloop.counter0|divisibleby:3 %}

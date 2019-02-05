@@ -7,23 +7,22 @@
 
         <div class="container">
             <div class="row py-5 ">
-                <div class="col-lg-4 text-center my-2"><a href="{% url 'services' %}"><img src="{% static 'services_with_white_logo.png' %}" width="90%" class="hover rounded"/></a></div>
-                <div class="col-lg-4 text-center my-2"><a href="{% url 'properties' 1 %}"><img src="{% static 'properties_with_white_logo.png' %}" width="90%" class="hover rounded"/></a></div>
-                <div class="col-lg-4 text-center my-2"><a href="{% url 'apply' %}"><img src="{% static 'apply_with_white_logo.png' %}" width="90%" class="hover rounded"/></a></div>
-
-
+                <div class="col-lg-4 text-center my-2"><a href="{% url 'services' %}">
+                    <img src="{% static 'services_with_white_logo.png' %}" width="90%" class="hover rounded"/></a></div>
+                <div class="col-lg-4 text-center my-2"><a href="{% url 'properties' 1 %}">
+                    <img src="{% static 'properties_with_white_logo.png' %}" width="90%" class="hover rounded"/></a>
+                </div>
+                <div class="col-lg-4 text-center my-2"><a href="{% url 'apply' %}">
+                    <img src="{% static 'apply_with_white_logo.png' %}" width="90%" class="hover rounded"/></a></div>
             </div>
         </div>
-    <div class="container">
-
-
+        <div class="container">
             <div class="row inline pb-5">
                 <div class="col-md-8 border-right">
-                    <img src="{{ info.image.url }}" width="100%" class="rounded mb-2"
+                    <img src="{{ info.image.url }}" width="100%" class="rounded mb-2 pb-5"
                          alt="Personnel"/>
-                    <br/>
-                    <br/>
-                    <h5 class="text-center">Why McDonald Property Management Ltd?</h5>
+
+                    {#                    <h5 class="text-center">Why McDonald Property Management Ltd?</h5>#}
                     <div class="text-left">
 
                         {{ info.description|safe }}
@@ -37,13 +36,11 @@
                         <p style="font-size: 12px;" class="border-top">{{ news.pubdate_pretty }}</p>
                         <a href="{% url 'news_details' news.slug %}"
                            class="text-info">{{ news.name }}</a><br/><br/>
-
                     {% endfor %}
-
                 </div>
             </div>
         </div>
 
 
-<br /><br />
+        <br/><br/>
 {% endblock %}

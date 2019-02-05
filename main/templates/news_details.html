@@ -2,17 +2,18 @@
 {% load staticfiles %}
 {% block content %}
     <div id="content">
-<div class="container mt-5 bg-white">
-    <h5 class="pl-3 pt-3 ">
-        <a href="{% url 'news' 1 %}" class="text-info"><- Back to News</a></h5><br/>
+        <div class="container mt-5 bg-white">
+            <h5 class="pl-3 pt-3 ">
+                <a href="{% url 'news' 1 %}" class="text-info"><- Back to News</a></h5><br/>
 
-    <p><h2 class="news-title">{{ news.name }}</h2></p>
-    <p class="text-center"><img src="{{ news.image.url }}" width="50%"></p>
-    <p class="text-center">{{ news.pubdate_pretty }}</p>
-    <hr>
-    <p class="merriweather">{{ news.description|safe }}</p>
-<br />
-<h3 class="pt-3"><a href="{% url 'news' 1 %}" class="text-info">Back to News</a></h3>
-<br />
-</div>
+            <
+            <h2 class="news-title">{{ news.name }}</h2>
+            <p class="text-center"><img src="{{ news.image.url }}" width="50%" alt="Title picture"></p>
+            <p class="text-center">{{ news.pubdate_pretty }}</p>
+            <hr>
+            <p class="merriweather">{{ news.description|safe }}</p>
+            <br/>
+            <h3 class="pt-3"><a href="{% url 'news' 1 %}" class="text-info">Back to News</a></h3>
+            <br/>
+        </div>
 {% endblock %}

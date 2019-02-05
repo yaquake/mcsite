@@ -1,301 +1,325 @@
-    @import url('https://fonts.googleapis.com/css?family=Quicksand');
-@import url('https://fonts.googleapis.com/css?family=Merriweather');
+        @import url('https://fonts.googleapis.com/css?family=Quicksand');
+        @import url('https://fonts.googleapis.com/css?family=Merriweather');
 
 
-body, html {
-    height: 100%;
-    margin: 0;
-}
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
 
-.indent {
-    padding: 0.25em 1em 0.25em 1em;
-    border-radius: 5px;
-}
+        .indent {
+            padding: 0.25em 1em 0.25em 1em;
+            border-radius: 5px;
+        }
 
-h4 {
-    background-color: #eaeaea;
-}
+        h4 {
+            background-color: #eaeaea;
+        }
 
-.hover {
-    transition: box-shadow 0.5s;
-}
+        .hover {
+            transition: box-shadow 0.5s;
+        }
 
-.hover:hover {
-    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
-}
+        .hover:hover {
+            box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+        }
 
-.rounded-corner {
-    border-radius: 5px;
-}
+        .rounded-corner {
+            border-radius: 5px;
+        }
 
-.font2 {
-    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
-    font-size: 3em;
-}
+        .font2 {
+            font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+            font-size: 3em;
+        }
 
-.font1 {
-    font-family: "Times New Roman", Georgia, Serif, sans-serif;
-}
+        .font1 {
+            font-family: "Times New Roman", Georgia, Serif, sans-serif;
+        }
 
-.required-field::before {
-    content: "*";
-    color: red;
-}
-
-
-.nav > li:hover {
-    border-bottom: solid 5px #84b71c;
-}
+        .required-field::before {
+            content: "*";
+            color: red;
+        }
 
 
-.carousel img {
-    height: 600px;
-    object-fit: contain;
-}
+        .nav > li:hover {
+            border-bottom: solid 5px #84b71c;
+        }
 
-hr.green {
-    background-color: #84b71c;
-}
 
-.p-hover:hover {
-    border-left: solid 3px #84b71c;
-}
+        .carousel img {
+            height: 600px;
+            object-fit: contain;
+        }
 
-ol {
+        hr.green {
+            background-color: #84b71c;
+        }
+
+        .p-hover:hover {
+            border-left: solid 3px #84b71c;
+        }
+
+        ol {
+            display: block;
+            list-style-type: decimal;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 40px;
+        }
+
+        /*.li-bg-blue {*/
+        /*    background-color: #1b85ac;*/
+        /*    color: #FFFFFF;*/
+        /*}*/
+
+        /*.li-bg-blue:hover {*/
+        /*    background-color: #19587a;*/
+        /*    color: #FFFFFF;*/
+        /*}*/
+        .page-link {
+    position: relative;
     display: block;
-    list-style-type: decimal;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 40px;
-}
-
-.bg-blue {
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #fff;
     background-color: #1b85ac;
-    color: #FFFFFF;
 }
-
-.bg-blue:hover {
-    background-color: #19587a;
-    color: #FFFFFF;
-}
-
-li {
-    margin: 1em 0em 1em 0em;
-}
-
-.bg-white {
-    background-color: #ffffff;
-}
-
-.quicksand {
-    font-family: Quicksand, sans-serif;
-}
-
-
-@media screen and (max-width: 700px) {
-
-    h2.news-title {
-        font-family: Merriweather, sans-serif, Serif;
-        font-size: 2vh;
-    }
-
-    p.services {
-        margin: 0 0 100px 0;
-    }
-
-    #content {
-        margin: 500px 0 0 0;
-        background: #fff;
-        position: relative;
-    }
-
-    #background {
-        background: url("/static/Auckland-city-panorama-bjdd.jpg");
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 0;
-        height: 700px;
-        background-size: cover;
-    }
-
-    #nav {
-        margin: 0;
-        height: 180px;
-        position: relative;
-
-    }
-
-    #future {
-        margin-top: 100px;
-    }
-
-    div#background > div#future > p.motto {
-        font-size: 8em;
-        color: #ffffff;
-        font-weight: bold;
-    }
-    p.email {
-        font-size: 1.5em;
-        color: #ffffff;
-        font-weight: bold;
-    }
-    p.phone {
-        font-size: 1.5em;
-        color: #ffffff;
-        font-weight: bold;
-    }
-    p.red {
-        color: red;
-    }
-}
-
-@media screen and (max-width: 1200px) {
-
-
-
-    img.logo {
-        width: 200px;
-    }
-
-    h2.news-title {
-        font-family: Merriweather, sans-serif, Serif;
-        font-size: 3vh;
-    }
-
-    p.services {
-        margin: 0 0 100px 0px;
-    }
-
-    #content {
-        margin: 300px 0 0 0;
-        background: #fff;
-        position: relative;
-    }
-
-    #background {
-        background: url("/static/Auckland-city-panorama-bjdd.jpg");
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 0;
-        height: 500px;
-        background-size: cover;
-    }
-
-    #nav {
-        margin: 0;
-        height: 180px;
-        position: relative;
-
-    }
-
-    #future {
-        margin-top: 160px;
-    }
-
-    p.motto {
-        font-size: 3em;
-        color: #ffffff;
-        font-weight: bold;
-    }
-    p.email {
-        font-size: 1.5em;
-        color: #ffffff;
-        font-weight: bold;
-    }
-    p.phone {
-        font-size: 1.5em;
-        color: #ffffff;
-        font-weight: bold;
-    }
-}
-
-
-
-@media screen and (min-width: 1201px) {
-
-    h2.news-title {
-        font-family: Merriweather, sans-serif, Serif;
-        font-size: 5vh;
-        text-align: center;
-    }
-
-
-    p.services {
-        margin: 0 0 100px 50px;
-    }
-
-    #content {
-        margin: 550px 0 0 0;
-        background: #fff;
-        position: relative;
-    }
-
-    #background {
-        background: url("/static/Auckland-city-panorama-bjdd.jpg");
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 0;
-        height: 650px;
-        background-size: cover;
-    }
-
-    #nav {
-        margin: 0;
-        height: 80px;
-        position: relative;
-
-    }
-
-    #future {
-        margin-top: 110px;
-    }
-
-    p.motto {
-        font-size: 5em;
-        color: #ffffff;
-        font-weight: bold;
-    }
-    p.email {
-        font-size: 2em;
-        color: #ffffff;
-        font-weight: bold;
-    }
-    p.phone {
-        font-size: 2em;
-        color: #ffffff;
-        font-weight: bold;
-    }
-}
-
-
-.merriweather {
-    font-family: Merriweather, sans-serif, Serif;
-}
-
-iframe {
+        .page-link:hover {
+            position: relative;
     display: block;
-    width: 100vw;
-    height: 600px;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    border: 0 none;
-    box-sizing: border-box;
-}
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #fff;
+    background-color: #19587a;
+        }
 
-li.services-list {
-    list-style: decimal-leading-zero;
-    font-size: 3em;
-    margin: 0 0 2em 2em;
-    color: #808283;
-}
+        li {
+            margin: 1em 0em 1em 0em;
+        }
 
-li span.services-span {
-    font-size: .8em;
-    color: #3587b0;
-}
+        .bg-white {
+            background-color: #ffffff;
+        }
+
+        .quicksand {
+            font-family: Quicksand, sans-serif;
+        }
+
+
+
+
+        @media all and (max-width: 700px) {
+
+            h2.news-title {
+                font-family: Merriweather, sans-serif, Serif;
+                font-size: 2vh;
+            }
+
+            p.services {
+                margin: 0 0 100px 0;
+            }
+
+            #content {
+                margin: 500px 0 0 0;
+                background: #fff;
+                position: relative;
+            }
+
+            #background {
+                background: url("/static/Auckland-city-panorama-bjdd.jpg");
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 0;
+                height: 700px;
+                background-size: cover;
+            }
+
+            #nav {
+                margin: 0;
+                height: 180px;
+                position: relative;
+
+            }
+
+            #future {
+                margin-top: 100px;
+            }
+
+            p.motto {
+                font-size: 8em;
+                color: #ffffff;
+                font-weight: bold;
+            }
+
+            p.email {
+                font-size: 1.5em;
+                color: #ffffff;
+                font-weight: bold;
+            }
+
+            p.phone {
+                font-size: 1.5em;
+                color: #ffffff;
+                font-weight: bold;
+            }
+        }
+
+        @media all and (max-width: 1200px) {
+
+
+            img.logo {
+                width: 200px;
+            }
+
+            h2.news-title {
+                font-family: Merriweather, sans-serif, Serif;
+                font-size: 3vh;
+            }
+
+            p.services {
+                margin: 0 0 100px 0px;
+            }
+
+            #content {
+                margin: 300px 0 0 0;
+                background: #fff;
+                position: relative;
+            }
+
+            #background {
+                background: url("/static/Auckland-city-panorama-bjdd.jpg");
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 0;
+                height: 500px;
+                background-size: cover;
+            }
+
+            #nav {
+                margin: 0;
+                height: 180px;
+                position: relative;
+
+            }
+
+            #future {
+                margin-top: 160px;
+            }
+
+            p.motto {
+                font-size: 3em;
+                color: #ffffff;
+                font-weight: bold;
+            }
+
+            p.email {
+                font-size: 1.5em;
+                color: #ffffff;
+                font-weight: bold;
+            }
+
+            p.phone {
+                font-size: 1.5em;
+                color: #ffffff;
+                font-weight: bold;
+            }
+        }
+
+
+        @media all and (min-width: 1201px) {
+
+            h2.news-title {
+                font-family: Merriweather, sans-serif, Serif;
+                font-size: 5vh;
+                text-align: center;
+            }
+
+            img.logo {
+                width: 200px;
+            }
+
+            p.services {
+                margin: 0 0 100px 50px;
+            }
+
+            #content {
+                margin: 400px 0 0 0;
+                background: #fff;
+                position: relative;
+            }
+
+            #background {
+                background: url("/static/Auckland-city-panorama-bjdd.jpg");
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 0;
+                height: 500px;
+                background-size: cover;
+            }
+
+            #nav {
+                margin: 0;
+                height: 80px;
+                position: relative;
+
+            }
+
+            #future {
+                margin-top: 110px;
+            }
+
+            p.motto {
+                font-size: 5em;
+                color: #ffffff;
+                font-weight: bold;
+            }
+
+            p.email {
+                font-size: 2em;
+                color: #ffffff;
+                font-weight: bold;
+            }
+
+            p.phone {
+                font-size: 2em;
+                color: #ffffff;
+                font-weight: bold;
+            }
+        }
+
+
+        .merriweather {
+            font-family: Merriweather, sans-serif, Serif;
+        }
+
+        iframe {
+            display: block;
+            width: 100%;
+            height: 600px;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            border: 0 none;
+            box-sizing: border-box;
+        }
+
+        li.services-list {
+            list-style: decimal-leading-zero;
+            font-size: 3em;
+            margin: 0 0 2em 2em;
+            color: #808283;
+        }
+
+        li span.services-span {
+            font-size: .8em;
+            color: #3587b0;
+        }

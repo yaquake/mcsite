@@ -4,32 +4,29 @@
 {% block content %}
     <div id="content">
         <div class="container mt-5" style="min-height: 1100px; background-color: #ffffff;">
-        {% if request.user.is_authenticated %}
-            <div class="row">
+            {% if request.user.is_authenticated %}
+                <div class="row">
 
-                <div class="col-md-8">
+                    <div class="col-md-8">
 
                         <h2 class="pt-3 text-muted">News</h2></div>
-                        <div class="col-md-4 text-right">
+                    <div class="col-md-4 text-right">
 
                         <br/><a href="{% url 'postnews' %}" class="pl-3 pt-2">
                         <button class="btn btn-info">Add news</button>
                     </a>
 
-            </div>
-            </div><hr style="border-width: 3px;">
-                    {% elif not request.user.is_authenticated %}
-                        <div class="text-center">
-                            <h1 class="py-5 text-muted">NEWS</h1>
-                            <br/>
-                        </div>
-                    {% endif %}
-
-
+                    </div>
+                </div>
+                <hr style="border-width: 3px;">
+            {% elif not request.user.is_authenticated %}
+                <div class="text-center">
+                    <h1 class="py-5 text-muted">NEWS</h1>
+                    <br/>
+                </div>
+            {% endif %}
             <div class="row">
                 <div class="col-md-12 justify-content-end">
-
-
                     <nav aria-label="...">
                         <ul class="pagination justify-content-left">
 
@@ -49,7 +46,7 @@
                                 </li>
                             {% endif %}
                             <li class="page-item">
-      <span class="page-link bg-blue">
+      <span class="page-link">
         {{ news.number }}
         <span class="sr-only text-info">(current)</span>
       </span>
@@ -65,39 +62,34 @@
 
                             {% elif not news.has_next %}
                                 <li class="page-item disabled"><span class="page-link">Next</span></li>
-
-
                             {% endif %}
                         </ul>
                     </nav>
-
-
                 </div>
             </div>
-
-        {% if not news %}
-        <h1>OOPS.. There is no news, come back when something happens.</h1>
-        {% elif news %}
-            {% for item in news %}
-                {% if not forloop.first %}
-                    <hr>
-                {% endif %}
-                <div class="row">
-                    <div class="col-md-3 object-fit">
-                        <img src="{% thumbnail item.image 'news_image' %}" width="100%" class="rounded " alt="MainImage">
-                    </div>
-                    <div class="col-md-9">
-                        <p style="font-size: 0.75em;">{{ item.pubdate_pretty }}</p>
+            {% if not news %}
+                <h1>OOPS.. There is no news, come back when something happens.</h1>
+            {% elif news %}
+                {% for item in news %}
+                    {% if not forloop.first %}
                         <hr>
-                        <p>
-                        <h3><a href="{% url 'news_details' item.slug %}"
-                               class="merriweather text-info">{{ item.name }}</a></h3></p>
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-md-3 object-fit">
+                            <img src="{% thumbnail item.image 'news_image' %}" width="100%" class="rounded "
+                                 alt="MainImage">
+                        </div>
+                        <div class="col-md-9">
+                            <p style="font-size: 0.75em;">{{ item.pubdate_pretty }}</p>
+                            <hr>
 
+                            <h3><a href="{% url 'news_details' item.slug %}"
+                                   class="merriweather text-info">{{ item.name }}</a></h3>
+                        </div>
                     </div>
-                </div>
 
-                <br/>
-            {% endfor %}
-        {% endif %}
+                    <br/>
+                {% endfor %}
+            {% endif %}
         </div>
 {% endblock %}

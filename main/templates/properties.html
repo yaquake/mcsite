@@ -31,7 +31,7 @@
                                 </li>
                             {% endif %}
                             <li class="page-item">
-      <span class="page-link bg-blue">
+      <span class="page-link">
         {{ result.number }}
         <span class="sr-only text-info">(current)</span>
       </span>
@@ -77,16 +77,19 @@
                                     per {{ item.rental_period.lower }}</h3>
                                 <hr>
                                 <p class="card-text pb-3 text-left">
-                                <span class="text-muted "><strong>Address:</strong> </span> {{ item.street_number }}, {{ item.street_name }}<br/>
+                                    <span class="text-muted "><strong>Address:</strong> </span> {{ item.street_number }}, {{ item.street_name }}<br/>
                                     <span class="text-muted "><strong>Suburb:</strong> </span> {{ item.suburb }}<br/>
                                     <span class="text-muted "><strong>City:</strong> </span> {{ item.city }} <br/>
-                                    <span class="text-muted "><strong>Bedrooms:</strong> </span> {{ item.bedrooms }} <br/>
-                                    <span class="text-muted "><strong>Bathrooms:</strong> </span> {{ item.bathrooms }} <br/>
+                                    <span class="text-muted "><strong>Bedrooms:</strong> </span> {{ item.bedrooms }}
+                                    <br/>
+                                    <span class="text-muted "><strong>Bathrooms:</strong> </span> {{ item.bathrooms }}
+                                    <br/>
                                     <span class="text-muted "><strong>Available from:</strong> </span> {{ item.date_available }}
 
                                 </p>
                                 <p class="merriweather"><a href="{% url 'property_details' item.code %}"
-                                      class="text-info" style="font-size: 1.3em;"><strong>DETAILS</strong></a></p>
+                                                           class="text-info"
+                                                           style="font-size: 1.3em;"><strong>DETAILS</strong></a></p>
                             </div>
                         </div>
                     </div>
