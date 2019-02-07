@@ -121,7 +121,7 @@ def update_from_xml():
                         if property.PropertyUnit.text:
                             prop.unit = property.PropertyUnit.text
                         else:
-                            property.PropertyUnit.text = ''
+                            prop.unit = ''
                         prop.street_number = property.PropertyAddress1.text
                         prop.street_name = property.PropertyAddress2.text
 
