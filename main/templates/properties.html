@@ -77,7 +77,17 @@
                                     per {{ item.rental_period.lower }}</h3>
                                 <hr>
                                 <p class="card-text pb-3 text-left">
-                                    <span class="text-muted "><strong>Address:</strong> </span> {{ item.street_number }}, {{ item.street_name }}<br/>
+                                    {% if item.unit %}
+                                        {% if item.unit|floatformat %}
+                                            <span class="text-muted "><strong>Address:</strong> </span> {{ item.unit }}/{{ item.street_number }} {{ item.street_name }}<br/>
+                                        {% else %}
+                                            <span class="text-muted "><strong>Address:</strong> </span>
+                                            {{ item.street_number }}{{ item.unit }} {{ item.street_name }}<br/>
+                                        {% endif %}
+                                    {% else %}
+                                        <span class="text-muted "><strong>Address:</strong> </span>
+                                        {{ item.street_number }} {{ item.street_name }}<br/>
+                                    {% endif %}
                                     <span class="text-muted "><strong>Suburb:</strong> </span> {{ item.suburb }}<br/>
                                     <span class="text-muted "><strong>City:</strong> </span> {{ item.city }} <br/>
                                     <span class="text-muted "><strong>Bedrooms:</strong> </span> {{ item.bedrooms }}

@@ -114,6 +114,7 @@ def delete_personnel_image(sender, instance, **kwargs):
 
 
 class Property(models.Model):
+    unit = models.CharField(max_length=7, default=None)
     street_number = models.CharField(max_length=5)
     street_name = models.CharField(max_length=40)
     suburb = models.CharField(max_length=50)

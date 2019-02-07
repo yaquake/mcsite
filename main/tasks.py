@@ -41,6 +41,8 @@ def update_from_xml():
                         if existing_property.change_code != int(property.PropertyChangeCode.text):
                             existing_property.change_code = int(property.PropertyChangeCode.text)
                             existing_property.publish_entry = property.PropertyPublishEntry.text
+                            if property.PropertyUnit.text != '':
+                                existing_property.unit = property.PropertyUnit.text
                             existing_property.street_number = property.PropertyAddress1.text
                             existing_property.street_name = property.PropertyAddress2.text
 
@@ -114,6 +116,8 @@ def update_from_xml():
                         prop = Property()
                         prop.publish_entry = property.PropertyPublishEntry.text
                         prop.change_code = int(property.PropertyChangeCode.text)
+                        if property.PropertyUnit.text != '':
+                            prop.unit = property.PropertyUnit.text
                         prop.street_number = property.PropertyAddress1.text
                         prop.street_name = property.PropertyAddress2.text
 

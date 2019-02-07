@@ -41,7 +41,16 @@
             <div class="container merriweather">
                 <div id="propertyLogo text-center">
                     <h1 class="merriweather">
-                        <strong>{{ property.street_number }}, {{ property.street_name }}, {{ property.suburb }}</strong>
+                        {% if property.unit %}
+                            {% if property.unit|floatformat %}
+                                <strong>{{ property.unit }}/{{ property.street_number }}, {{ property.street_name }}, {{ property.suburb }}</strong>
+                            {% else %}
+                                <strong>{{ property.street_number }}{{ property.unit }}, {{ property.street_name }}, {{ property.suburb }}</strong>
+                            {% endif %}
+                        {% else %}
+                            <strong>{{ property.street_number }}, {{ property.street_name }}, {{ property.suburb }}</strong>
+                        {% endif %}
+
                     </h1>
                 </div>
                 <div class="row my-5">
