@@ -26,11 +26,18 @@ def update_from_xml():
                                 auth=(username, password))
             soup = bs.BeautifulSoup(property_list_xml.text, 'xml')
 
+            # Delete all properties that were removed from getpalace.com
+            for property_obj in Property.objects.all():
+                if not soup.find_all(property_obj.code):
+                    property_obj.delete()
+
+            # Main task
             for property in soup.find_all('AvailableProperty'):
                 if property.PropertyPublishEntry.text == 'Yes':
                     existing_property = Property.objects.filter(code=property.PropertyCode.text).first()
                     if existing_property:
                         # TODO: check if the change_code changes when a user adds or removes pictures
+                        # Check if the change_code was modified (it means that property details were updated)
                         if existing_property.change_code != int(property.PropertyChangeCode.text):
                             existing_property.change_code = int(property.PropertyChangeCode.text)
                             existing_property.publish_entry = property.PropertyPublishEntry.text
@@ -81,28 +88,28 @@ def update_from_xml():
                                 existing_property.advert_text = ''
                             existing_property.save()
 
-                            images_xml = requests.get(
-                                'https://serviceapi.realbaselive.com/Service.svc/RestService/AvailablePropertyImages/' +
-                                property.PropertyCode.text, auth=(username, password), stream=True)
-                            sauce = bs.BeautifulSoup(images_xml.text, 'xml')
+                        images_xml = requests.get(
+                            'https://serviceapi.realbaselive.com/Service.svc/RestService/AvailablePropertyImages/' +
+                            property.PropertyCode.text, auth=(username, password), stream=True)
+                        sauce = bs.BeautifulSoup(images_xml.text, 'xml')
 
-                            for index, value in enumerate(sauce.find_all('AvailablePropertyImages')):
-                                property_images = PropertyImage(property=existing_property)
-                                image_data = base64.b64decode(value.PropertyImageBase64.text)
+                        for index, value in enumerate(sauce.find_all('AvailablePropertyImages')):
+                            property_images = PropertyImage(property=existing_property)
+                            image_data = base64.b64decode(value.PropertyImageBase64.text)
 
-                                property_images.image = ContentFile(image_data, str(property.PropertyCode.text) + '_' + str(
-                                    index) + '*.jpg')
-                                property_images.save()
+                            property_images.image = ContentFile(image_data, str(property.PropertyCode.text) + '_' + str(
+                                index) + '*.jpg')
+                            property_images.save()
 
-                            if PropertyImage.objects.filter(property__code=property.PropertyCode.text):
-                                image_thumbnail = PropertyImage.objects.filter(
-                                    property__code=property.PropertyCode.text).first()
-                                image_url = image_thumbnail.image.url
-                                print(image_url)
-                                thumb_url = get_thumbnailer(image_thumbnail.image)['prop_image']
-                                print(thumb_url)
-                                existing_property.thumbnail = str(thumb_url)
-                                existing_property.save()
+                        if PropertyImage.objects.filter(property__code=property.PropertyCode.text):
+                            image_thumbnail = PropertyImage.objects.filter(
+                                property__code=property.PropertyCode.text).first()
+                            image_url = image_thumbnail.image.url
+                            print(image_url)
+                            thumb_url = get_thumbnailer(image_thumbnail.image)['prop_image']
+                            print(thumb_url)
+                            existing_property.thumbnail = str(thumb_url)
+                            existing_property.save()
                     else:
                         prop = Property()
                         prop.publish_entry = property.PropertyPublishEntry.text
@@ -179,7 +186,7 @@ def update_from_xml():
                             prop.thumbnail = str(thumb_url)
                             prop.save()
                 else:
-                    existing_property = Property.objects.filter(code=property.PropertyCode.text)
+                    existing_property = Property.objects.filter(code=property.PropertyCode.text).first()
                     if existing_property:
                         existing_property.delete()
 
