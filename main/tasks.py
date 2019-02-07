@@ -97,6 +97,7 @@ def update_from_xml():
                             property.PropertyCode.text, auth=(username, password), stream=True)
                         sauce = bs.BeautifulSoup(images_xml.text, 'xml')
 
+                        PropertyImage.objects.filter(property__code=property.PropertyCode.text).delete()
                         for index, value in enumerate(sauce.find_all('AvailablePropertyImages')):
                             property_images = PropertyImage(property=existing_property)
                             image_data = base64.b64decode(value.PropertyImageBase64.text)
