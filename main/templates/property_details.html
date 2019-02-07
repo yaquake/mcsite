@@ -43,12 +43,12 @@
                     <h1 class="merriweather">
                         {% if property.unit %}
                             {% if property.unit|floatformat %}
-                                <strong>{{ property.unit }}/{{ property.street_number }}, {{ property.street_name }}, {{ property.suburb }}</strong>
+                                <strong>{{ property.unit }}/{{ property.street_number }} {{ property.street_name }}, {{ property.suburb }}</strong>
                             {% else %}
-                                <strong>{{ property.street_number }}{{ property.unit }}, {{ property.street_name }}, {{ property.suburb }}</strong>
+                                <strong>{{ property.street_number }}{{ property.unit }} {{ property.street_name }}, {{ property.suburb }}</strong>
                             {% endif %}
                         {% else %}
-                            <strong>{{ property.street_number }}, {{ property.street_name }}, {{ property.suburb }}</strong>
+                            <strong>{{ property.street_number }}, {{ property.street_name }} {{ property.suburb }}</strong>
                         {% endif %}
 
                     </h1>
