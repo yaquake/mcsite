@@ -17,7 +17,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
 
 
-
 </head>
 
 
@@ -72,7 +71,9 @@
 <nav id="nav" class="nav navbar navbar-expand-lg pt-3 container-fluid">
     <div class="container">
         <div class="col-md-3">
-            <a href="{% url 'home' %}"><img src="{% static 'Layer2.png' %}" style="width: 200px;" alt="Logo"/></a>
+{#            <a href="{% url 'home' %}"><img src="{% static 'Layer2.png' %}" style="width: 200px;" alt="Logo"/></a>#}
+            <a href="{% url 'home' %}"><img src="{% static 'white_logo.png' %}" style="width: 200px;" alt="Logo"/></a>
+
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -92,7 +93,7 @@
                 US</strong></a>
             <a class="p-2 text-light" style="font-size: 16px;"
                href="{% url 'properties' 1 %}"><strong>PROPERTIES</strong></a>
-            <a class="p-2 text-danger" style="font-size: 16px;"
+            <a class="p-2 text-light" style="font-size: 16px;"
                href="{% url 'apply' %}"><strong>APPLY</strong></a>
         </div>
     </div>
@@ -108,7 +109,8 @@
 {# End of main container #}
 
 {# footer #}
-<div class="container-fluid py-5" style="background-image: radial-gradient(circle, #424b67, #3d4660, #394058, #343b51, #30364a);">
+<div class="container-fluid py-5"
+     style="background-image: radial-gradient(circle, #424b67, #3d4660, #394058, #343b51, #30364a);">
 
     <div class="container">
         <div class="row">
@@ -156,7 +158,6 @@
         </div>
 
 
-
     </div>
 </div>
 </div>
@@ -193,7 +194,6 @@
         }
     }
 </script>
-
 
 
 <script>
