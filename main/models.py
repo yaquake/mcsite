@@ -11,6 +11,8 @@ class MottoEmailPhone(models.Model):
     motto = models.CharField(max_length=100, default='Your future starts with us')
     email = models.EmailField()
     phone = models.CharField(max_length=18, default='(09) 215 1267')
+    facebook = models.URLField(default='http://facebook.com')
+    linkedin = models.URLField(default='http://linkedin.com')
 
     def __str__(self):
         return 'Motto, email, and phone number'
@@ -203,7 +205,7 @@ class ContactUs(models.Model):
 
     def save(self, *args, **kwargs):
         if ContactUs.objects.exists() and not self.pk:
-            raise ValidationError('Only one instance of Palace"s login and password can exist.')
+            raise ValidationError('Only one instance of contact details can exist.')
         return super(ContactUs, self).save(*args, **kwargs)
 
     class Meta:

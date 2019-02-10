@@ -61,7 +61,7 @@
             <p class="motto">{{ creds.motto }}</p>
             <p class="phone"><a href="tel:{{ creds.phone }}" class="text-light">Ph {{ creds.phone }}</a></p>
             <p class="email"><a class="text-light"
-                                href="mailto:info@mcdonaldrentals.co.nz">{{ creds.email }}</a>
+                                href="{{ creds.email }}">{{ creds.email }}</a>
             </p>
         </div>
     </div>
@@ -142,9 +142,9 @@
             <div class="col-md-6 text-light merriweather">
                 <a href="mailto:{{ creds.email }}"><img
                         src="{% static 'logos/iconfinder_Email_3138894.png' %}" alt="Email" width="10%"/></a>&nbsp
-                <a href="https://www.facebook.com/McDonaldProperty/" target="_blank"><img
+                <a href="{{ creds.facebook }}" target="_blank"><img
                         src="{% static 'logos/iconfinder_Facebook_3138895.png' %}" alt="Facebook" width="10%"/></a>&nbsp
-                <a href="https://www.linkedin.com/company/mcdonald-property-management-ltd" target="_blank"><img
+                <a href="{{ creds.linkedin }}" target="_blank"><img
                         src="{% static 'logos/iconfinder_LinkedIn_3138898.png' %}" alt="Linkedin" width="10%"/></a><br/><br/>
                 <p>McDonald Property Management Ltd</p>
                 <p><strong>Address: </strong>376 Great South Rd, Papatoetoe</p>

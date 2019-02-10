@@ -15,9 +15,9 @@ CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
 
 def home(request):
-    news = News.objects.all().order_by('-pub_date')[:7]
+    newsfeed = News.objects.all().order_by('-pub_date')[:7]
     main_page_info = MainPageInfo.objects.first()
-    return render(request, 'index.html', {'home': 'HOME', 'news': news, 'page': 1, 'info': main_page_info})
+    return render(request, 'index.html', {'home': 'HOME', 'news': newsfeed, 'page': 1, 'info': main_page_info})
 
 
 def services(request):
@@ -50,6 +50,7 @@ def logout(request):
 # List of properties
 @cache_page(CACHE_TTL)
 def properties(request, page):
+
     property = Property.objects.all()
     paginator = Paginator(property, 9)
     list_count = len(property)
@@ -58,6 +59,7 @@ def properties(request, page):
 
 
 # Property details of every property
+@cache_page(CACHE_TTL)
 def property_details(request, key):
     property = get_object_or_404(Property, code=key)
     return render(request, 'property_details.html', {'property': property})
