@@ -136,14 +136,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# E-mail settings
-
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 465
-EMAIL_HOST_USER = 'jester**'
-EMAIL_HOST_PASSWORD = '***'
-EMAIL_USE_SSL = True
-
 
 LANGUAGE_CODE = 'en-us'
 
