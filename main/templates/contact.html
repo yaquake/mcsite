@@ -11,36 +11,43 @@
             </div>
         </div>
         <div>
-            <div class="text-center">
-                <h1 class="py-5 text-muted">CONTACT US</h1></div>
+            <span class="text-center">
+                <h1 class="py-5 text-muted">CONTACT US</h1></span>
+                <div class="text-left">
+                    <span style="color: red; font-size: .7em;">
+                        {{ form.name.errors }}
+                        {{ form.email.errors }}
+                        {{ form.phone.errors }}
+                        {{ form.topic.errors }}
+                        {{ form.details.errors }}
+                    </span>
+                    </div>
             <form action="{% url 'contact' %}" method="POST" id="form-contact">{% csrf_token %}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        {{ form.name.errors }}
+
                         <div class=" required-field">{{ form.name.label_tag }}</div>
                         {{ form.name }}
                     </div>
                     <div class="form-group col-md-6">
-                        {{ form.email.errors }}
-                        <div class=" required-field">{{ form.email.label_tag }}</div>
+                        <div class="required-field">{{ form.email.label_tag }}</div>
                         {{ form.email }}
+                        <div id="emailValidation"></div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        {{ form.phone.errors }}
                         <div class=" required-field">{{ form.phone.label_tag }}</div>
                         {{ form.phone }}
+                        <div id="phoneValidation"></div>
                     </div>
                     <div class="form-group col-md-6">
-                        {{ form.topic.errors }}
                         <div class="required-field">{{ form.topic.label_tag }}</div>
                         {{ form.topic }}
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        {{ form.details.errors }}
                         <div class=" required-field">{{ form.details.label_tag }}</div>
                         {{ form.details }}
                     </div>

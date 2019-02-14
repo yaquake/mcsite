@@ -32,7 +32,7 @@ def login(request):
             user = auth.authenticate(username=user1.username, password=request.POST['password'])
             if user:
                 auth.login(request, user)
-                return redirect('home')
+                return redirect('login')
             else:
                 return render(request, 'login.html', {'error': 'Wrong credentials'})
         except User.DoesNotExist:
@@ -67,6 +67,8 @@ def property_details(request, key):
 
 # Contact page
 def contact(request):
+    form = Contact()
+    contact_info = ContactUs.objects.first()
     if request.method == 'POST':
         form = Contact(request.POST)
         if form.is_valid():
@@ -76,9 +78,10 @@ def contact(request):
             send_email_task.delay(form.cleaned_data['topic'],
                                   body_text,
                                   )
-            return redirect('home')
-    form = Contact()
-    contact_info = ContactUs.objects.first()
+            return render(request, 'index.html')
+        else:
+            return render(request, 'contact.html', {'error': 'The data you have entered is invalid', 'form': form, 'contact': contact_info})
+
     return render(request, 'contact.html', {'form': form, 'contact': contact_info})
 
 
