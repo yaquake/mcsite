@@ -80,7 +80,7 @@
         /*    background-color: #19587a;*/
         /*    color: #FFFFFF;*/
         /*}*/
-        .page-link {
+        .page-link-blue {
     position: relative;
     display: block;
     padding: .5rem .75rem;
@@ -89,7 +89,7 @@
     color: #fff;
     background-color: #1b85ac;
 }
-        .page-link:hover {
+        .page-link-blue:hover {
             position: relative;
     display: block;
     padding: .5rem .75rem;

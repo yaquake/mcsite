@@ -36,7 +36,6 @@ def update_from_xml():
                 if property.PropertyPublishEntry.text == 'Yes':
                     existing_property = Property.objects.filter(code=property.PropertyCode.text).first()
                     if existing_property:
-                        # TODO: check if the change_code changes when a user adds or removes pictures
                         # Check if the change_code was modified (it means that property details were updated)
                         if existing_property.change_code != int(property.PropertyChangeCode.text):
                             existing_property.change_code = int(property.PropertyChangeCode.text)
