@@ -1,3 +1,4 @@
+import requests
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -9,15 +10,19 @@ from .tasks import send_email_task
 from django.conf import settings
 from django.core.cache.backends.base import DEFAULT_TIMEOUT
 from django.views.decorators.cache import cache_page
+from django.contrib import messages
 
 # TimeToLive of redis cache
 CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
 
-def home(request):
+def home(request, success_message=None):
     newsfeed = News.objects.all().order_by('-pub_date')[:7]
     main_page_info = MainPageInfo.objects.first()
-    return render(request, 'index.html', {'home': 'HOME', 'news': newsfeed, 'page': 1, 'info': main_page_info})
+    return render(request, 'index.html', {'home': 'HOME',
+                                          'news': newsfeed,
+                                          'page': 1,
+                                          'info': main_page_info})
 
 
 def services(request):
@@ -65,22 +70,41 @@ def property_details(request, key):
     return render(request, 'property_details.html', {'property': property})
 
 
-# Contact page
+# Contact page with reCaptcha v3 validation
 def contact(request):
     form = Contact()
     contact_info = ContactUs.objects.first()
     if request.method == 'POST':
         form = Contact(request.POST)
         if form.is_valid():
-            body_text = 'From: {}\n\nPh: {}\n\nQuestion: {}'.format(form.cleaned_data['email'],
-                                                                    form.cleaned_data['phone'],
-                                                                    form.cleaned_data['details'])
-            send_email_task.delay(form.cleaned_data['topic'],
-                                  body_text,
-                                  )
-            return render(request, 'index.html')
+
+            recaptcha_response = request.POST['g-recaptcha-response']
+            data = {
+                'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+                'response': recaptcha_response
+            }
+            r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
+            result = r.json()
+
+            if result['success']:
+
+                body_text = 'From: {}\n\nPh: {}\n\nQuestion: {}'.format(form.cleaned_data['email'],
+                                                                        form.cleaned_data['phone'],
+                                                                        form.cleaned_data['details'])
+                send_email_task.delay(form.cleaned_data['topic'],
+                                      body_text,
+
+                                      )
+                form = Contact()
+                return render(request, 'contact.html', {'success_message': 'Your message has been sent.',
+                                                        'form': form,
+                                                        'contact': contact_info})
+            else:
+                messages.error(request, 'Invalid reCAPTCHA. Please try again.')
+
         else:
-            return render(request, 'contact.html', {'error': 'The data you have entered is invalid', 'form': form, 'contact': contact_info})
+            return render(request, 'contact.html', {'error': 'The data you have entered is invalid', 'form': form,
+                                                    'contact': contact_info})
 
     return render(request, 'contact.html', {'form': form, 'contact': contact_info})
 

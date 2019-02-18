@@ -12,16 +12,25 @@
         </div>
         <div>
             <span class="text-center">
-                <h1 class="py-5 text-muted">CONTACT US</h1></span>
-                <div class="text-left">
+                <h1 class="py-5 text-muted">CONTACT US</h1>
+                {% if success_message %}
+                    <h2 class="text-success">{{ success_message }}</h2><br />
+                {% endif %}
+            </span>
+            <div class="text-left">
                     <span style="color: red; font-size: .7em;">
                         {{ form.name.errors }}
                         {{ form.email.errors }}
                         {{ form.phone.errors }}
                         {{ form.topic.errors }}
                         {{ form.details.errors }}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <p>{{ message }}</p>
+                            {% endfor %}
+                        {% endif %}
                     </span>
-                    </div>
+            </div>
             <form action="{% url 'contact' %}" method="POST" id="form-contact">{% csrf_token %}
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -52,8 +61,14 @@
                         {{ form.details }}
                     </div>
                 </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <input type="text" id="vaso" name="g-recaptcha-response" hidden/>
+                    </div>
+                </div>
                 <button type="submit" class="btn btn-success" id="sendEmail">Send</button>
             </form>
+
         </div>
     </div>
     <div class="mt-4 container-fluid" style="overflow: hidden; margin: 0;">

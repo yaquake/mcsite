@@ -6,7 +6,7 @@
     <div id="content">
 
         <div class="container">
-            <div class="row py-5 ">
+            <div class="row py-5" id="idForMessage">
                 <div class="col-lg-4 text-center my-2"><a href="{% url 'services' %}">
                     <img src="{% static 'services_with_white_logo.png' %}" width="90%" class="hover rounded"/></a></div>
                 <div class="col-lg-4 text-center my-2"><a href="{% url 'properties' 1 %}">
@@ -43,4 +43,5 @@
 
 
         <br/><br/>
+
 {% endblock %}

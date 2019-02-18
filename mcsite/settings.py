@@ -169,6 +169,7 @@ SUMMERNOTE_CONFIG = {
 
 }
 
+GOOGLE_RECAPTCHA_SECRET_KEY = '6LcMGpIUfgdfgdfgdfgf8M0_fAPEhN4paamBY5yH_K8'
 
 try:
     from .local_settings import *
