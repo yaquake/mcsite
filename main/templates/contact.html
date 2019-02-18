@@ -14,7 +14,7 @@
             <span class="text-center">
                 <h1 class="py-5 text-muted">CONTACT US</h1>
                 {% if success_message %}
-                    <h2 class="text-success">{{ success_message }}</h2><br />
+                    <h2 class="text-success">{{ success_message }}</h2><br/>
                 {% endif %}
             </span>
             <div class="text-left">
@@ -24,12 +24,20 @@
                         {{ form.phone.errors }}
                         {{ form.topic.errors }}
                         {{ form.details.errors }}
-                        {% if messages %}
-                            {% for message in messages %}
-                                <p>{{ message }}</p>
-                            {% endfor %}
-                        {% endif %}
+
                     </span>
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                            <p style="color: red; font-size: 1em;">{{ message }}</p>
+                        {% endif %}
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                            <div class="text-center">
+                                <p style="color: green; font-size: 2em;">{{ message }}</p>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
             </div>
             <form action="{% url 'contact' %}" method="POST" id="form-contact">{% csrf_token %}
                 <div class="form-row">
