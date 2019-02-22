@@ -69,15 +69,19 @@
 </div>
 
 
-<nav class="nav navbar navbar-expand-lg pt-3 container-fluid sticky-top " style="background-color: rgba(53, 60, 82, .90);
+<nav class="nav navbar navbar-expand-lg pt-3 container-fluid sticky-top " style="background-color: rgba(53, 60, 82, .95);
             -webkit-backdrop-filter: blur(5px);
             backdrop-filter: blur(125px);">
     <div class="container">
-        <div class="col-md-3">
-            {#            <a href="{% url 'home' %}"><img src="{% static 'Layer2.png' %}" style="width: 200px;" alt="Logo"/></a>#}
-            <a href="{% url 'home' %}"><img src="{% static 'white_logo.png' %}" style="width: 150px;" alt="Logo"/></a>
-
-        </div>
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'white_logo.png' %}" width="150px"
+                 class="d-inline-block align-top" alt="">
+        </a>
+        {#        <div class="col-md-3">#}
+        {#            <a href="{% url 'home' %}"><img src="{% static 'Layer2.png' %}" style="width: 200px;" alt="Logo"/></a>#}
+        {#            <a href="{% url 'home' %}"><img src="{% static 'white_logo.png' %}" style="width: 150px;" alt="Logo"/></a>#}
+        {##}
+        {#        </div>#}
         <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -139,10 +143,12 @@
                 <p><a class="text-light text-success" href="{% url 'contact' %}">Contact us</a></p>
                 <p><a class="text-light text-success"
                       href="{% url 'properties' 1 %}">Properties</a></p>
-                <p class="text-light"><a class="text-light" href="http://ivaneresko.info">Powered by yaquake</a></p>
                 <a href="http://auckland.op.ac.nz"><img class="pb-3" src="{% static 'OtagoPolytechnic.png' %}"
                                                         width="116px"
-                                                        alt="Otago Polytechnic AIC"/></a>
+                                                        alt="Otago Polytechnic AIC"/></a><br />
+                <a class="text-light" href="http://ivaneresko.info"><img class="pb-3" src="{% static 'IMG_1037.PNG' %}"
+                                                                         width="116px" alt="IvanEresko"/></a>
+
 
             </div>
             <div class="col-md-6 text-light merriweather">
