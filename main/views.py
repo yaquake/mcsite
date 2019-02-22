@@ -96,9 +96,6 @@ def contact(request):
 
                                       )
                 form = Contact()
-                # return render(request, 'contact.html', {'success_message': 'Your message has been sent.',
-                #                                         'form': form,
-                #                                         'contact': contact_info})
                 messages.success(request, 'Your message has been sent.')
 
             else:

@@ -57,8 +57,8 @@
 
 
 <div id="background">
-    <div class="container pt-5" id="creds">
-        <div id="future">
+    <div class="container pt-5 text-center" id="creds">
+        <div id="future" style="background-color: rgba(0, 0, 0, 0.5);">
             <p class="motto">{{ creds.motto }}</p>
             <p class="phone"><a href="tel:{{ creds.phone }}" class="text-light">Ph {{ creds.phone }}</a></p>
             <p class="email"><a class="text-light"
@@ -69,11 +69,13 @@
 </div>
 
 
-<nav id="nav" class="nav navbar navbar-expand-lg pt-3 container-fluid">
+<nav class="nav navbar navbar-expand-lg pt-3 container-fluid sticky-top " style="background-color: rgba(53, 60, 82, .90);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(125px);">
     <div class="container">
         <div class="col-md-3">
             {#            <a href="{% url 'home' %}"><img src="{% static 'Layer2.png' %}" style="width: 200px;" alt="Logo"/></a>#}
-            <a href="{% url 'home' %}"><img src="{% static 'white_logo.png' %}" style="width: 200px;" alt="Logo"/></a>
+            <a href="{% url 'home' %}"><img src="{% static 'white_logo.png' %}" style="width: 150px;" alt="Logo"/></a>
 
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
