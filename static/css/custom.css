@@ -179,7 +179,7 @@
                 width: 200px;
             }
 
-            .main-page-description {
+            div.main-page-description {
                 margin: 0 10px 0 10px;
             }
 
@@ -189,7 +189,7 @@
             }
 
             p.services {
-                margin: 0 0 100px 0px;
+                margin: 0 0 100px 0;
             }
 
             #content {
@@ -251,7 +251,7 @@
                 width: 200px;
             }
 
-            .main-page-description {
+            div.main-page-description {
                 margin: 0 100px 0 100px;
             }
 
