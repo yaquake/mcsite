@@ -121,6 +121,7 @@
                 font-size: 2vh;
             }
 
+
             p.services {
                 margin: 0 0 100px 0;
             }
@@ -176,6 +177,10 @@
 
             img.logo {
                 width: 200px;
+            }
+
+            .main-page-description {
+                margin: 0 10px 0 10px;
             }
 
             h2.news-title {
@@ -244,6 +249,10 @@
 
             img.logo {
                 width: 200px;
+            }
+
+            .main-page-description {
+                margin: 0 100px 0 100px;
             }
 
             p.services {
