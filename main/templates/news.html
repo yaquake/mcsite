@@ -67,9 +67,9 @@
                     </nav>
                 </div>
             </div>
-            {% if not news %}
-                <h1>OOPS.. There is no news, come back when something happens.</h1>
-            {% elif news %}
+{#            {% if not news %}#}
+{#                <h1>OOPS.. There is no news, come back when something happens.</h1>#}
+{#            {% elif news %}#}
                 {% for item in news %}
                     {% if not forloop.first %}
                         <hr>
@@ -89,7 +89,9 @@
                     </div>
 
                     <br/>
+                    {% empty %}
+                        <h1 class="text-muted">OOPS.. There is no news, come back when something happens.</h1>
                 {% endfor %}
-            {% endif %}
+{#            {% endif %}#}
         </div>
 {% endblock %}

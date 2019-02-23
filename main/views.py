@@ -17,7 +17,7 @@ CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
 
 def home(request, success_message=None):
-    newsfeed = News.objects.all().order_by('-pub_date')[:7]
+    newsfeed = News.objects.all().order_by('-pub_date')[:6]
     main_page_info = MainPageInfo.objects.first()
     return render(request, 'index.html', {'home': 'HOME',
                                           'news': newsfeed,

@@ -17,31 +17,55 @@
             </div>
         </div>
         <div class="container">
-            <div class="row inline pb-5">
-                <div class="col-md-8 border-right">
-                    <img src="{{ info.image.url }}" width="100%" class="rounded mb-2 pb-5"
-                         alt="Personnel"/>
+            <div class="pb-5 text-center">
+                {#                <div class="col-md-8 border-right">#}
+                <img src="{{ info.image.url }}" class="rounded mb-2 pb-5"
+                     alt="Personnel"/>
 
-                    {#                    <h5 class="text-center">Why McDonald Property Management Ltd?</h5>#}
-                    <div class="text-left">
+                <div style="margin: 0 100px 0 100px;">
+                    {{ info.description|safe }}</div>
 
-                        {{ info.description|safe }}
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <h2 class="text-muted">Latest news</h2>
+            </div>
+            <div class="py-5 text-center merriweather">
+                <h2 class="text-muted">Latest news</h2>
+                <hr>
+                <br/>
+
+                <div class="row pb-5">
 
                     {% for news in news %}
+                        <div class="col-md-4">
+                            <p style="font-size: 12px;" class="pt-3">{{ news.pubdate_pretty }}</p>
+                            <a href="{% url 'news_details' news.slug %}"
+                               style="font-size: 1.2em; color: #864E2C;">{{ news.name.upper }}</a>
 
-                        <p style="font-size: 12px;" class="border-top">{{ news.pubdate_pretty }}</p>
-                        <a href="{% url 'news_details' news.slug %}"
-                           class="text-info">{{ news.name }}</a><br/><br/>
+                        </div>
+                        {% if forloop.counter|divisibleby:3 %}
+                            </div>
+                            <div class="row">
+                        {% endif %}
+
                     {% endfor %}
-                </div>
+                    </div>
             </div>
+
+            {#                {% for news in news %}#}
+            {#                    <div class="row">#}
+            {#                    <div class="col-sm-4">#}
+            {#                        <a href="{% url 'news_details' news.slug %}"#}
+            {#                           class="border-top" style="font-size: 1.2em;">{{ news.name.upper }}</a>#}
+            {#                        <p style="font-size: 12px;" class="  pt-3">{{ news.pubdate_pretty }}</p><br/>#}
+            {#                        {% if forloop.counter|divisibleby:3 %}#}
+            {##}
+            {#                    </div><div class="col-sm-4">#}
+            {#                {% endif %}#}
+            {#                {% endfor %}#}
         </div>
 
+    </div>
+    </div>
 
-        <br/><br/>
+
+    <br/><br/>
 
 {% endblock %}
