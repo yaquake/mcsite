@@ -23,7 +23,7 @@ class MottoEmailPhone(models.Model):
 
     def save(self, *args, **kwargs):
         if MottoEmailPhone.objects.exists() and not self.pk:
-            raise ValidationError('Only one instance of this object can exist.')
+            self.pk = 1
         return super(MottoEmailPhone, self).save(*args, **kwargs)
 
 
@@ -40,7 +40,7 @@ class About(models.Model):
 
     def save(self, *args, **kwargs):
         if About.objects.exists() and not self.pk:
-            raise ValidationError('Only one instance of "About" can exist.')
+            self.pk = 1
         return super(About, self).save(*args, **kwargs)
 
 
@@ -54,7 +54,7 @@ class MainPageInfo(models.Model):
 
     def save(self, *args, **kwargs):
         if MainPageInfo.objects.exists() and not self.pk:
-            raise ValidationError('Only one instance of Main Page info can exist.')
+            self.pk = 1
         return super(MainPageInfo, self).save(*args, **kwargs)
 
     class Meta:
@@ -175,7 +175,7 @@ class Palace(models.Model):
 
     def save(self, *args, **kwargs):
         if Palace.objects.exists() and not self.pk:
-            raise ValidationError('Only one instance of Palace"s login and password can exist.')
+            self.pk = 1
         return super(Palace, self).save(*args, **kwargs)
 
     class Meta:
@@ -205,7 +205,7 @@ class ContactUs(models.Model):
 
     def save(self, *args, **kwargs):
         if ContactUs.objects.exists() and not self.pk:
-            raise ValidationError('Only one instance of contact details can exist.')
+            self.pk = 1
         return super(ContactUs, self).save(*args, **kwargs)
 
     class Meta:
@@ -230,7 +230,7 @@ class EmailSettings(models.Model):
 
     def save(self, *args, **kwargs):
         if EmailSettings.objects.exists() and not self.pk:
-            raise ValidationError('Only one instance of email settings allowed')
+            self.pk = 1
         return super(EmailSettings, self).save(*args, **kwargs)
 
     class Meta:
