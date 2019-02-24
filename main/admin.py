@@ -38,3 +38,4 @@ admin.site.register(Palace)
 admin.site.register(Services)
 
 admin.site.register(MainPageInfo, MainPageInfoAdmin)
+

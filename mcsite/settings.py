@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'celery',
     'jet.dashboard',
     'jet',
+    'django_celery_beat',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -110,15 +111,6 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Pacific/Auckland'
 CELERY_IMPORTS = ['main.tasks', ]
-
-
-CELERY_BEAT_SCHEDULE = {
- 'update_from_xml': {
-       'task': 'main.tasks.update_from_xml',
-       'schedule': 7200,
-    },
-
-}
 
 
 AUTH_PASSWORD_VALIDATORS = [

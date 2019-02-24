@@ -236,3 +236,5 @@ class EmailSettings(models.Model):
     class Meta:
         verbose_name_plural = 'Email settings'
         verbose_name = 'Email settings'
+
+
