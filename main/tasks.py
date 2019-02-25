@@ -3,19 +3,121 @@ import bs4 as bs
 import requests
 import base64
 
-from celery import shared_task, task, Celery
+from celery import shared_task
 from django.core.files.base import ContentFile
-from django.core.mail import send_mail, get_connection
 from easy_thumbnails.files import get_thumbnailer
+
+
+# Get account details for getpalace.com API
+def get_login_password():
+    from main.models import Palace
+
+    palace = Palace.objects.first()
+    return palace.login, palace.password
+
+
+# Create a new property or update an existing one
+def property_update(property_data, state):
+    from main.models import Property
+
+    # If the property exists then get the object to update
+    if state == 0:
+        prop = Property.objects.filter(code=property_data.PropertyCode.text).first()
+    else:
+        prop = Property()
+
+    prop.change_code = int(property_data.PropertyChangeCode.text)
+    prop.publish_entry = property_data.PropertyPublishEntry.text
+    if property_data.PropertyUnit.text:
+        prop.unit = property_data.PropertyUnit.text
+    else:
+        prop.unit = ''
+    prop.street_number = property_data.PropertyAddress1.text
+    prop.street_name = property_data.PropertyAddress2.text
+
+    if ' Auckland' in property_data.PropertyAddress3.text:
+        prop.suburb = property_data.PropertyAddress3.text.replace(' Auckland', '')
+    else:
+        prop.suburb = property_data.PropertyAddress3.text
+
+    if property_data.PropertyAddress4.text == '':
+        prop.city = 'Auckland'
+    if property_data.PropertyFeatures.PropertyPostCode.text != '':
+        prop.postcode = property_data.PropertyFeatures.PropertyPostCode.text
+    prop.code = property_data.PropertyCode.text
+    prop.date_available = property_data.PropertyDateAvailable.text[:10]
+
+    if property_data.PropertyFeatures.PropertyBathroomsNo.text != '':
+        prop.bathrooms = property_data.PropertyFeatures.PropertyBathroomsNo.text
+    if property_data.PropertyFeatures.PropertyBedroomsNo.text != '':
+        prop.bedrooms = property_data.PropertyFeatures.PropertyBedroomsNo.text
+    if property_data.PropertyFeatures.PropertyCarsNo.text != '':
+        prop.carparks = property_data.PropertyFeatures.PropertyCarsNo.text
+
+    prop.property_class = property_data.PropertyFeatures.PropertyClass.text
+    prop.is_new_construction = property_data.PropertyFeatures.PropertyNewConstruction.text
+    prop.pets = property_data.PropertyFeatures.PropertyPetsAllowed.text
+    prop.smokers = property_data.PropertyFeatures.PropertySmokersAllowed.text
+
+    prop.agent_email1 = property_data.PropertyAgent.PropertyAgentEmail1.text
+    prop.agent_email2 = property_data.PropertyAgent.PropertyAgentEmail2.text
+    prop.agent_name = property_data.PropertyAgent.PropertyAgentFullName.text
+    prop.agent_mobile_num = property_data.PropertyAgent.PropertyAgentPhoneMobile.text
+    prop.agent_work_num = property_data.PropertyAgent.PropertyAgentPhoneWork.text
+
+    prop.rental_period = property_data.PropertyRentalPeriod.text
+    prop.rent = property_data.PropertyRentAmount.text
+    aster = '****'
+    if property_data.PropertyFeatures.PropertyAdvertText.text != '':
+        if aster in property_data.PropertyFeatures.PropertyAdvertText.text:
+            splitted_text = property_data.PropertyFeatures.PropertyAdvertText.text.split(aster)
+            prop.advert_text = splitted_text[-1]
+        else:
+            prop.advert_text = property_data.PropertyFeatures.PropertyAdvertText.text
+    else:
+        prop.advert_text = ''
+    prop.save()
+
+    update_images(property_data.PropertyCode.text)
+
+
+# Update images for a particular property
+def update_images(property_code):
+    from main.models import PropertyImage, Property
+
+    username, password = get_login_password()
+
+    property = Property.objects.filter(code=property_code).first()
+
+    images_xml = requests.get(
+        'https://serviceapi.realbaselive.com/Service.svc/RestService/AvailablePropertyImages/' +
+        property_code, auth=(username, password), stream=True)
+    sauce = bs.BeautifulSoup(images_xml.text, 'xml')
+
+    for index, value in enumerate(sauce.find_all('AvailablePropertyImages')):
+        property_images = PropertyImage(property=property)
+        image_data = base64.b64decode(value.PropertyImageBase64.text)
+
+        property_images.image = ContentFile(image_data, str(property_code) + '_' + str(
+            index) + '*.jpg')
+        property_images.save()
+
+    if PropertyImage.objects.filter(property__code=property_code):
+        image_thumbnail = PropertyImage.objects.filter(
+            property__code=property_code).first()
+        image_url = image_thumbnail.image.url
+        print(image_url)
+        thumb_url = get_thumbnailer(image_thumbnail.image)['prop_image']
+        print(thumb_url)
+        property.thumbnail = str(thumb_url)
+        property.save()
 
 
 @shared_task()
 def update_from_xml():
-    from main.models import Property, PropertyImage, Palace
+    from main.models import Property
 
-    palace = Palace.objects.first()
-    username = palace.login
-    password = palace.password
+    username, password = get_login_password()
 
     try:
         if requests.get('https://serviceapi.realbaselive.com/Service.svc/RestService/AvailableProperties',
@@ -32,169 +134,24 @@ def update_from_xml():
                     property_obj.delete()
 
             # Main task
-            for property in soup.find_all('AvailableProperty'):
-                if property.PropertyPublishEntry.text == 'Yes':
-                    existing_property = Property.objects.filter(code=property.PropertyCode.text).first()
+            for property_data in soup.find_all('AvailableProperty'):
+                if property_data.PropertyPublishEntry.text == 'Yes':
+                    existing_property = Property.objects.filter(code=property_data.PropertyCode.text).first()
                     if existing_property:
                         # Check if the change_code was modified (it means that property details were updated)
-                        if existing_property.change_code != int(property.PropertyChangeCode.text):
-                            existing_property.change_code = int(property.PropertyChangeCode.text)
-                            existing_property.publish_entry = property.PropertyPublishEntry.text
-                            if property.PropertyUnit.text:
-                                existing_property.unit = property.PropertyUnit.text
-                            else:
-                                existing_property.unit = ''
-                            existing_property.street_number = property.PropertyAddress1.text
-                            existing_property.street_name = property.PropertyAddress2.text
-
-                            if ' Auckland' in property.PropertyAddress3.text:
-                                s = property.PropertyAddress3.text.replace(' Auckland', '')
-                                existing_property.suburb = s
-                            else:
-                                existing_property.suburb = property.PropertyAddress3.text
-
-                            if property.PropertyAddress4.text == '':
-                                existing_property.city = 'Auckland'
-                            if property.PropertyFeatures.PropertyPostCode.text != '':
-                                existing_property.postcode = property.PropertyFeatures.PropertyPostCode.text
-                            existing_property.code = property.PropertyCode.text
-                            existing_property.date_available = property.PropertyDateAvailable.text[:10]
-
-                            if property.PropertyFeatures.PropertyBathroomsNo.text != '':
-                                existing_property.bathrooms = property.PropertyFeatures.PropertyBathroomsNo.text
-                            if property.PropertyFeatures.PropertyBedroomsNo.text != '':
-                                existing_property.bedrooms = property.PropertyFeatures.PropertyBedroomsNo.text
-                            if property.PropertyFeatures.PropertyCarsNo.text != '':
-                                existing_property.carparks = property.PropertyFeatures.PropertyCarsNo.text
-
-                            existing_property.property_class = property.PropertyFeatures.PropertyClass.text
-                            existing_property.is_new_construction = property.PropertyFeatures.PropertyNewConstruction.text
-                            existing_property.pets = property.PropertyFeatures.PropertyPetsAllowed.text
-                            existing_property.smokers = property.PropertyFeatures.PropertySmokersAllowed.text
-
-                            existing_property.agent_email1 = property.PropertyAgent.PropertyAgentEmail1.text
-                            existing_property.agent_email2 = property.PropertyAgent.PropertyAgentEmail2.text
-                            existing_property.agent_name = property.PropertyAgent.PropertyAgentFullName.text
-                            existing_property.agent_mobile_num = property.PropertyAgent.PropertyAgentPhoneMobile.text
-                            existing_property.agent_work_num = property.PropertyAgent.PropertyAgentPhoneWork.text
-
-                            existing_property.rental_period = property.PropertyRentalPeriod.text
-                            existing_property.rent = property.PropertyRentAmount.text
-                            aster = '****'
-                            if property.PropertyFeatures.PropertyAdvertText.text != '':
-                                if aster in property.PropertyFeatures.PropertyAdvertText.text:
-                                    splitted_text = property.PropertyFeatures.PropertyAdvertText.text.split(aster)
-                                    existing_property.advert_text = splitted_text[-1]
-                                else:
-                                    existing_property.advert_text = property.PropertyFeatures.PropertyAdvertText.text
-                            else:
-                                existing_property.advert_text = ''
-                            existing_property.save()
-
-                        images_xml = requests.get(
-                            'https://serviceapi.realbaselive.com/Service.svc/RestService/AvailablePropertyImages/' +
-                            property.PropertyCode.text, auth=(username, password), stream=True)
-                        sauce = bs.BeautifulSoup(images_xml.text, 'xml')
-
-                        PropertyImage.objects.filter(property__code=property.PropertyCode.text).delete()
-                        for index, value in enumerate(sauce.find_all('AvailablePropertyImages')):
-                            property_images = PropertyImage(property=existing_property)
-                            image_data = base64.b64decode(value.PropertyImageBase64.text)
-
-                            property_images.image = ContentFile(image_data, str(property.PropertyCode.text) + '_' + str(
-                                index) + '*.jpg')
-                            property_images.save()
-
-                        if PropertyImage.objects.filter(property__code=property.PropertyCode.text):
-                            image_thumbnail = PropertyImage.objects.filter(
-                                property__code=property.PropertyCode.text).first()
-                            image_url = image_thumbnail.image.url
-                            print(image_url)
-                            thumb_url = get_thumbnailer(image_thumbnail.image)['prop_image']
-                            print(thumb_url)
-                            existing_property.thumbnail = str(thumb_url)
-                            existing_property.save()
+                        if existing_property.change_code != int(property_data.PropertyChangeCode.text):
+                            # Execute property_update function with property data as a payload
+                            # (0 means that this property exists in db)
+                            property_update(property_data, 0)
+                    # If we don't have this property in our database then execute
+                    # property_update function with property data as a payload (1 means that this is a new property
                     else:
-                        prop = Property()
-                        prop.publish_entry = property.PropertyPublishEntry.text
-                        prop.change_code = int(property.PropertyChangeCode.text)
-                        if property.PropertyUnit.text:
-                            prop.unit = property.PropertyUnit.text
-                        else:
-                            prop.unit = ''
-                        prop.street_number = property.PropertyAddress1.text
-                        prop.street_name = property.PropertyAddress2.text
+                        property_update(property_data, 1)
 
-                        if ' Auckland' in property.PropertyAddress3.text:
-                            s = property.PropertyAddress3.text.replace(' Auckland', '')
-                            prop.suburb = s
-                        else:
-                            prop.suburb = property.PropertyAddress3.text
-
-                        if property.PropertyAddress4.text == '':
-                            prop.city = 'Auckland'
-                        if property.PropertyFeatures.PropertyPostCode.text != '':
-                            prop.postcode = property.PropertyFeatures.PropertyPostCode.text
-                        prop.code = property.PropertyCode.text
-                        prop.date_available = property.PropertyDateAvailable.text[:10]
-
-                        if property.PropertyFeatures.PropertyBathroomsNo.text != '':
-                            prop.bathrooms = property.PropertyFeatures.PropertyBathroomsNo.text
-                        if property.PropertyFeatures.PropertyBedroomsNo.text != '':
-                            prop.bedrooms = property.PropertyFeatures.PropertyBedroomsNo.text
-                        if property.PropertyFeatures.PropertyCarsNo.text != '':
-                            prop.carparks = property.PropertyFeatures.PropertyCarsNo.text
-
-                        prop.property_class = property.PropertyFeatures.PropertyClass.text
-                        prop.is_new_construction = property.PropertyFeatures.PropertyNewConstruction.text
-                        prop.pets = property.PropertyFeatures.PropertyPetsAllowed.text
-                        prop.smokers = property.PropertyFeatures.PropertySmokersAllowed.text
-
-                        prop.agent_email1 = property.PropertyAgent.PropertyAgentEmail1.text
-                        prop.agent_email2 = property.PropertyAgent.PropertyAgentEmail2.text
-                        prop.agent_name = property.PropertyAgent.PropertyAgentFullName.text
-                        prop.agent_mobile_num = property.PropertyAgent.PropertyAgentPhoneMobile.text
-                        prop.agent_work_num = property.PropertyAgent.PropertyAgentPhoneWork.text
-
-                        prop.rental_period = property.PropertyRentalPeriod.text
-                        prop.rent = property.PropertyRentAmount.text
-                        # TODO: decide how to implement splitting in an advert text
-                        aster = '****'
-                        if property.PropertyFeatures.PropertyAdvertText.text != '':
-                            if aster in property.PropertyFeatures.PropertyAdvertText.text:
-                                splitted_text = property.PropertyFeatures.PropertyAdvertText.text.split(
-                                    aster)
-                                prop.advert_text = splitted_text[-1]
-                            else:
-                                prop.advert_text = property.PropertyFeatures.PropertyAdvertText.text
-                        else:
-                            prop.advert_text = ''
-                        prop.save()
-
-                        images_xml = requests.get(
-                            'https://serviceapi.realbaselive.com/Service.svc/RestService/AvailablePropertyImages/' +
-                            property.PropertyCode.text, auth=(username, password), stream=True)
-                        sauce = bs.BeautifulSoup(images_xml.text, 'xml')
-
-                        for index, value in enumerate(sauce.find_all('AvailablePropertyImages')):
-                            property_images = PropertyImage(property=prop)
-                            image_data = base64.b64decode(value.PropertyImageBase64.text)
-
-                            property_images.image = ContentFile(image_data, str(property.PropertyCode.text) + '_' + str(
-                                index) + '*.jpg')
-                            property_images.save()
-
-                        if PropertyImage.objects.filter(property__code=property.PropertyCode.text):
-                            image_thumbnail = PropertyImage.objects.filter(
-                                property__code=property.PropertyCode.text).first()
-                            image_url = image_thumbnail.image.url
-                            print(image_url)
-                            thumb_url = get_thumbnailer(image_thumbnail.image)['prop_image']
-                            print(thumb_url)
-                            prop.thumbnail = str(thumb_url)
-                            prop.save()
+                # If we have PublishEntry == 'No' in a particular property payload then search for it
+                # in our database to delete
                 else:
-                    existing_property = Property.objects.filter(code=property.PropertyCode.text).first()
+                    existing_property = Property.objects.filter(code=property_data.PropertyCode.text).first()
                     if existing_property:
                         existing_property.delete()
 
