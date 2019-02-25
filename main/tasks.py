@@ -159,6 +159,7 @@ def update_from_xml():
         print(e)
 
 
+# Send email
 @shared_task()
 def send_email_task(topic, details):
     from django.core import mail
