@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load thumbnail %}
 {% block content %}
 
 
@@ -7,34 +8,49 @@
 
         <div class="container">
             <div class="row py-5" id="idForMessage">
-                <div class="col-lg-4 text-center my-2"><a href="{% url 'services' %}">
-                    <img src="{% static 'services_with_white_logo.png' %}" width="90%" class="hover rounded"/></a></div>
-                <div class="col-lg-4 text-center my-2"><a href="{% url 'properties' 1 %}">
-                    <img src="{% static 'properties_with_white_logo.png' %}" width="90%" class="hover rounded"/></a>
+                <div class="col-lg-4 py-2">
+                    <div class="card" style="border: 0;">
+                        <img class="card-img-top" src="{% static 'propertymanagementO-800x450.jpg' %}" alt="Card image cap">
+                        <div class="card-body text-center card-logo" onclick="window.location='{% url 'services' %}';" style="cursor: pointer;">
+                            <h3 class="card-title merriweather">SERVICES</h3>
+
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-4 text-center my-2"><a href="{% url 'apply' %}">
-                    <img src="{% static 'apply_with_white_logo.png' %}" width="90%" class="hover rounded"/></a></div>
+                <div class="col-lg-4 py-2">
+                    <div class="card" style="border: 0;">
+                        <img class="card-img-top" src="{% static 'Property_Management.jpg' %}" alt="Card image cap">
+                        <div class="card-body text-center card-logo" onclick="window.location='{% url 'properties' 1 %}';" style="cursor: pointer;">
+                            <h3 class="card-title merriweather">PROPERTIES</h3>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 py-2">
+                    <div class="card" style="border: 0;">
+                        <img class="card-img-top" src="{% static 'woman_suit.jpg' %}" alt="Card image cap">
+                        <div class="card-body text-center card-logo" onclick="window.location='{% url 'apply' %}';" style="cursor: pointer;">
+                            <h3 class="card-title merriweather">APPLY</h3>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
             </div>
         </div>
+    <div class="container-fluid bg-light">
         <div class="container">
-            <div class="pb-5 text-center">
-                {#                <div class="col-md-8 border-right">#}
-                <img src="{{ info.image.url }}" width="100%" class="rounded mb-2 pb-5"
-                     alt="Personnel"/>
+            <div class="py-5 text-center merriweather" style="min-height: 200px;">
+{#                <h2 class="text-muted">Latest news</h2>#}
+                {#                <hr>#}
+{#                <br/>#}
 
-                <div class="main-page-description">
-                    {{ info.description|safe }}</div>
-
-            </div>
-            <div class="py-5 text-center merriweather">
-                <h2 class="text-muted">Latest news</h2>
-                <hr>
-                <br/>
-
-                <div class="row pb-5">
+                <div class="row pb-2">
 
                     {% for news in news %}
-                        <div class="col-md-4">
+                        <div class="col-md-4 text-left" >
                             <p style="font-size: 12px;" class="pt-3">{{ news.pubdate_pretty }}</p>
                             <a href="{% url 'news_details' news.slug %}"
                                style="font-size: 1.2em; color: #864E2C;">{{ news.name.upper }}</a>
@@ -48,6 +64,19 @@
                     {% endfor %}
                     </div>
             </div>
+        </div>
+    </div>
+    <div class="container">
+            <div class="py-5 text-center">
+                {#                <div class="col-md-8 border-right">#}
+                <img src="{{ info.image.url }}" width="100%" class="rounded mb-2 pb-5"
+                     alt="Personnel"/>
+
+                <div class="main-page-description">
+                    {{ info.description|safe }}</div>
+
+            </div>
+
 
             {#                {% for news in news %}#}
             {#                    <div class="row">#}

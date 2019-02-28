@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'jet.dashboard',
     'jet',
     'django_celery_beat',
+    'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

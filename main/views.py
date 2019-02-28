@@ -53,7 +53,7 @@ def logout(request):
 
 
 # List of properties
-@cache_page(CACHE_TTL)
+# @cache_page(CACHE_TTL)
 def properties(request, page):
 
     property = Property.objects.all()

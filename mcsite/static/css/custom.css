@@ -7,6 +7,19 @@ body, html {
     margin: 0;
 }
 
+.card-logo {
+    background-color: #fff;
+    color: #000;
+    transition: background-color .5s, color .5s;
+
+}
+
+.card-logo:hover {
+    background-color: #3587B0;
+    color: white;
+}
+
+
 .indent {
     padding: 0.25em 1em 0.25em 1em;
     border-radius: 5px;
