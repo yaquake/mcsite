@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.text import slugify
 from django.db.models.signals import post_save, post_delete, pre_delete, pre_save
 from django.dispatch import receiver
-from django.core.validators import ValidationError
+from django.urls import reverse
 from easy_thumbnails.fields import ThumbnailerImageField
 
 
@@ -90,6 +90,9 @@ class News(models.Model):
     def pubdate_pretty(self):
         return self.pub_date.strftime('%A, %d %B  %Y')
 
+    def get_absolute_url(self):
+        return '/news/' + self.slug
+
     class Meta:
         verbose_name = 'News'
         verbose_name_plural = 'News'
@@ -150,6 +153,9 @@ class Property(models.Model):
 
     def __str__(self):
         return self.code
+
+    def get_absolute_url(self):
+        return '/properties/' + self.code
 
 
 @receiver(pre_delete, sender=Property)

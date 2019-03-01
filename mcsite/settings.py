@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     'jet',
     'django_celery_beat',
     'django_extensions',
+    'django.contrib.sitemaps',
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -34,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+SITE_ID = 1
 
 THUMBNAIL_ALIASES = {
     '': {

@@ -2,6 +2,15 @@ from django.contrib import admin
 from django.urls import path, include
 from main import views
 from django.conf.urls.static import static, settings
+from django.contrib.sitemaps.views import sitemap
+from main.sitemaps import StaticViewSitemap, PropertySitemap, NewsSitemap
+
+sitemaps = {
+    'static': StaticViewSitemap,
+    'property': PropertySitemap,
+    'news': NewsSitemap,
+
+}
 
 urlpatterns = [
     path('jet/', include('jet.urls', namespace='jet')),
@@ -21,6 +30,8 @@ urlpatterns = [
     path('news/page<int:page>', views.news, name='news'),
     path('news/<str:slug>', views.news_details, name='news_details'),
     path('properties/<str:key>', views.property_details, name='property_details'),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap')
 
 
 ]
