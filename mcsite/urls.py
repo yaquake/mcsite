@@ -31,7 +31,7 @@ urlpatterns = [
     path('news/<str:slug>', views.news_details, name='news_details'),
     path('properties/<str:key>', views.property_details, name='property_details'),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
-         name='django.contrib.sitemaps.views.sitemap')
+         name='django.contrib.sitemaps.views.sitemap'),
 
 
 ]

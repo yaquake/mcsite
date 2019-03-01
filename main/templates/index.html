@@ -69,7 +69,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9  text-center">
-                <img src="{{ info.image.url }}" width="100%" class="rounded mb-2 pb-5"
+                <img src="{{ info.image.url }}" width="100%" class="rounded mb-2 pb-5 px-5"
                      alt="Personnel"/>
 
                 <div class="main-page-description">
@@ -79,11 +79,11 @@
 
             <div class="col-md-3">
                 <h2 class="text-muted merriweather">Latest news</h2>
-                <hr>
                 {% for news in news %}
+                    <hr>
                     <p style="font-size: 12px;" class="pt-3">{{ news.pubdate_pretty }}</p>
                             <a href="{% url 'news_details' news.slug %}"
-                               style="font-size: 1.2em; color: #864E2C;">{{ news.name.upper }}</a><hr>
+                               style="font-size: 1.2em; color: #864E2C;">{{ news.name.upper }}</a>
                 {% endfor %}
             </div>
 
