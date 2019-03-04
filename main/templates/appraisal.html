@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+
+    <div id="content">
+        <div class="container">
+            <span class="text-center">
+                <h1 class="py-5 text-muted">FREE RENTAL APPRAISAL</h1>
+                {% if success_message %}
+                    <h2 class="text-success">{{ success_message }}</h2><br/>
+                {% endif %}
+            </span>
+            <div class="text-left">
+                    <span style="color: red; font-size: .7em;">
+                        {{ form.name.errors }}
+                        {{ form.email.errors }}
+                        {{ form.phone.errors }}
+                        {{ form.topic.errors }}
+                        {{ form.details.errors }}
+
+                    </span>
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                            <p style="color: red; font-size: 1em;">{{ message }}</p>
+                        {% endif %}
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                            <div class="text-center">
+                                <p style="color: green; font-size: 2em;">{{ message }}</p>
+                            </div><br />
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div>
+                <form action="{% url 'appraisal' %}" method="POST" id="form-appraisal">{% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+
+                            <div class="required-field">{{ form.name.label_tag }}</div>
+                            {{ form.name }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="required-field">{{ form.email.label_tag }}</div>
+                            {{ form.email }}
+                            <div id="emailValidation"></div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <div class="required-field">{{ form.phone.label_tag }}</div>
+                            {{ form.phone }}
+                            <div id="phoneValidation"></div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="required-field">{{ form.street_address.label_tag }}</div>
+                            {{ form.street_address }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <div class="required-field">{{ form.suburb.label_tag }}</div>
+                            {{ form.suburb }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="required-field">{{ form.postcode.label_tag }}</div>
+                            {{ form.postcode }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <div class="required-field">{{ form.bed.label_tag }}</div>
+                            {{ form.bed }}
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="required-field">{{ form.bath.label_tag }}</div>
+                            {{ form.bath }}
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="required-field">{{ form.car.label_tag }}</div>
+                            {{ form.car }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <div class="required-field">{{ form.details.label_tag }}</div>
+                            {{ form.details }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <input type="text" id="appraisalToken" name="g-recaptcha-response-2" hidden/>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success" id="sendEmail">Send</button>
+                </form>
+            <br /><br />
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

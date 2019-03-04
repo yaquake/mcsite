@@ -3,8 +3,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
-from .forms import Contact, NewsForm
-from .models import News, Person, Property, Services, MainPageInfo, About, ContactUs
+from .forms import Contact, NewsForm, Appraisal
+from .models import News, Person, Property, Services, MainPageInfo, About, ContactUs, WhyUs, Guide
 from django.core.paginator import Paginator
 from .tasks import send_email_task
 from django.conf import settings
@@ -14,6 +14,17 @@ from django.contrib import messages
 
 # TimeToLive of redis cache
 CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
+
+
+def recaptcha(post):
+    recaptcha_response = post
+    data = {
+        'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+        'response': recaptcha_response
+    }
+    r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
+    result = r.json()
+    return result['success']
 
 
 def home(request, success_message=None):
@@ -53,14 +64,14 @@ def logout(request):
 
 
 # List of properties
-# @cache_page(CACHE_TTL)
-def properties(request, page):
+@cache_page(CACHE_TTL)
+def listings(request, page):
 
     property = Property.objects.all()
     paginator = Paginator(property, 9)
     list_count = len(property)
     result = paginator.page(page)
-    return render(request, 'properties.html', {'list_count': list_count, 'result': result})
+    return render(request, 'listings.html', {'list_count': list_count, 'result': result})
 
 
 # Property details of every property
@@ -77,20 +88,10 @@ def contact(request):
     if request.method == 'POST':
         form = Contact(request.POST)
         if form.is_valid():
-
-            recaptcha_response = request.POST['g-recaptcha-response']
-            data = {
-                'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
-                'response': recaptcha_response
-            }
-            r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
-            result = r.json()
-
-            if result['success']:
-
-                body_text = 'From: {}\n\nPh: {}\n\nQuestion: {}'.format(form.cleaned_data['email'],
-                                                                        form.cleaned_data['phone'],
-                                                                        form.cleaned_data['details'])
+            if recaptcha(request.POST['g-recaptcha-response']):
+                body_text = 'From: {}, {}\n\nPh: {}\n\nQuestion: {}'.format(form.cleaned_data['name'], form.cleaned_data['email'],
+                                                                            form.cleaned_data['phone'],
+                                                                            form.cleaned_data['details'])
                 send_email_task.delay(form.cleaned_data['topic'],
                                       body_text,
 
@@ -146,4 +147,50 @@ def news(request, page):
 def news_details(request, slug):
     news = get_object_or_404(News, slug=slug)
     return render(request, 'news_details.html', {'news': news})
+
+
+def send_appraisal(request):
+    appraisal = Appraisal()
+    if request.method == 'POST':
+        form = Appraisal(request.POST)
+        if form.is_valid():
+            if recaptcha(request.POST['g-recaptcha-response-2']):
+
+                body_text = 'From: {}, {}\n\nPh: {}\n\nAddress: {}, {}, {}\n\nBedrooms: {}\n\nBathrooms:' \
+                            ' {}\n\nCarparks: {}\n\n Details: {}'.format(
+                                                                        form.cleaned_data['name'],
+                                                                        form.cleaned_data['email'],
+                                                                        form.cleaned_data['phone'],
+                                                                        form.cleaned_data['street_address'],
+                                                                        form.cleaned_data['suburb'],
+                                                                        form.cleaned_data['postcode'],
+                                                                        form.cleaned_data['bed'],
+                                                                        form.cleaned_data['bath'],
+                                                                        form.cleaned_data['car'],
+                                                                        form.cleaned_data['details'])
+                send_email_task.delay('Free rental appraisal',
+                                      body_text,
+
+                                      )
+                form = Appraisal()
+                messages.success(request, 'Your message has been sent.')
+
+            else:
+                messages.error(request, 'Invalid reCAPTCHA. Please try again.')
+
+        else:
+            return render(request, 'appraisal.html', {'error': 'The data you have entered is invalid',
+                                                      'form': appraisal})
+
+    return render(request, 'appraisal.html', {'form': appraisal})
+
+
+def whyus(request):
+    why = WhyUs.objects.first()
+    return render(request, 'whyus.html', {'why': why})
+
+
+def tenancy(request):
+    guide = Guide.objects.first()
+    return render(request, 'guide.html', {'guide': guide})
 

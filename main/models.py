@@ -244,3 +244,35 @@ class EmailSettings(models.Model):
         verbose_name = 'Email settings'
 
 
+class WhyUs(models.Model):
+    description = models.TextField(max_length=3000)
+
+    def __str__(self):
+        return 'Why McDonald Property?'
+
+    def save(self, *args, **kwargs):
+        if WhyUs.objects.exists() and not self.pk:
+            self.pk = 1
+        return super(WhyUs, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name_plural = 'Why McDonald Property?'
+        verbose_name = 'Why McDonald Property?'
+
+
+class Guide(models.Model):
+    description = models.TextField(max_length=3000)
+
+    def __str__(self):
+        return 'Tenancy guide'
+
+    def save(self, *args, **kwargs):
+        if Guide.objects.exists() and not self.pk:
+            self.pk = 1
+        return super(Guide, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name_plural = 'Tenancy guide'
+        verbose_name = 'Tenancy guide'
+
+

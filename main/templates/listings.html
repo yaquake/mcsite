@@ -23,11 +23,11 @@
 
                                 <li class="page-item">
                                     <a class="page-link text-info"
-                                       href="{% url 'properties' result.previous_page_number %}">Previous</a>
+                                       href="{% url 'listings' result.previous_page_number %}">Previous</a>
                                 </li>
 
                                 <li class="page-item"><a class="page-link text-info"
-                                                         href="{% url 'properties' result.previous_page_number %}">{{ result.previous_page_number }}</a>
+                                                         href="{% url 'listings' result.previous_page_number %}">{{ result.previous_page_number }}</a>
                                 </li>
                             {% endif %}
                             <li class="page-item">
@@ -38,11 +38,11 @@
                             </li>
                             {% if result.has_next %}
                                 <li class="page-item"><a class="page-link text-info"
-                                                         href="{% url 'properties' result.next_page_number %}">{{ result.next_page_number }}</a>
+                                                         href="{% url 'listings' result.next_page_number %}">{{ result.next_page_number }}</a>
                                 </li>
                                 <li class="page-item">
                                     <a class="page-link text-info"
-                                       href="{% url 'properties' result.next_page_number %}">Next</a>
+                                       href="{% url 'listings' result.next_page_number %}">Next</a>
                                 </li>
                             {% elif not result.has_next %}
                                 <li class="page-item disabled">

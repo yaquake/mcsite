@@ -6,99 +6,68 @@
 
     <div id="content">
 
-        <div class="container pt-5">
-            <div class="row py-5" id="idForMessage">
+        <div class="container pt-3">
+            <div class="row py-5">
                 <div class="col-lg-4 py-2">
-                    <div class="card" style="border: 0; cursor: pointer;" onclick="window.location='{% url 'services' %}';">
-                        <img class="card-img-top" src="{% static 'propertymanagementO-800x450.jpg' %}" alt="Card image cap">
-                        <div class="card-body text-center card-logo" >
-                            <h3 class="card-title merriweather">SERVICES</h3>
+                    <div class="card hover" style="border: 0; cursor: pointer;"
+                         onclick="window.location='{% url 'appraisal' %}';">
+                        <img class="card-img-top" src="{% static 'propertymanagementO-800x450.jpg' %}"
+                             alt="Card image cap">
+                        <div class="card-body text-center card-logo">
+                            <h3 class="card-title merriweather">FREE RENTAL APPRAISAL</h3>
 
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 py-2">
-                    <div class="card" style="border: 0; cursor: pointer;" onclick="window.location='{% url 'properties' 1 %}';">
+                    <div class="card hover" style="border: 0; cursor: pointer;"
+                         onclick="window.location='{% url 'listings' 1 %}';">
                         <img class="card-img-top" src="{% static 'Property_Management.jpg' %}" alt="Card image cap">
-                        <div class="card-body text-center card-logo"  style="cursor: pointer;">
-                            <h3 class="card-title merriweather">PROPERTIES</h3>
+                        <div class="card-body text-center card-logo" style="cursor: pointer;">
+                            <h3 class="card-title merriweather">AVAILABLE PROPERTIES</h3>
 
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 py-2">
-                    <div class="card" style="border: 0; cursor: pointer;" onclick="window.location='{% url 'apply' %}';">
+                    <div class="card hover" style="border: 0; cursor: pointer;"
+                         onclick="window.location='{% url 'apply' %}';">
                         <img class="card-img-top" src="{% static 'woman_suit.jpg' %}" alt="Card image cap">
-                        <div class="card-body text-center card-logo"  style="cursor: pointer;">
-                            <h3 class="card-title merriweather">APPLY</h3>
+                        <div class="card-body text-center card-logo" style="cursor: pointer;">
+                            <h3 class="card-title merriweather">APPLY FOR PROPERTY</h3>
 
                         </div>
                     </div>
                 </div>
 
 
-
             </div>
         </div>
-{#    <div class="container-fluid bg-light">#}
-{#        <div class="container">#}
-{#            <div class="py-5 text-center merriweather" style="min-height: 200px;">#}
-{#                <h2 class="text-muted">Latest news</h2>#}
-{#                                <hr>#}
-{#                <br/>#}
-{##}
-{#                <div class="row pb-2">#}
-{##}
-{#                    {% for news in news %}#}
-{#                        <div class="col-md-4 text-left" >#}
-{#                            <p style="font-size: 12px;" class="pt-3">{{ news.pubdate_pretty }}</p>#}
-{#                            <a href="{% url 'news_details' news.slug %}"#}
-{#                               style="font-size: 1.2em; color: #864E2C;">{{ news.name.upper }}</a>#}
-{##}
-{#                        </div>#}
-{#                        {% if forloop.counter|divisibleby:3 %}#}
-{#                            </div>#}
-{#                            <div class="row">#}
-{#                        {% endif %}#}
-{##}
-{#                    {% endfor %}#}
-{#                    </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9  text-center">
-                <img src="{{ info.image.url }}" width="100%" class="rounded mb-2 pb-5 px-5"
-                     alt="Personnel"/>
 
-                <div class="main-page-description">
-                    {{ info.description|safe }}</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9  text-center">
+                    <img src="{{ info.image.url }}" width="100%" class="rounded mb-2 pb-5 px-5"
+                         alt="Personnel"/>
+
+                    <div class="main-page-description">
+                        {{ info.description|safe }}</div>
+
+                </div>
+
+                <div class="col-md-3">
+                    <h2 class="merriweather">Latest news</h2>
+                    {% for news in news %}
+                        <hr>
+                        <p style="font-size: 12px;">{{ news.pubdate_pretty }}</p>
+                        <a href="{% url 'news_details' news.slug %}"
+                           style="font-size: 1.2em; color: #864E2C;">{{ news.name.upper }}</a>
+{#                        style="font-size: 1.2em;">{{ news.name.upper }}</a>#}
+                    {% endfor %}
+                </div>
 
             </div>
 
-            <div class="col-md-3">
-                <h2 class="text-muted merriweather">Latest news</h2>
-                {% for news in news %}
-                    <hr>
-                    <p style="font-size: 12px;" class="pt-3">{{ news.pubdate_pretty }}</p>
-                            <a href="{% url 'news_details' news.slug %}"
-                               style="font-size: 1.2em; color: #864E2C;">{{ news.name.upper }}</a>
-                {% endfor %}
-            </div>
-
-        </div>
-            {#                {% for news in news %}#}
-            {#                    <div class="row">#}
-            {#                    <div class="col-sm-4">#}
-            {#                        <a href="{% url 'news_details' news.slug %}"#}
-            {#                           class="border-top" style="font-size: 1.2em;">{{ news.name.upper }}</a>#}
-            {#                        <p style="font-size: 12px;" class="  pt-3">{{ news.pubdate_pretty }}</p><br/>#}
-            {#                        {% if forloop.counter|divisibleby:3 %}#}
-            {##}
-            {#                    </div><div class="col-sm-4">#}
-            {#                {% endif %}#}
-            {#                {% endfor %}#}
         </div>
 
     </div>

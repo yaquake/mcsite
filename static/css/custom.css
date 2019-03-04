@@ -7,6 +7,26 @@ body, html {
     margin: 0;
 }
 
+.list-inline-item {
+    margin: 0;
+}
+.list-inline-item:not(:last-child) {
+    margin: 0;
+}
+
+.dropdown-divider {
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-item {
+    padding: .5rem 1.5rem;;
+}
+
+.dropdown-menu {
+    padding: 0;
+}
+
 .card-logo {
     background-color: #fff;
     color: #000;
@@ -145,7 +165,7 @@ li {
     }
 
     #background {
-        background: url("/static/mathew-waters-cropped.jpg");
+        background: url("/static/rendered_mobile.jpg");
         position: fixed;
         left: 0;
         right: 0;
@@ -211,8 +231,8 @@ li {
     }
 
     #background {
-        background: url("/static/mathew-waters-cropped.jpg");
-        position: fixed;
+        background: url("/static/rendered_mobile.jpg");
+        position: absolute;
         left: 0;
         right: 0;
         top: 0;
@@ -278,7 +298,7 @@ li {
     }
 
     #background {
-        background: url("/static/mathew-waters-38818-unsplash.jpg");
+        background: url("/static/rendered2.jpg");
         position: fixed;
         left: 0;
         right: 0;

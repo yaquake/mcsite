@@ -8,8 +8,8 @@
           content="McDonald Property management LTD, one of the biggest property management companies in Auckland, New Zealand.">
     <meta name="author" content="">
     <link rel="shortcut icon" href="{% static 'favicons/favicon2.ico' %}">
-    <link rel="icon" href="{% static 'favicons/favicon2.ico' %}">
-    <title>McDonald Rentals</title>
+{#    <link rel="icon" href="{% static 'favicons/favicon2.ico' %}">#}
+    <title>McDonald Property Management</title>
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
@@ -59,7 +59,6 @@
 
 <div id="background">
     <div class="container pt-5 text-center" id="creds">
-        {#        <div id="future" style="background-color: rgba(0, 0, 0, 0.5);">#}
         <div id="future">
             <p class="motto">{{ creds.motto }}</p>
             <p class="phone"><a href="tel:{{ creds.phone }}" class="text-light">Ph {{ creds.phone }}</a></p>
@@ -71,7 +70,7 @@
 </div>
 
 
-<nav class="nav navbar navbar-expand-lg pt-3 container-fluid sticky-top merriweather">
+<nav class="nav navbar navbar-expand-lg container-fluid">
     <div class="container">
         <a class="navbar-brand" href="{% url 'home' %}">
             <img src="{% static 'white_logo2.png' %}" width="170px"
@@ -86,18 +85,65 @@
         </button>
         <div class="col-md-9 justify-content-end collapse navbar-collapse" id="navbarSupportedContent">
 
-            <a class="p-2 text-light" style="font-size: 16px;" href="{% url 'home' %}"><strong>HOME</strong></a>
-            <a class="p-2 text-light" style="font-size: 16px;" href="{% url 'news' 1 %}"><strong>NEWS</strong></a>
-            <a class="p-2 text-light" style="font-size: 16px;" href="{% url 'about' %}"><strong>ABOUT
-                US</strong></a>
-            <a class="p-2 text-light" style="font-size: 16px;"
-               href="{% url 'services' %}"><strong>SERVICES</strong></a>
-            <a class="p-2 text-light" style="font-size: 16px;" href="{% url 'contact' %}"><strong>CONTACT
-                US</strong></a>
-            <a class="p-2 text-light" style="font-size: 16px;"
-               href="{% url 'properties' 1 %}"><strong>PROPERTIES</strong></a>
-            <a class="p-2 text-light" style="font-size: 16px;"
-               href="{% url 'apply' %}"><strong>APPLY</strong></a>
+            <ul class="list-inline">
+                <li class="list-inline-item">
+                    <a class="nav-link text-light" href="{% url 'home' %}"><strong>HOME</strong></a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="nav-link text-light" href="{% url 'about' %}"><strong>ABOUT US</strong></a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="nav-link text-light" href="{% url 'news' 1 %}"><strong>NEWS</strong></a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="nav-link text-light" href="{% url 'listings' 1 %}"><strong>LISTINGS</strong></a>
+                </li>
+
+                <li class="list-inline-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <strong>OWNERS</strong>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+
+                        <a class="dropdown-item text-muted"
+                           href="{% url 'whyus' %}">WHY MCDNALD PROPERTY?</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-muted"
+                           href="{% url 'services' %}">SERVICES</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-muted"
+                           href="{% url 'appraisal' %}">FREE PROPERTY APPRAISAL</a>
+
+                    </div>
+                </li>
+                <li class="list-inline-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <strong>TENANTS</strong>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+
+                        <a class="dropdown-item"
+                           href="{% url 'apply' %}">APPLY FOR A PROPERTY</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"
+                           href="{% url 'listings' 1 %}">LISTINGS</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"
+                           href="{% url 'tenancy' %}">YOUR TENANCY GUIDE</a>
+
+                    </div>
+                </li>
+
+
+                <li class="list-inline-item">
+                    <a class="nav-link text-light" href="{% url 'contact' %}"><strong>CONTACT US</strong></a>
+                </li>
+            </ul>
+
         </div>
     </div>
 </nav>
@@ -138,7 +184,7 @@
                 <p><a class="text-light text-success" href="{% url 'services' %}">Services</a></p>
                 <p><a class="text-light text-success" href="{% url 'contact' %}">Contact us</a></p>
                 <p><a class="text-light text-success"
-                      href="{% url 'properties' 1 %}">Properties</a></p>
+                      href="{% url 'listings' 1 %}">Listings</a></p>
 
 
             </div>
@@ -201,7 +247,8 @@
     grecaptcha.ready(function () {
         grecaptcha.execute('6LdHHJIUAAAAAIsV3ikSF3Dy9UzO5ESckXgYtc7-', {action: 'homepage'})
             .then(function (token) {
-                document.querySelector('#vaso').value = token;
+                document.querySelector('#contactToken').value = token;
+                document.querySelector('#appraisalToken').value = token;
             });
     });
 </script>
