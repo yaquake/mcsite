@@ -56,7 +56,7 @@ class Appraisal(forms.Form):
                              widget=forms.TextInput({'class': 'form-control', 'id': 'suburb'}))
     postcode = forms.IntegerField(label='Postcode',
                                   widget=forms.NumberInput({'class': 'form-control', 'id': 'postcode'}))
-    details = forms.CharField(label='Your question', max_length=1000,
+    details = forms.CharField(label='Details', max_length=1000,
                               widget=forms.Textarea({'class': 'form-control', 'id': 'details'}))
     bed = forms.ChoiceField(label='Bedrooms', choices=number, widget=forms.Select({'class': 'form-control',
                                                                                    'id': 'bedrooms'}))
