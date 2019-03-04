@@ -30,9 +30,9 @@ urlpatterns = [
     path('news/page<int:page>', views.news, name='news'),
     path('news/<str:slug>', views.news_details, name='news_details'),
     path('listings/<str:key>', views.property_details, name='property_details'),
-    path('appraisal', views.send_appraisal, name='appraisal'),
-    path('tenancy_guide', views.tenancy, name='tenancy'),
-    path('whyus', views.whyus, name='whyus'),
+    path('appraisal/', views.send_appraisal, name='appraisal'),
+    path('tenancy_guide/', views.tenancy, name='tenancy'),
+    path('whyus/', views.whyus, name='whyus'),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
 

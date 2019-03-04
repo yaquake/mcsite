@@ -225,18 +225,18 @@ li {
     }
 
     #content {
-        margin: 400px 0 0 0;
+        margin: 500px 0 0 0;
         background: #fff;
         position: relative;
     }
 
     #background {
         background: url("/static/rendered_mobile.jpg");
-        position: absolute;
+        position: fixed;
         left: 0;
         right: 0;
         top: 0;
-        height: 600px;
+        height: 650px;
         background-size: cover;
     }
 

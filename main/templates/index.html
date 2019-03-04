@@ -61,8 +61,8 @@
                         <hr>
                         <p style="font-size: 12px;">{{ news.pubdate_pretty }}</p>
                         <a href="{% url 'news_details' news.slug %}"
-                           style="font-size: 1.2em; color: #864E2C;">{{ news.name.upper }}</a>
-{#                        style="font-size: 1.2em;">{{ news.name.upper }}</a>#}
+{#                           style="font-size: 1.2em; color: #864E2C;">{{ news.name.upper }}</a>#}
+                       style="font-size: 1.2em;" class="text-info">{{ news.name.upper }}</a>
                     {% endfor %}
                 </div>
 

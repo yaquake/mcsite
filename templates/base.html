@@ -58,7 +58,7 @@
 
 
 <div id="background">
-    <div class="container pt-5 text-center" id="creds">
+    <div class="container pt-5 text-left" id="creds">
         <div id="future">
             <p class="motto">{{ creds.motto }}</p>
             <p class="phone"><a href="tel:{{ creds.phone }}" class="text-light">Ph {{ creds.phone }}</a></p>
@@ -93,8 +93,9 @@
                     <a class="nav-link text-light" href="{% url 'about' %}"><strong>ABOUT US</strong></a>
                 </li>
                 <li class="list-inline-item">
-                    <a class="nav-link text-light" href="{% url 'news' 1 %}"><strong>NEWS</strong></a>
+                    <a class="nav-link text-light" href="{% url 'contact' %}"><strong>CONTACT US</strong></a>
                 </li>
+
                 <li class="list-inline-item">
                     <a class="nav-link text-light" href="{% url 'listings' 1 %}"><strong>LISTINGS</strong></a>
                 </li>
@@ -108,7 +109,7 @@
 
 
                         <a class="dropdown-item"
-                           href="{% url 'whyus' %}">WHY MCDNALD PROPERTY?</a>
+                           href="{% url 'whyus' %}">WHY MCDONALD PROPERTY</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item"
                            href="{% url 'services' %}">SERVICES</a>
@@ -139,8 +140,9 @@
                 </li>
 
 
+
                 <li class="list-inline-item">
-                    <a class="nav-link text-light" href="{% url 'contact' %}"><strong>CONTACT US</strong></a>
+                    <a class="nav-link text-light" href="{% url 'news' 1 %}"><strong>NEWS</strong></a>
                 </li>
             </ul>
 
