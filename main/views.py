@@ -157,7 +157,7 @@ def send_appraisal(request):
             if recaptcha(request.POST['g-recaptcha-response-2']):
 
                 body_text = 'From: {}, {}\n\nPh: {}\n\nAddress: {}, {}, {}\n\nBedrooms: {}\n\nBathrooms:' \
-                            ' {}\n\nCarparks: {}\n\n Details: {}'.format(
+                            ' {}\n\nCarparks: {}\n\nDetails: {}'.format(
                                                                         form.cleaned_data['name'],
                                                                         form.cleaned_data['email'],
                                                                         form.cleaned_data['phone'],
