@@ -8,7 +8,7 @@
           content="McDonald Property management LTD, one of the biggest property management companies in Auckland, New Zealand.">
     <meta name="author" content="">
     <link rel="shortcut icon" href="{% static 'favicons/favicon2.ico' %}">
-{#    <link rel="icon" href="{% static 'favicons/favicon2.ico' %}">#}
+    {#    <link rel="icon" href="{% static 'favicons/favicon2.ico' %}">#}
     <title>McDonald Property Management</title>
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
@@ -247,8 +247,18 @@
     grecaptcha.ready(function () {
         grecaptcha.execute('6LdHHJIUAAAAAIsV3ikSF3Dy9UzO5ESckXgYtc7-', {action: 'homepage'})
             .then(function (token) {
-                document.querySelector('#contactToken').value = token;
-                document.querySelector('#appraisalToken').value = token;
+                try {
+                    document.getElementById('appraisalToken').value = token;
+                } catch (e) {
+                    console.log(e)
+                }
+                try {
+                    document.getElementById('contactToken').value = token;
+                } catch (e) {
+                    console.log(e)
+                }
+
+
             });
     });
 </script>
