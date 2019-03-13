@@ -12,8 +12,8 @@
     <title>McDonald Property Management</title>
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
     <script src="https://www.google.com/recaptcha/api.js?render=6LdHHJIUAAAAAIsV3ikSF3Dy9UzO5ESckXgYtc7-"></script>
@@ -58,7 +58,7 @@
 
 
 <div id="background">
-    <div class="container pt-3 text-left" id="creds">
+    <div class="container text-left" id="creds">
         <div id="future">
             <p class="motto">{{ creds.motto }}</p>
             <p class="phone"><a href="tel:{{ creds.phone }}" class="text-light">Ph {{ creds.phone }}</a></p>
@@ -92,9 +92,7 @@
                 <li class="list-inline-item">
                     <a class="nav-link text-light" href="{% url 'about' %}"><strong>ABOUT US</strong></a>
                 </li>
-                <li class="list-inline-item">
-                    <a class="nav-link text-light" href="{% url 'contact' %}"><strong>CONTACT US</strong></a>
-                </li>
+
 
                 <li class="list-inline-item">
                     <a class="nav-link text-light" href="{% url 'listings' 1 %}"><strong>LISTINGS</strong></a>
@@ -105,7 +103,7 @@
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <strong>OWNERS</strong>
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
 
                         <a class="dropdown-item"
@@ -143,6 +141,9 @@
 
                 <li class="list-inline-item">
                     <a class="nav-link text-light" href="{% url 'news' 1 %}"><strong>NEWS</strong></a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="nav-link text-light" href="{% url 'contact' %}"><strong>CONTACT US</strong></a>
                 </li>
             </ul>
 
@@ -223,16 +224,11 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="{% static 'js/user.js' %}"></script>
 
 
