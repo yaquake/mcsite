@@ -42,7 +42,7 @@ SITE_ID = 1
 THUMBNAIL_ALIASES = {
     '': {
         'prop_image': {'size': (400, 300), 'crop': 'smart'},
-        'personnel_image': {'size': (600, 800), 'crop': 'smart'},
+        'personnel_image': {'size': (600, 600), 'crop': 'smart'},
         'news_image': {'size': (800, 500), 'crop': 'smart'},
     },
 }

@@ -103,7 +103,7 @@ class Person(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=15)
     about = models.TextField(max_length=1000)
-    image = ThumbnailerImageField(upload_to='media/personnel/', null=False, default=None, resize_source=dict(size=(600, 600), crop='smart'))
+    image = models.ImageField(upload_to='media/personnel/', null=False, default=None)
 
     def __str__(self):
         return self.name

@@ -117,7 +117,7 @@ def apply(request):
 
 # About page
 def about(request):
-    personnel = Person.objects.all()
+    personnel = Person.objects.all().order_by('pk')
     about = About.objects.first()
     return render(request, 'about.html', {'personnel': personnel, 'about': about})
 

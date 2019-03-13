@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load thumbnail %}
 {% block content %}
     <div id="content">
         <div class="container-fluid">
@@ -20,7 +21,7 @@
                         {% endif %}
                         <div class="col-sm-4 py-2">
                             <div class="card hover" style="border: 1px solid lightgrey;">
-                                <img class="card-img-top" src="{{ person.image.url }}" alt="Card image cap">
+                                <img class="card-img-top" src="{% thumbnail person.image 'personnel_image' %}" alt="Card image cap">
                                 <div class="card-body">
                                     <h3 class="card-title">{{ person.name }}</h3>
                                     <hr>
