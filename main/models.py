@@ -29,7 +29,7 @@ class MottoEmailPhone(models.Model):
 
 # Information on an About page
 class About(models.Model):
-    description = models.TextField()
+    description = models.TextField(max_length=10000)
 
     def __str__(self):
         return 'About us'
