@@ -261,7 +261,7 @@ class WhyUs(models.Model):
 
 
 class Guide(models.Model):
-    description = models.TextField(max_length=3000)
+    description = models.TextField(max_length=100000)
 
     def __str__(self):
         return 'Tenancy guide'
