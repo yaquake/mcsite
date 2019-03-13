@@ -46,11 +46,11 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-9  text-center">
-                    <img src="{{ info.image.url }}" width="100%" class="rounded mb-2 pb-5 px-5"
+                <div class="col-md-9 text-center">
+                    <img src="{{ info.image.url }}" width="100%" class="rounded mb-2 pb-5 px-2"
                          alt="Personnel"/>
 
-                    <div class="main-page-description">
+                    <div >
                         {{ info.description|safe }}</div>
 
                 </div>
@@ -62,7 +62,7 @@
                         <p style="font-size: 12px;">{{ news.pubdate_pretty }}</p>
                         <a href="{% url 'news_details' news.slug %}"
 {#                           style="font-size: 1.2em; color: #864E2C;">{{ news.name.upper }}</a>#}
-                       style="font-size: 1.2em;" class="text-info">{{ news.name.upper }}</a>
+                       style="font-size: 1.2em;" class="text-info">{{ news.name }}</a>
                     {% endfor %}
                 </div>
 
