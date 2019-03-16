@@ -8,36 +8,57 @@
 
         <div class="container pt-3">
             <div class="row py-5">
-                <div class="col-lg-4 py-2">
-                    <div class="card hover" style="border: 0; cursor: pointer;"
-                         onclick="window.location='{% url 'appraisal' %}';">
-                        <img class="card-img-top" src="{% static 'propertymanagementO-800x450.jpg' %}"
-                             alt="Card image cap">
-                        <div class="card-body text-center card-logo">
-                            <h3 class="card-title merriweather">FREE RENTAL APPRAISAL</h3>
+                <div class="col-sm-4 py-3 text-center" >
 
-                        </div>
+                    <div style="max-height: 130px;">
+                        <a href="{% url 'appraisal' %}"><img src="{% static 'main_buttons/Free_Rental_Appraisal.png' %}"
+                         alt="Rental appraisal" class="main-btn-img">
                     </div>
+                    <br />
+
+
+                    <h3 class="pt-5 merriweather"><a href="{% url 'appraisal' %}" class="text-dark">FREE RENTAL<br />APPRAISAL</a></h3>
+                    {#                    <div class="card" style="border: 0; cursor: pointer;"#}
+                    {#                         onclick="window.location='{% url 'appraisal' %}';">#}
+                    {#                        <img class="card-img-top" src="{% static 'main_buttons/Free_Rental_Appraisal.png' %}"#}
+                    {#                             alt="Card image cap">#}
+                    {#                        <div class="card-body text-center ">#}
+                    {#                            <h3 class="card-title merriweather">FREE RENTAL APPRAISAL</h3>#}
+                    {##}
+                    {#                        </div>#}
+                    {#                    </div>#}
                 </div>
-                <div class="col-lg-4 py-2">
-                    <div class="card hover" style="border: 0; cursor: pointer;"
-                         onclick="window.location='{% url 'listings' 1 %}';">
-                        <img class="card-img-top" src="{% static 'Property_Management.jpg' %}" alt="Card image cap">
-                        <div class="card-body text-center card-logo" style="cursor: pointer;">
-                            <h3 class="card-title merriweather">AVAILABLE PROPERTIES</h3>
-
-                        </div>
+                <div class="col-sm-4 py-3 text-center">
+                    <div style="max-height: 130px;">
+                        <a href="{% url 'listings' 1 %}"><img src="{% static 'main_buttons/Available_Properties.png' %}"
+                         alt="Rental appraisal" class="main-btn-img">
                     </div>
+                    <br />
+                    <h3 class="pt-5 merriweather" ><a href="{% url 'listings' 1 %}" class="text-dark">AVAILABLE<br />PROPERTIES</a></h3>
+                    {#                    <div class="card" style="border: 0; cursor: pointer;"#}
+                    {#                         onclick="window.location='{% url 'listings' 1 %}';">#}
+                    {#                        <img class="card-img-top" width="70%" src="{% static 'main_buttons/Available_Properties.png' %}" alt="Card image cap">#}
+                    {#                        <div class="card-body text-center" style="cursor: pointer;">#}
+                    {#                            <h3 class="card-title merriweather">AVAILABLE PROPERTIES</h3>#}
+                    {##}
+                    {#                        </div>#}
+                    {#                    </div>#}
                 </div>
-                <div class="col-lg-4 py-2">
-                    <div class="card hover" style="border: 0; cursor: pointer;"
-                         onclick="window.location='{% url 'apply' %}';">
-                        <img class="card-img-top" src="{% static 'woman_suit.jpg' %}" alt="Card image cap">
-                        <div class="card-body text-center card-logo" style="cursor: pointer;">
-                            <h3 class="card-title merriweather">APPLY FOR PROPERTY</h3>
-
-                        </div>
+                <div class="col-sm-4 py-3 text-center">
+                    <div style="max-height: 130px;">
+                        <a href="{% url 'apply' %}"><img src="{% static 'main_buttons/Apply_for_Property.png' %}"
+                         alt="Rental appraisal" class="main-btn-img"></a>
                     </div>
+                    <br />
+                    <h3 class="pt-5 merriweather"><a href="{% url 'apply' %}" class="text-dark">APPLY FOR<br />PROPERTY</a></h3>
+                    {#                    <div class="card" style="border: 0; cursor: pointer;"#}
+                    {#                         onclick="window.location='{% url 'apply' %}';">#}
+                    {#                        <img class="card-img-top" src="{% static 'main_buttons/Apply_for_Property.png' %}" alt="Card image cap">#}
+                    {#                        <div class="card-body text-center" style="cursor: pointer;">#}
+                    {#                            <h3 class="card-title merriweather">APPLY FOR PROPERTY</h3>#}
+                    {##}
+                    {#                        </div>#}
+                    {#                    </div>#}
                 </div>
 
 
@@ -45,12 +66,12 @@
         </div>
 
         <div class="container">
-            <div class="row">
+            <div class="row pt-5">
                 <div class="col-md-9 text-center">
                     <img src="{{ info.image.url }}" width="100%" class="rounded mb-2 pb-5 px-2"
                          alt="Personnel"/>
 
-                    <div >
+                    <div>
                         {{ info.description|safe }}</div>
 
                 </div>
@@ -61,8 +82,8 @@
                         <hr>
                         <p style="font-size: 12px;">{{ news.pubdate_pretty }}</p>
                         <a href="{% url 'news_details' news.slug %}"
-{#                           style="font-size: 1.2em; color: #864E2C;">{{ news.name.upper }}</a>#}
-                       style="font-size: 1.2em;" class="text-info">{{ news.name }}</a>
+                                {#                           style="font-size: 1.2em; color: #864E2C;">{{ news.name.upper }}</a>#}
+                           style="font-size: 1.2em;" class="text-info">{{ news.name }}</a>
                     {% endfor %}
                 </div>
 

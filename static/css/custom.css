@@ -7,6 +7,16 @@ body, html {
     margin: 0;
 }
 
+.main-btn-img {
+    width: 160px;
+    transition: width .2s ease-in-out;
+}
+
+.main-btn-img:hover {
+    width: 170px;
+}
+
+
 .list-inline-item {
     margin: 0;
 }
