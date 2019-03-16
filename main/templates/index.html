@@ -8,57 +8,41 @@
 
         <div class="container pt-3">
             <div class="row py-5">
-                <div class="col-sm-4 py-3 text-center" >
+                <div class="col-sm-4 py-3 text-center">
 
                     <div style="max-height: 130px;">
                         <a href="{% url 'appraisal' %}"><img src="{% static 'main_buttons/Free_Rental_Appraisal.png' %}"
-                         alt="Rental appraisal" class="main-btn-img">
+                                                             alt="Rental appraisal" class="main-btn-img">
+                        </a>
                     </div>
-                    <br />
+                    <br/>
 
 
-                    <h3 class="pt-5 merriweather"><a href="{% url 'appraisal' %}" class="text-dark">FREE RENTAL<br />APPRAISAL</a></h3>
-                    {#                    <div class="card" style="border: 0; cursor: pointer;"#}
-                    {#                         onclick="window.location='{% url 'appraisal' %}';">#}
-                    {#                        <img class="card-img-top" src="{% static 'main_buttons/Free_Rental_Appraisal.png' %}"#}
-                    {#                             alt="Card image cap">#}
-                    {#                        <div class="card-body text-center ">#}
-                    {#                            <h3 class="card-title merriweather">FREE RENTAL APPRAISAL</h3>#}
-                    {##}
-                    {#                        </div>#}
-                    {#                    </div>#}
+                    <h3 class="pt-5 merriweather"><a href="{% url 'appraisal' %}" class="text-dark">FREE RENTAL<br/>APPRAISAL</a>
+                    </h3>
+
                 </div>
                 <div class="col-sm-4 py-3 text-center">
                     <div style="max-height: 130px;">
                         <a href="{% url 'listings' 1 %}"><img src="{% static 'main_buttons/Available_Properties.png' %}"
-                         alt="Rental appraisal" class="main-btn-img">
+                                                              alt="Rental appraisal" class="main-btn-img">
+                        </a>
                     </div>
-                    <br />
-                    <h3 class="pt-5 merriweather" ><a href="{% url 'listings' 1 %}" class="text-dark">AVAILABLE<br />PROPERTIES</a></h3>
-                    {#                    <div class="card" style="border: 0; cursor: pointer;"#}
-                    {#                         onclick="window.location='{% url 'listings' 1 %}';">#}
-                    {#                        <img class="card-img-top" width="70%" src="{% static 'main_buttons/Available_Properties.png' %}" alt="Card image cap">#}
-                    {#                        <div class="card-body text-center" style="cursor: pointer;">#}
-                    {#                            <h3 class="card-title merriweather">AVAILABLE PROPERTIES</h3>#}
-                    {##}
-                    {#                        </div>#}
-                    {#                    </div>#}
+                    <br/>
+                    <h3 class="pt-5 merriweather"><a href="{% url 'listings' 1 %}" class="text-dark">AVAILABLE<br/>PROPERTIES</a>
+                    </h3>
+
                 </div>
                 <div class="col-sm-4 py-3 text-center">
                     <div style="max-height: 130px;">
                         <a href="{% url 'apply' %}"><img src="{% static 'main_buttons/Apply_for_Property.png' %}"
-                         alt="Rental appraisal" class="main-btn-img"></a>
+                                                         alt="Rental appraisal" class="main-btn-img">
+                        </a>
                     </div>
-                    <br />
-                    <h3 class="pt-5 merriweather"><a href="{% url 'apply' %}" class="text-dark">APPLY FOR<br />PROPERTY</a></h3>
-                    {#                    <div class="card" style="border: 0; cursor: pointer;"#}
-                    {#                         onclick="window.location='{% url 'apply' %}';">#}
-                    {#                        <img class="card-img-top" src="{% static 'main_buttons/Apply_for_Property.png' %}" alt="Card image cap">#}
-                    {#                        <div class="card-body text-center" style="cursor: pointer;">#}
-                    {#                            <h3 class="card-title merriweather">APPLY FOR PROPERTY</h3>#}
-                    {##}
-                    {#                        </div>#}
-                    {#                    </div>#}
+                    <br/>
+                    <h3 class="pt-5 merriweather"><a href="{% url 'apply' %}" class="text-dark">APPLY
+                        FOR<br/>PROPERTY</a></h3>
+
                 </div>
 
 
@@ -81,9 +65,7 @@
                     {% for news in news %}
                         <hr>
                         <p style="font-size: 12px;">{{ news.pubdate_pretty }}</p>
-                        <a href="{% url 'news_details' news.slug %}"
-                                {#                           style="font-size: 1.2em; color: #864E2C;">{{ news.name.upper }}</a>#}
-                           style="font-size: 1.2em;" class="text-info">{{ news.name }}</a>
+                        <a href="{% url 'news_details' news.slug %}" style="font-size: 1.2em;" class="text-info">{{ news.name }}</a>
                     {% endfor %}
                 </div>
 
