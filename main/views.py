@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .forms import Contact, NewsForm, Appraisal
-from .models import News, Person, Property, Services, MainPageInfo, About, ContactUs, WhyUs, Guide
+from .models import News, Person, Property, Services, MainPageInfo, About, ContactUs, WhyUs, Guide, RentalAppraisal
 from django.core.paginator import Paginator
 from .tasks import send_email_task
 from django.conf import settings
@@ -151,6 +151,7 @@ def news_details(request, slug):
 
 def send_appraisal(request):
     appraisal = Appraisal()
+    description = RentalAppraisal.objects.all().first()
     if request.method == 'POST':
         form = Appraisal(request.POST)
         if form.is_valid():
@@ -180,9 +181,9 @@ def send_appraisal(request):
 
         else:
             return render(request, 'appraisal.html', {'error': 'The data you have entered is invalid',
-                                                      'form': appraisal})
+                                                      'form': appraisal, 'description': description})
 
-    return render(request, 'appraisal.html', {'form': appraisal})
+    return render(request, 'appraisal.html', {'form': appraisal, 'description': description})
 
 
 def whyus(request):

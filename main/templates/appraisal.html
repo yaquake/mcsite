@@ -6,11 +6,19 @@
     <div id="content">
         <div class="container">
             <span class="text-center">
-                <h1 class="py-5 text-muted">FREE RENTAL APPRAISAL</h1>
+
+<div class="about-description py-5">
+               {{ description.description|safe }}
+
+</div>
                 {% if success_message %}
                     <h2 class="text-success">{{ success_message }}</h2><br/>
                 {% endif %}
+            <h1 class="py-5 text-muted">RENTAL APPRAISAL FORM</h1>
             </span>
+
+
+
             <div class="text-left">
                     <span style="color: red; font-size: .7em;">
                         {{ form.name.errors }}

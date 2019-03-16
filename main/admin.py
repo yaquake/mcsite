@@ -27,6 +27,10 @@ class GuideAdmin(SummernoteModelAdmin):
     summernote_fields = '__all__'
 
 
+class RentalAppraisalAdmin(SummernoteModelAdmin):
+    summernote_fields = '__all__'
+
+
 admin.site.register(EmailSettings)
 
 admin.site.register(ContactUs, ContactAdmin)
@@ -50,4 +54,6 @@ admin.site.register(MainPageInfo, MainPageInfoAdmin)
 admin.site.register(WhyUs, WhyUsAdmin)
 
 admin.site.register(Guide, GuideAdmin)
+
+admin.site.register(RentalAppraisal, RentalAppraisalAdmin)
 

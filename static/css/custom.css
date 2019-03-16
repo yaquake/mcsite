@@ -10,6 +10,7 @@ body, html {
 .list-inline-item {
     margin: 0;
 }
+
 .list-inline-item:not(:last-child) {
     margin: 0;
 }
@@ -104,15 +105,7 @@ ol {
     padding-left: 40px;
 }
 
-/*.li-bg-blue {*/
-/*    background-color: #1b85ac;*/
-/*    color: #FFFFFF;*/
-/*}*/
 
-/*.li-bg-blue:hover {*/
-/*    background-color: #19587a;*/
-/*    color: #FFFFFF;*/
-/*}*/
 .page-link-blue {
     position: relative;
     display: block;
@@ -147,6 +140,7 @@ li {
 
 
 @media all and (max-width: 700px) {
+
 
     h2.news-title {
         font-family: Merriweather, sans-serif, Serif;
@@ -273,6 +267,10 @@ li {
 
 @media all and (min-width: 1201px) {
 
+    .about-description {
+        margin: 0 200px 0 200px;
+    }
+
     h2.news-title {
         font-family: Merriweather, sans-serif, Serif;
         font-size: 5vh;
@@ -289,6 +287,9 @@ li {
 
     p.services {
         margin: 0 0 100px 50px;
+        font-size: 3em;
+        /*margin: 0 0 2em 2em;*/
+        color: #808283;
     }
 
     #content {
@@ -356,14 +357,14 @@ iframe {
     box-sizing: border-box;
 }
 
-li.services-list {
-    list-style: decimal-leading-zero;
+.services-list {
     font-size: 3em;
     margin: 0 0 2em 2em;
     color: #808283;
 }
 
-li span.services-span {
+.services-span {
     font-size: .8em;
     color: #3587b0;
 }
+

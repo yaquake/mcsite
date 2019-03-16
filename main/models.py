@@ -276,3 +276,17 @@ class Guide(models.Model):
         verbose_name = 'Tenancy guide'
 
 
+class RentalAppraisal(models.Model):
+    description = models.TextField(max_length=100000)
+
+    def __str__(self):
+        return 'Rental appraisal'
+
+    def save(self, *args, **kwargs):
+        if Guide.objects.exists() and not self.pk:
+            self.pk = 1
+        return super(RentalAppraisal, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name_plural = 'Rental appraisal'
+        verbose_name = 'Rental appraisal'
