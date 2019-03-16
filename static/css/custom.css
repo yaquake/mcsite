@@ -10,7 +10,6 @@ body, html {
 .list-inline-item {
     margin: 0;
 }
-
 .list-inline-item:not(:last-child) {
     margin: 0;
 }
@@ -140,6 +139,7 @@ li {
 
 
 @media all and (max-width: 700px) {
+
 
 
     h2.news-title {
@@ -287,9 +287,7 @@ li {
 
     p.services {
         margin: 0 0 100px 50px;
-        font-size: 3em;
-        /*margin: 0 0 2em 2em;*/
-        color: #808283;
+        font-size: 1.2em;
     }
 
     #content {
@@ -357,14 +355,9 @@ iframe {
     box-sizing: border-box;
 }
 
-.services-list {
+span.services-list {
     font-size: 3em;
-    margin: 0 0 2em 2em;
-    color: #808283;
-}
-
-.services-span {
-    font-size: .8em;
+    margin: 0 0 2em 0;
     color: #3587b0;
 }
 

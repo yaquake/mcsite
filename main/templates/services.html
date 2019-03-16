@@ -6,15 +6,13 @@
         <div class="text-center">
             <h1 class="py-5 text-muted">WHAT WE DO</h1></div>
 
-        <ol>
+
             {% for service in services %}
-{#                <li class="services-list">#}
                     <span class="services-list">{{ service.title }}</span>
                     <p class="py-5 services text-muted">{{ service.description }}</p>
-{#                </li>#}
 
             {% endfor %}
-        </ol>
+        
         <br/>
     </div>
 {% endblock %}

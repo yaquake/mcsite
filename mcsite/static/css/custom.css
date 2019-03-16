@@ -355,7 +355,7 @@ iframe {
     box-sizing: border-box;
 }
 
-.services-list {
+span.services-list {
     font-size: 3em;
     margin: 0 0 2em 0;
     color: #3587b0;
