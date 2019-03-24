@@ -7,6 +7,11 @@ body, html {
     margin: 0;
 }
 
+
+.text-info:focus, .text-info:hover{
+    text-decoration: none;
+}
+
 .main-btn-img {
     width: 160px;
     transition: width .2s ease-in-out;
