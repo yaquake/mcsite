@@ -16,7 +16,7 @@ Change database settings in 'settings.py'
 Install [Redis](https://redis.io/) (for Ubuntu based systems just type):
 
 ```bash
-sudo apt install redis-server
+sudo apt install redis
 ```
 Then we need to check if the redis server works or not. First, open redis command line interface by typing:
 ```bash
