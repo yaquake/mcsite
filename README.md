@@ -1,6 +1,6 @@
 # Property Management company website
 
-This is a website I created during my internship in a local based property management company. Project uses Python, Django, PostgreSQL, Celery, and Redis as a cache engine and a message broker.
+This is a website I created for a local based property management company. Project uses Python, Django, PostgreSQL, Celery, and Redis as a cache engine and a message broker.
 
 ## Installation
 
