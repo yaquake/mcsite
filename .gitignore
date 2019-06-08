@@ -89,6 +89,7 @@ local_urls.py
 .env
 db.sqlite3
 media
+static
 celerybeat-schedule*
 /.idea
 celerybeat*
