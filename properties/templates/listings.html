@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% block content %}
+
+    <div id="content">
+        <div class="container pt-5 bg-white" style="min-height: 1100px;">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="pt-3 text-muted merriweather">Properties found: {{ list_count }}</h3>
+                </div>
+                <div class="col-md-6 justify-content-end">
+
+
+                    <nav>
+                        <ul class="pagination justify-content-end">
+
+                            {% if not object_list.has_previous %}
+                                <li class="page-item disabled">
+                                    <span class="page-link">Previous</span>
+                                </li>
+                            {% elif object_list.has_previous %}
+
+                                <li class="page-item">
+                                    <a class="page-link text-info"
+                                       href="{% url 'properties:listings' object_list.previous_page_number %}">Previous</a>
+                                </li>
+
+                                <li class="page-item"><a class="page-link text-info"
+                                                         href="{% url 'properties:listings' object_list.previous_page_number %}">{{ object_list.previous_page_number }}</a>
+                                </li>
+                            {% endif %}
+                            <li class="page-item">
+      <span class="page-link page-link-blue">
+        {{ object_list.number }}
+        <span class="sr-only text-info">(current)</span>
+      </span>
+                            </li>
+                            {% if object_list.has_next %}
+                                <li class="page-item"><a class="page-link text-info"
+                                                         href="{% url 'properties:listings' object_list.next_page_number %}">{{ object_list.next_page_number }}</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link text-info"
+                                       href="{% url 'properties:listings' object_list.next_page_number %}">Next</a>
+                                </li>
+                            {% elif not object_list.has_next %}
+                                <li class="page-item disabled">
+                                    <span class="page-link ">Next</span>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+
+
+                </div>
+            </div>
+            <hr>
+
+
+            <div class="row pb-4">
+                {% for item in object_list %}
+
+                    {% if forloop.counter0|divisibleby:3 %}
+                        </div>
+                        <div class="row py-4">
+                    {% endif %}
+
+                    <div class="col-sm-4 py-2">
+                        <div class="card text-center hover" style="border: 1px solid lightgrey; cursor: pointer;"
+                             onclick="window.location='{% url 'properties:property_details' item.code %}';">
+                            {% if item.thumbnail %}
+                                <img src="{{ item.thumbnail.url }}" width="100%" alt="{{ item.code }}"/>
+                            {% endif %}
+                            <div class="card-body text-left">
+                                <h3 class="card-title merriweather">{{ item.suburb }} <br/> ${{ item.rent }}
+                                    per {{ item.rental_period.lower }}</h3>
+                                <hr>
+                                <p class="card-text pb-3 text-left">
+                                    {% if item.unit %}
+                                        {% if item.unit|floatformat %}
+                                            <span class="text-muted "><strong>Address:</strong> </span> {{ item.unit }}/{{ item.street_number }} {{ item.street_name }}<br/>
+                                        {% else %}
+                                            <span class="text-muted "><strong>Address:</strong> </span>
+                                            {{ item.street_number }}{{ item.unit }} {{ item.street_name }}<br/>
+                                        {% endif %}
+                                    {% else %}
+                                        <span class="text-muted "><strong>Address:</strong> </span>
+                                        {{ item.street_number }} {{ item.street_name }}<br/>
+                                    {% endif %}
+                                    <span class="text-muted "><strong>Suburb:</strong> </span> {{ item.suburb }}<br/>
+                                    <span class="text-muted "><strong>City:</strong> </span> {{ item.city }} <br/>
+                                    <span class="text-muted "><strong>Bedrooms:</strong> </span> {{ item.bedrooms }}
+                                    <br/>
+                                    <span class="text-muted "><strong>Bathrooms:</strong> </span> {{ item.bathrooms }}
+                                    <br/>
+                                    <span class="text-muted "><strong>Available from:</strong> </span> {{ item.date_available }}
+
+                                </p>
+                                <p class="merriweather"><a href="{% url 'properties:property_details' item.code %}"
+                                                           class="text-info"
+                                                           style="font-size: 1.3em;"><strong>DETAILS</strong></a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+                </div>
+        </div>
+
+
+{% endblock %}

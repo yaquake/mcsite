@@ -220,68 +220,68 @@
         var self = this;
 
         /**
-         * @property {object} Options for this instance
+         * @properties {object} Options for this instance
          * @public
          */
         this.options = options;
 
         /**
-         * @property object Cached data for this instance
+         * @properties object Cached data for this instance
          * @private
          */
         this.cacheData_ = {};
 
         /**
-         * @property {number} Number of cached data items
+         * @properties {number} Number of cached data items
          * @private
          */
         this.cacheLength_ = 0;
 
         /**
-         * @property {string} Class name to mark selected item
+         * @properties {string} Class name to mark selected item
          * @private
          */
         this.selectClass_ = 'jquery-autocomplete-selected-item';
 
         /**
-         * @property {number} Handler to activation timeout
+         * @properties {number} Handler to activation timeout
          * @private
          */
         this.keyTimeout_ = null;
 
         /**
-         * @property {number} Handler to finish timeout
+         * @properties {number} Handler to finish timeout
          * @private
          */
         this.finishTimeout_ = null;
 
         /**
-         * @property {number} Last key pressed in the input field (store for behavior)
+         * @properties {number} Last key pressed in the input field (store for behavior)
          * @private
          */
         this.lastKeyPressed_ = null;
 
         /**
-         * @property {string} Last value processed by the autocompleter
+         * @properties {string} Last value processed by the autocompleter
          * @private
          */
         this.lastProcessedValue_ = null;
 
         /**
-         * @property {string} Last value selected by the user
+         * @properties {string} Last value selected by the user
          * @private
          */
         this.lastSelectedValue_ = null;
 
         /**
-         * @property {boolean} Is this autocompleter active (showing results)?
+         * @properties {boolean} Is this autocompleter active (showing results)?
          * @see showResults
          * @private
          */
         this.active_ = false;
 
         /**
-         * @property {boolean} Is this autocompleter allowed to finish on blur?
+         * @properties {boolean} Is this autocompleter allowed to finish on blur?
          * @private
          */
         this.finishOnBlur_ = true;

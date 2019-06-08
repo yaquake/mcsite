@@ -19,7 +19,6 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 
 INSTALLED_APPS = [
     'admin_honeypot',
-    'main.apps.MainConfig',
     'django_summernote',
     'easy_thumbnails',
     'celery',
@@ -35,6 +34,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Apps
+
+    'info',
+    'properties',
+    'news',
 ]
 
 SITE_ID = 1
@@ -71,7 +76,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'main.context_processor.get_motto',
+                'news.context_processor.get_motto',
             ],
         },
     },
@@ -86,8 +91,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'mcsite',
-        'USER': 'postgres',
-        'PASSWORD': 'uVbiho60',
+        'USER': 'yaquake',
+        'PASSWORD': 'tuhasuga',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -115,7 +120,7 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Pacific/Auckland'
-CELERY_IMPORTS = ['main.tasks', ]
+CELERY_IMPORTS = ['properties.tasks', ]
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -166,7 +171,7 @@ SUMMERNOTE_CONFIG = {
 
 }
 
-GOOGLE_RECAPTCHA_SECRET_KEY = '6LcMGpIUfgdfgdfgdfgf8M0_fAPEhN4paamBY5yH_K8'
+GOOGLE_RECAPTCHA_SECRET_KEY = '6LcMGpIUfgdfgdfgdfgf8M0_fAPEhN4paamBY5y54_K8'
 
 try:
     from .local_settings import *

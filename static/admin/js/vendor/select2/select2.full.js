@@ -264,7 +264,7 @@ var requirejs, require, define;
             }
         }
 
-        //Using ridiculous property names for space reasons
+        //Using ridiculous properties names for space reasons
         return {
             f: prefix ? prefix + '!' + name : name, //fullName
             n: name,
@@ -1916,10 +1916,10 @@ S2.define('select2/selection/search',[
       }
     });
 
-    // Try to detect the IE version should the `documentMode` property that
+    // Try to detect the IE version should the `documentMode` properties that
     // is stored on the document. This is only implemented in IE and is
     // slightly cleaner than doing a user agent check.
-    // This property is not available in Edge, but Edge also doesn't have
+    // This properties is not available in Edge, but Edge also doesn't have
     // this bug.
     var msie = document.documentMode;
     var disableInputEvents = msie && msie <= 11;
@@ -3468,7 +3468,7 @@ S2.define('select2/data/ajax',[
         callback(results);
       }, function () {
         // Attempt to detect if a request was aborted
-        // Only works if the transport exposes a status property
+        // Only works if the transport exposes a status properties
         if ($request.status && $request.status === '0') {
           return;
         }

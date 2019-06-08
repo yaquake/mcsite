@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <div id="content">
+    <div class="container px-0 mt-5  bg-white">
+        <div class="text-center">
+            <h1 class="py-5 text-muted">WHAT WE DO</h1></div>
+
+        <ol>
+            {% for service in object_list %}
+                <li class="services-list">
+                    <span class="services-span">{{ service.title }}</span>
+                    <p class="py-5 services text-muted" style="font-size: 0.4em;">{{ service.description }}</p>
+                </li>
+
+            {% endfor %}
+        </ol>
+        <br/>
+    </div>
+{% endblock %}
+
+
+

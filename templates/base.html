@@ -61,16 +61,16 @@
     <div class="container text-left" id="creds">
         <div id="future">
             <p class="motto">{{ creds.motto }}</p>
-            <p class="phone"><a href="tel:{{ creds.phone }}" class="text-light">Ph {{ creds.phone }}</a></p>
+            <p class="phone"><a href="tel:{{ creds.phone }}" class="text-light">{{ creds.phone }}</a></p>
             <p class="email"><a class="text-light"
-                                href="mailto:{{ creds.email }}">{{ creds.email }}</a>
+                                href="{{ creds.email }}">{{ creds.email }}</a>
             </p>
         </div>
     </div>
 </div>
 
 
-<nav class="nav navbar navbar-expand-lg container-fluid">
+<nav class="nav navbar navbar-expand-lg container-fluid" id="nav">
     <div class="container">
         <a class="navbar-brand" href="{% url 'home' %}">
             <img src="{% static 'white_logo2.png' %}" width="170px"
@@ -90,12 +90,12 @@
                     <a class="nav-link text-light" href="{% url 'home' %}"><strong>HOME</strong></a>
                 </li>
                 <li class="list-inline-item">
-                    <a class="nav-link text-light" href="{% url 'about' %}"><strong>ABOUT US</strong></a>
+                    <a class="nav-link text-light" href="{% url 'info:about' %}"><strong>ABOUT US</strong></a>
                 </li>
 
 
                 <li class="list-inline-item">
-                    <a class="nav-link text-light" href="{% url 'listings' 1 %}"><strong>LISTINGS</strong></a>
+                    <a class="nav-link text-light" href="{% url 'properties:listings' 1 %}"><strong>LISTINGS</strong></a>
                 </li>
 
                 <li class="list-inline-item dropdown">
@@ -103,17 +103,17 @@
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <strong>OWNERS</strong>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
 
                         <a class="dropdown-item"
-                           href="{% url 'whyus' %}">WHY MCDONALD PROPERTY</a>
+                           href="{% url 'info:whyus' %}">WHY MCDONALD PROPERTY</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item"
-                           href="{% url 'services' %}">SERVICES</a>
+                           href="{% url 'info:services' %}">SERVICES</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item"
-                           href="{% url 'appraisal' %}">FREE PROPERTY APPRAISAL</a>
+                           href="{% url 'info:appraisal' %}">FREE PROPERTY APPRAISAL</a>
 
                     </div>
                 </li>
@@ -122,17 +122,17 @@
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <strong>TENANTS</strong>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
 
                         <a class="dropdown-item"
-                           href="{% url 'apply' %}">APPLY FOR A PROPERTY</a>
+                           href="{% url 'info:apply' %}">APPLY FOR A PROPERTY</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item"
-                           href="{% url 'listings' 1 %}">LISTINGS</a>
+                           href="{% url 'properties:listings' 1 %}">LISTINGS</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item"
-                           href="{% url 'tenancy' %}">YOUR TENANCY GUIDE</a>
+                           href="{% url 'info:tenancy' %}">YOUR TENANCY GUIDE</a>
 
                     </div>
                 </li>
@@ -140,10 +140,10 @@
 
 
                 <li class="list-inline-item">
-                    <a class="nav-link text-light" href="{% url 'news' 1 %}"><strong>NEWS</strong></a>
+                    <a class="nav-link text-light" href="{% url 'news:news' 1 %}"><strong>NEWS</strong></a>
                 </li>
                 <li class="list-inline-item">
-                    <a class="nav-link text-light" href="{% url 'contact' %}"><strong>CONTACT US</strong></a>
+                    <a class="nav-link text-light" href="{% url 'info:contact' %}"><strong>CONTACT US</strong></a>
                 </li>
             </ul>
 
@@ -183,11 +183,11 @@
                 </form>
                 </p>
                 <p><a class=" text-light text-success" href="{% url 'home' %}">Home</a></p>
-                <p><a class="text-light text-success" href="{% url 'about' %}">About us</a></p>
-                <p><a class="text-light text-success" href="{% url 'services' %}">Services</a></p>
-                <p><a class="text-light text-success" href="{% url 'contact' %}">Contact us</a></p>
+                <p><a class="text-light text-success" href="{% url 'info:about' %}">About us</a></p>
+                <p><a class="text-light text-success" href="{% url 'info:services' %}">Services</a></p>
+                <p><a class="text-light text-success" href="{% url 'info:contact' %}">Contact us</a></p>
                 <p><a class="text-light text-success"
-                      href="{% url 'listings' 1 %}">Listings</a></p>
+                      href="{% url 'properties:listings' 1 %}">Listings</a></p>
 
 
             </div>

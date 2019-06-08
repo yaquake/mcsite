@@ -2119,7 +2119,7 @@
 				ctx : this.chart.ctx
 			});
 
-			//Iterate through each of the datasets, and build this into a property of the chart
+			//Iterate through each of the datasets, and build this into a properties of the chart
 			helpers.each(data.datasets,function(dataset,datasetIndex){
 
 				var datasetObject = {
@@ -2371,7 +2371,7 @@
 		//Config is automatically merged by the core of Chart.js, and is available at this.options
 		initialize:  function(data){
 
-			//Declare segments as a static property to prevent inheriting across the Chart type prototype
+			//Declare segments as a static properties to prevent inheriting across the Chart type prototype
 			this.segments = [];
 			this.outerRadius = (helpers.min([this.chart.width,this.chart.height]) -	this.options.segmentStrokeWidth/2)/2;
 
@@ -2597,7 +2597,7 @@
 				});
 			}
 
-			//Iterate through each of the datasets, and build this into a property of the chart
+			//Iterate through each of the datasets, and build this into a properties of the chart
 			helpers.each(data.datasets,function(dataset){
 
 				var datasetObject = {
@@ -3230,7 +3230,7 @@
 				});
 			}
 
-			//Iterate through each of the datasets, and build this into a property of the chart
+			//Iterate through each of the datasets, and build this into a properties of the chart
 			helpers.each(data.datasets,function(dataset){
 
 				var datasetObject = {

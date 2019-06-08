@@ -39,7 +39,7 @@
     // The iframe transport accepts four additional options:
     // options.fileInput: a jQuery collection of file input fields
     // options.paramName: the parameter name for the file form data,
-    //  overrides the name property of the file input field(s),
+    //  overrides the name properties of the file input field(s),
     //  can be a string or an array of strings.
     // options.formData: an array of objects with name and value properties,
     //  equivalent to the return data of .serializeArray(), e.g.:
@@ -72,7 +72,7 @@
                         options.url = options.url + addParamChar + '_method=PATCH';
                         options.type = 'POST';
                     }
-                    // IE versions below IE8 cannot set the name property of
+                    // IE versions below IE8 cannot set the name properties of
                     // elements that have already been added to the DOM,
                     // so we set the name along with the iframe HTML markup:
                     counter += 1;

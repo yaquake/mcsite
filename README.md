@@ -1,6 +1,11 @@
+# Major update
+
+The project was rebuild. Created 3 (three) apps instead of one. FBV changed by CBV where it was necessary.
+
+
 # Property Management company website
 
-This is a website I created for a local based property management company. Project uses Python, Django, PostgreSQL, Celery, and Redis as a cache engine and a message broker.
+This is a website I created during my internship in a local based property management company. Project uses Python, Django, PostgreSQL, Celery, and Redis as a cache engine and a message broker.
 
 ## Installation
 
@@ -16,7 +21,7 @@ Change database settings in 'settings.py'
 Install [Redis](https://redis.io/) (for Ubuntu based systems just type):
 
 ```bash
-sudo apt install redis
+sudo apt install redis-server
 ```
 Then we need to check if the redis server works or not. First, open redis command line interface by typing:
 ```bash

@@ -7,21 +7,6 @@ body, html {
     margin: 0;
 }
 
-
-.text-info:focus, .text-info:hover{
-    text-decoration: none;
-}
-
-.main-btn-img {
-    width: 160px;
-    transition: width .2s ease-in-out;
-}
-
-.main-btn-img:hover {
-    width: 170px;
-}
-
-
 .list-inline-item {
     margin: 0;
 }
@@ -155,8 +140,6 @@ li {
 
 @media all and (max-width: 700px) {
 
-
-
     h2.news-title {
         font-family: Merriweather, sans-serif, Serif;
         font-size: 2vh;
@@ -241,7 +224,7 @@ li {
 
     #background {
         background: url("/static/rendered_mobile.jpg");
-        position: fixed;
+        position: absolute;
         left: 0;
         right: 0;
         top: 0;
@@ -282,10 +265,6 @@ li {
 
 @media all and (min-width: 1201px) {
 
-    .about-description {
-        margin: 0 200px 0 200px;
-    }
-
     h2.news-title {
         font-family: Merriweather, sans-serif, Serif;
         font-size: 5vh;
@@ -302,7 +281,6 @@ li {
 
     p.services {
         margin: 0 0 100px 50px;
-        font-size: 1.2em;
     }
 
     #content {
@@ -370,9 +348,14 @@ iframe {
     box-sizing: border-box;
 }
 
-span.services-list {
+li.services-list {
+    list-style: decimal-leading-zero;
     font-size: 3em;
-    margin: 0 0 2em 0;
-    color: #3587b0;
+    margin: 0 0 2em 2em;
+    color: #808283;
 }
 
+li span.services-span {
+    font-size: .8em;
+    color: #3587b0;
+}

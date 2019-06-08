@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% block content %}
+
+
+    <div id="content">
+
+        <div class="container pt-3">
+            <div class="row py-5">
+                <div class="col-lg-4 py-2">
+                    <div class="card hover" style="border: 0; cursor: pointer;"
+                         onclick="window.location='{% url 'info:appraisal' %}';">
+                        <img class="card-img-top" src="{% static 'propertymanagementO-800x450.jpg' %}"
+                             alt="Card image cap">
+                        <div class="card-body text-center card-logo">
+                            <h3 class="card-title merriweather">FREE RENTAL APPRAISAL</h3>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 py-2">
+                    <div class="card hover" style="border: 0; cursor: pointer;"
+                         onclick="window.location='{% url 'properties:listings' 1 %}';">
+                        <img class="card-img-top" src="{% static 'Property_Management.jpg' %}" alt="Card image cap">
+                        <div class="card-body text-center card-logo" style="cursor: pointer;">
+                            <h3 class="card-title merriweather">AVAILABLE PROPERTIES</h3>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 py-2">
+                    <div class="card hover" style="border: 0; cursor: pointer;"
+                         onclick="window.location='{% url 'info:apply' %}';">
+                        <img class="card-img-top" src="{% static 'woman_suit.jpg' %}" alt="Card image cap">
+                        <div class="card-body text-center card-logo" style="cursor: pointer;">
+                            <h3 class="card-title merriweather">APPLY FOR PROPERTY</h3>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 text-center">
+                    <img src="{{ info.image.url }}" width="100%" class="rounded mb-2 pb-5 px-2"
+                         alt="Personnel"/>
+
+                    <div >
+                        {{ info.description|safe }}</div>
+
+                </div>
+
+                <div class="col-md-3">
+                    <h2 class="merriweather">Latest news</h2>
+                    {% for news in object_list %}
+                        <hr>
+                        <p style="font-size: 12px;">{{ news.pubdate_pretty }}</p>
+                        <a href="{% url 'news:news_details' news.slug %}"
+                       style="font-size: 1.2em;" class="text-info">{{ news.name }}</a>
+                    {% endfor %}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+
+
+    <br/><br/>
+
+{% endblock %}

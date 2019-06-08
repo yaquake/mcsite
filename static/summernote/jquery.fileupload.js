@@ -104,8 +104,8 @@
             // selection, but can be disabled by setting the following option to false:
             replaceFileInput: true,
             // The parameter name for the file form data (the request argument name).
-            // If undefined or empty, the name property of the file input field is
-            // used, or "files[]" if the file input name property is also empty,
+            // If undefined or empty, the name properties of the file input field is
+            // used, or "files[]" if the file input name properties is also empty,
             // can be a string or an array of strings:
             paramName: undefined,
             // By default, each file of a selection is uploaded using an individual
@@ -199,7 +199,7 @@
             // once for each file selection.
             //
             // The upload starts when the submit method is invoked on the data parameter.
-            // The data object contains a files property holding the added files
+            // The data object contains a files properties holding the added files
             // and allows you to override plugin options as well as define ajax settings.
             //
             // Listeners for this callback can also be bound the following way:
@@ -399,9 +399,9 @@
                     loaded,
                     data.bitrateInterval
                 );
-                // Trigger a custom progress event with a total data property set
+                // Trigger a custom progress event with a total data properties set
                 // to the file size(s) of the current upload and a loaded data
-                // property calculated accordingly:
+                // properties calculated accordingly:
                 this._trigger(
                     'progress',
                     $.Event('progress', {delegatedEvent: e}),
@@ -1208,7 +1208,7 @@
                 if (!value) {
                     return $.Deferred().resolve([]).promise();
                 }
-                // If the files property is not available, the browser does not
+                // If the files properties is not available, the browser does not
                 // support the File API and we add a pseudo File object with
                 // the input value as name with path information removed:
                 files = [{name: value.replace(/^.*\\/, '')}];
@@ -1427,7 +1427,7 @@
 
         // This method is exposed to the widget API and allows adding files
         // using the fileupload API. The data parameter accepts an object which
-        // must have a files property and can contain additional options:
+        // must have a files properties and can contain additional options:
         // .fileupload('add', {files: filesList});
         add: function (data) {
             var that = this;
@@ -1447,7 +1447,7 @@
 
         // This method is exposed to the widget API and allows sending files
         // using the fileupload API. The data parameter accepts an object which
-        // must have a files or fileInput property and can contain additional options:
+        // must have a files or fileInput properties and can contain additional options:
         // .fileupload('send', {files: filesList});
         // The method returns a Promise object for the file upload call.
         send: function (data) {

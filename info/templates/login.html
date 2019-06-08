@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <div id="content">
+        <br/>
+        <div class="container text-center" style="min-height: 35vh;">
+            <form class="form-signin text-center" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <h1 class="h3 mb-3 font-weight-normal">Please sign in:</h1>
+                <p class="text-danger">{{ error }}</p>
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <label for="login" class="sr-only">Email address</label>
+                        <input type="text" name="login" id="login" class="form-control" placeholder="Username" required
+                               autofocus><br/>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <label for="password" class="sr-only">Password</label>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Password"
+                               required><br/>
+                        <button class="btn btn-md btn-success btn-block" type="submit">Log in</button>
+                    </div>
+                </div>
+                <br/>
+
+            </form>
+        </div>
+
+
+{% endblock %}

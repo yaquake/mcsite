@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% block content %}
+    <div id="content">
+        <div class="container mt-5" style="min-height: 1100px; background-color: #ffffff;">
+            {% if request.user.is_authenticated %}
+                <div class="row">
+
+                    <div class="col-md-8">
+
+                        <h2 class="pt-3 text-muted">News</h2></div>
+                    <div class="col-md-4 text-right">
+
+                        <br/><a href="{% url 'news:postnews' %}" class="pl-3 pt-2">
+                        <button class="btn btn-info">Add news</button>
+                    </a>
+
+                    </div>
+                </div>
+                <hr style="border-width: 3px;">
+            {% elif not request.user.is_authenticated %}
+                <div class="text-center">
+                    <h1 class="py-5 text-muted">NEWS</h1>
+                    <br/>
+                </div>
+            {% endif %}
+            <div class="row">
+                <div class="col-md-12 justify-content-end">
+                    <nav aria-label="...">
+                        <ul class="pagination justify-content-left">
+
+                            {% if not object_list.has_previous %}
+                                <li class="page-item disabled">
+                                    <span class="page-link ">Previous</span>
+                                </li>
+                            {% elif object_list.has_previous %}
+
+
+                                <li class="page-item">
+                                    <a class="page-link text-info" href="{% url 'news:news' object_list.previous_page_number %}">Previous</a>
+                                </li>
+
+                                <li class="page-item"><a class="page-link text-info"
+                                                         href="{% url 'news:news' object_list.previous_page_number %}">{{ object_list.previous_page_number }}</a>
+                                </li>
+                            {% endif %}
+                            <li class="page-item">
+      <span class="page-link page-link-blue">
+        {{ object_list.number }}
+        <span class="sr-only text-info">(current)</span>
+      </span>
+                            </li>
+                            {% if object_list.has_next %}
+                                <li class="page-item"><a class="page-link text-info"
+                                                         href="{% url 'news:news' object_list.next_page_number %}">{{ object_list.next_page_number }}</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link text-info"
+                                       href="{% url 'news:news' object_list.next_page_number %}">Next</a>
+                                </li>
+
+                            {% elif not object_list.has_next %}
+                                <li class="page-item disabled"><span class="page-link">Next</span></li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+                {% for item in object_list %}
+                    {% if not forloop.first %}
+                        <hr>
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-md-3 object-fit">
+                            <img src="{% thumbnail item.image 'news_image' %}" width="100%" class="rounded "
+                                 alt="MainImage">
+                        </div>
+                        <div class="col-md-9">
+                            <p style="font-size: 0.75em;">{{ item.pubdate_pretty }}</p>
+                            <hr>
+
+                            <h3><a href="{% url 'news:news_details' item.slug %}"
+                                   class="merriweather text-info">{{ item.name }}</a></h3>
+                        </div>
+                    </div>
+
+                    <br/>
+                    {% empty %}
+                        <h1 class="text-muted">OOPS.. There is no news, come back when something happens.</h1>
+                {% endfor %}
+
+        </div>
+{% endblock %}

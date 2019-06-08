@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <div id="content">
+    <div class="container mt-5 bg-white">
+        <div class="pb-5">
+            <div class="text-center">
+                <h1 class="py-5 text-muted">INFORMATION</h1></div>
+            <div class="col-md-12 pt-2 pl-0 text-center">
+                {{ contact.description|safe }}
+            </div>
+        </div>
+        <div>
+            <span class="text-center">
+                <h1 class="py-5 text-muted">CONTACT US</h1>
+                {% if success_message %}
+                    <h2 class="text-success">{{ success_message }}</h2><br/>
+                {% endif %}
+            </span>
+            <div class="text-left">
+                    <span style="color: red; font-size: .7em;">
+                        {{ form.name.errors }}
+                        {{ form.email.errors }}
+                        {{ form.phone.errors }}
+                        {{ form.topic.errors }}
+                        {{ form.details.errors }}
+
+                    </span>
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                            <p style="color: red; font-size: 1em;">{{ message }}</p>
+                        {% endif %}
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                            <div class="text-center">
+                                <p style="color: green; font-size: 2em;">{{ message }}</p>
+                            </div><br />
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <form action="{% url 'info:contact' %}" method="POST" id="form-contact">{% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+
+                        {{ form.name }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ form.email }}
+                        <div id="emailValidation"></div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form.phone }}
+                        <div id="phoneValidation"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ form.topic }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        {{ form.details }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <input type="text" id="contactToken" name="g-recaptcha-response" hidden/>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success" id="sendEmail">Send</button>
+            </form>
+
+        </div>
+    </div>
+    <div class="mt-4 container-fluid" style="overflow: hidden; margin: 0;">
+        <iframe src="https://maps.google.com/maps?hl=en&amp;q=376%20Great%20South%20Road%20Papatoetoe%20Auckland+(McDonald%20Property%20Management%20LTD)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed">
+            <a href="https://www.maps.ie/create-google-map/">Embed Google Map</a></iframe>
+    </div>
+    <br/>
+
+{% endblock %}
+
+
+
