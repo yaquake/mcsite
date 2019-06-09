@@ -1,4 +1,5 @@
-# Major update
+# Major update 
+08/06/19
 
 The project was rebuild. Created 3 (three) apps instead of one. FBV changed by CBV where it was necessary.
 
