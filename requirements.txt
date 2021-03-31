@@ -21,7 +21,7 @@ graphviz==0.10.1
 gunicorn==19.9.0
 idna==2.8
 kombu==4.6.0
-lxml==4.3.3
+lxml==4.6.3
 pilkit==2.0
 Pillow==6.0.0
 psycopg2-binary==2.8.2
